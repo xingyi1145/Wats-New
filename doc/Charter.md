@@ -1,51 +1,65 @@
-Project Charter: The UW Opportunity Engine
-Project Name: Wat's New (Working Title)
-Project Manager: Yi Xing
-Start Date: Feb 2026
-Target Completion (MVP): April 2026 (End of Term)
-1. Problem Statement
-The "Why": UWaterloo students currently face two information problems:
-Fragmentation: Opportunities (research, hackathons, clubs) are scattered across 5+ disconnected platforms (WaterlooWorks, WUSA, Department sites, Discord, Reddit).
-The Filter Bubble: Students only see opportunities directly related to their declared major. A CS student rarely sees a Fine Arts digital media project, and an International student often wastes time applying to "Citizens Only" grants.
-2. Project Goal
-The "What": Build a web-based "Opportunity Engine" that aggregates scattered campus data and uses semantic search (AI) to recommend relevant, cross-disciplinary opportunities based on a user’s profile and natural language interests.
-3. Objectives & Success Metrics (SMART)
-Objective 1 (Aggregation): Successfully build automated scrapers for 2 primary data sources (e.g., WUSA Clubs & UW Events Calendar) by [Date].
-Objective 2 (Intelligence): Implement a Vector Search algorithm that creates valid recommendations connecting two seemingly unrelated keywords (e.g., "Music" input $\rightarrow$ "Audio Processing Research" output).
-Objective 3 (User Value): Achieve a "Click-Through Rate" where users click on at least 1 recommended item that is outside their home faculty.
-4. Scope Definition (The Guardrails)
-This is the most critical section. As your sparring partner, I have aggressively cut features to ensure you actually finish.
-In Scope (What we WILL do)
-Out of Scope (What we will NOT do yet)
-User Profile: Basic inputs (Program, Year, Visa Status) + Open-ended "Interests" text box.
-Social Features: Chatting with other users, forums, or "friending" people.
-Data Sources: Scraping WUSA Clubs list and one Faculty research page.
-Full Integration: Real-time sync with WaterlooWorks (impossible without official API access).
-The "Engine": Semantic matching (Vector embeddings) to find related topics.
-Complex Admin: A portal for club leaders to manually upload events (solves the wrong problem).
-International Filter: A toggle to hide "Citizens Only" requirements.
-Mobile App: Native iOS/Android app (Web app is sufficient and faster to build).
+# Project Charter: UW Nexus (Wat's New)
 
-5. Technical Stack
-Frontend: React / Next.js (Responsive Web App).
-Backend: Python (FastAPI or Flask) – Best for handling the ML logic.
-Database: PostgreSQL (with pgvector extension) or Pinecone – To store vector embeddings.
-Scraping: BeautifulSoup / Selenium.
-6. Key Risks & Mitigation Strategy
-Risk: Scrapers break frequently. If UWaterloo changes their website layout, your app breaks.
-Mitigation: Build the scrapers as modular "plugins" so fixing one doesn't break the whole app. Cache data so the app works even if the scraper fails for a day.
-Risk: The "Cold Start" problem. New users have no data to base recommendations on.
-Mitigation: Use "Onboarding Tags." Force the user to pick 3 tags (e.g., "AI", "Music", "Finance") during sign-up to seed the algorithm immediately.
-7. Timeline (Tentative)
-Phase 1 (Weeks 1-2): Infrastructure. Set up the repo, build the basic Scraper for WUSA.
-Phase 2 (Weeks 3-4): The Brain. Implement the Vector Search (embedding user text and matching it to club text).
-Phase 3 (Weeks 5-6): The Face. Build the React Frontend and connect it to the backend.
-Phase 4 (Week 7): Testing. Give it to 5 friends. Fix bugs.
+| Project Name | **UW Nexus** (Working Title: Wat's New) |
+| :--- | :--- |
+| **Project Manager** | Yi Xing |
+| **Start Date** | Feb 2026 |
+| **Target MVP** | April 2026 |
+| **Status** | In Progress (Phase 1 Complete) |
 
-Intellectual Critique (Sparring Mode)
-Now, look at this charter. As your sparring partner, I see one major assumption you need to test immediately:
-The Assumption: You assume students want to break their bubble.
-The Counterpoint: Most students are stressed and time-poor. They might just want the easiest path to a resume boost (confirmation bias).
-The Adjustment: Your UI cannot just be "Here are random cool things." It must pitch the value of the bubble-breaking recommendation.
-Bad UI: "You might like the Knitting Club."
-Good UI: "You like Coding. Joining the Knitting Club could help you build a project around Textile Patterns & Algorithms (unique portfolio piece)."
+---
+
+### 1. Problem Statement
+**The "Why":** UWaterloo students currently face two information problems:
+1.  **Fragmentation:** Opportunities (research, hackathons, clubs) are scattered across 5+ disconnected platforms (WaterlooWorks, WUSA, Portal, Reddit).
+2.  **The Filter Bubble:** Students only see opportunities directly related to their declared major. A CS student rarely sees a Fine Arts digital media project, and an International student often wastes time applying to "Citizens Only" grants.
+
+### 2. Project Goal
+**The "What":** Build a web-based "Opportunity Engine" that aggregates scattered campus data and uses semantic search (AI) to recommend relevant, cross-disciplinary opportunities based on a user’s profile and natural language interests.
+
+### 3. Objectives & Success Metrics (SMART)
+* **[COMPLETED] Objective 1 (Base Data):** Successfully scrape the WUSA Clubs Directory and extract full descriptions (including "Show More" content). *Status: 199 Clubs Scraped & Cleaned.*
+* **Objective 2 (Live Intel):** Implement a "News Harvester" pipeline that searches the web (DuckDuckGo) for fresh events (Hackathons, Guest Lectures) every 24 hours.
+* **Objective 3 (Intelligence):** Implement a Vector Search algorithm (`sentence-transformers`) that connects user interests to opportunities semantically (e.g., "Music" input $\rightarrow$ "Audio Research" output).
+* **Objective 4 (User Value):** Achieve a Click-Through Rate where users click on at least 1 recommended item *outside* their home faculty.
+
+### 4. Scope Definition
+
+| **In Scope (What we WILL do)** | **Out of Scope (What we will NOT do yet)** |
+| :--- | :--- |
+| **User Profile:** Basic inputs (Program, Year, Visa Status) + Open-ended "Interests" bio. | **Social Features:** Chatting, friends lists, or forums. |
+| **Data Source A (Static):** WUSA Clubs Registry (JSON). | **Full Integration:** Real-time sync with WaterlooWorks (Requires official API). |
+| **Data Source B (Dynamic):** "Live Harvester" using DuckDuckGo to find Hackathons/Events. | **User Accounts:** Complex authentication (Start with local storage or simple auth). |
+| **The "Engine":** Semantic matching (Vector embeddings) via `sentence-transformers`. | **Mobile App:** Native iOS/Android app (Web app is prioritized). |
+| **International Filter:** Toggle to hide "Citizens Only" requirements. | |
+
+### 5. Technical Stack
+* **Frontend:** React / Next.js (Responsive Web App).
+* **Backend:** Python (FastAPI) – Handles the ML logic and Search API.
+* **Database:** * *Static:* JSON files (for MVP simplicity).
+    * *Vector:* `pgvector` or local FAISS index for similarity search.
+* **Data Engineering:** * `Playwright` (Scraping Static Sites).
+    * `duckduckgo-search` (Harvester for Live Events).
+* **AI/ML:** `sentence-transformers/all-MiniLM-L6-v2` (Embeddings).
+
+### 6. Key Risks & Mitigation
+| Risk | Probability | Mitigation Strategy |
+| :--- | :--- | :--- |
+| **Scrapers Break** | High | Modularize scrapers. If WUSA changes, only `scrape_clubs.py` needs fixing. Use the "Live Harvester" as a backup data source. |
+| **"Garbage" Search Results** | Medium | The Live Harvester might fetch spam. **Fix:** Implement an LLM filtering step (Gemini/GPT) to "grade" search results before saving them. |
+| **Cold Start** | Medium | New users have no data. **Fix:** "Onboarding Tags" (force user to pick 3 interests at signup). |
+
+### 7. Timeline
+* **Phase 1 (Data Layer):** [DONE]
+    * Scrape WUSA Clubs.
+    * Clean "Show More" text data.
+* **Phase 2 (The Brain):** [CURRENT FOCUS]
+    * Build `generate_embeddings.py` to vectorize club data.
+    * Build `harvest_news.py` for live web search.
+* **Phase 3 (The API):**
+    * Create FastAPI endpoints to serve recommendations.
+* **Phase 4 (The UI):**
+    * Build React Frontend.
+
+---
+*Last Updated: Feb 15, 2026*
