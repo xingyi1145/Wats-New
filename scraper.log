@@ -1,0 +1,44 @@
+2026-02-05 23:09:52,573 - INFO - Starting scrape of club list...
+2026-02-05 23:09:52,573 - INFO - Visiting Listing Page: https://clubs.wusa.ca/club_listings?page=1
+2026-02-05 23:09:53,924 - INFO - Found 10 clubs on page 1. Total: 10
+2026-02-05 23:09:53,930 - INFO - Visiting Listing Page: https://clubs.wusa.ca/club_listings?page=2
+2026-02-05 23:09:55,081 - INFO - Found 10 clubs on page 2. Total: 20
+2026-02-05 23:09:55,086 - INFO - Visiting Listing Page: https://clubs.wusa.ca/club_listings?page=3
+2026-02-05 23:09:56,211 - INFO - Found 10 clubs on page 3. Total: 30
+2026-02-05 23:09:56,214 - INFO - Visiting Listing Page: https://clubs.wusa.ca/club_listings?page=4
+2026-02-05 23:09:57,325 - INFO - Found 10 clubs on page 4. Total: 40
+2026-02-05 23:09:57,329 - INFO - Visiting Listing Page: https://clubs.wusa.ca/club_listings?page=5
+2026-02-05 23:09:58,524 - INFO - Found 10 clubs on page 5. Total: 50
+2026-02-05 23:09:58,528 - INFO - Visiting Listing Page: https://clubs.wusa.ca/club_listings?page=6
+2026-02-05 23:09:59,675 - INFO - Found 10 clubs on page 6. Total: 60
+2026-02-05 23:09:59,678 - INFO - Visiting Listing Page: https://clubs.wusa.ca/club_listings?page=7
+2026-02-05 23:10:00,797 - INFO - Found 10 clubs on page 7. Total: 70
+2026-02-05 23:10:00,800 - INFO - Visiting Listing Page: https://clubs.wusa.ca/club_listings?page=8
+2026-02-05 23:10:01,918 - INFO - Found 10 clubs on page 8. Total: 80
+2026-02-05 23:10:01,921 - INFO - Visiting Listing Page: https://clubs.wusa.ca/club_listings?page=9
+2026-02-05 23:10:03,032 - INFO - Found 10 clubs on page 9. Total: 90
+2026-02-05 23:10:03,035 - INFO - Visiting Listing Page: https://clubs.wusa.ca/club_listings?page=10
+2026-02-05 23:10:04,179 - INFO - Found 10 clubs on page 10. Total: 100
+2026-02-05 23:10:04,183 - INFO - Visiting Listing Page: https://clubs.wusa.ca/club_listings?page=11
+2026-02-05 23:10:05,303 - INFO - Found 10 clubs on page 11. Total: 110
+2026-02-05 23:10:05,307 - INFO - Visiting Listing Page: https://clubs.wusa.ca/club_listings?page=12
+2026-02-05 23:10:06,433 - INFO - Found 10 clubs on page 12. Total: 120
+2026-02-05 23:10:06,436 - INFO - Visiting Listing Page: https://clubs.wusa.ca/club_listings?page=13
+2026-02-05 23:10:07,574 - INFO - Found 10 clubs on page 13. Total: 130
+2026-02-05 23:10:07,577 - INFO - Visiting Listing Page: https://clubs.wusa.ca/club_listings?page=14
+2026-02-05 23:10:08,693 - INFO - Found 10 clubs on page 14. Total: 140
+2026-02-05 23:10:08,696 - INFO - Visiting Listing Page: https://clubs.wusa.ca/club_listings?page=15
+2026-02-05 23:10:09,827 - INFO - Found 10 clubs on page 15. Total: 150
+2026-02-05 23:10:09,833 - INFO - Visiting Listing Page: https://clubs.wusa.ca/club_listings?page=16
+2026-02-05 23:10:10,964 - INFO - Found 10 clubs on page 16. Total: 160
+2026-02-05 23:10:10,967 - INFO - Visiting Listing Page: https://clubs.wusa.ca/club_listings?page=17
+2026-02-05 23:10:12,077 - INFO - Found 10 clubs on page 17. Total: 170
+2026-02-05 23:10:12,081 - INFO - Visiting Listing Page: https://clubs.wusa.ca/club_listings?page=18
+2026-02-05 23:10:13,199 - INFO - Found 10 clubs on page 18. Total: 180
+2026-02-05 23:10:13,202 - INFO - Visiting Listing Page: https://clubs.wusa.ca/club_listings?page=19
+2026-02-05 23:10:14,331 - INFO - Found 10 clubs on page 19. Total: 190
+2026-02-05 23:10:14,334 - INFO - Visiting Listing Page: https://clubs.wusa.ca/club_listings?page=20
+2026-02-05 23:10:15,438 - INFO - Found 9 clubs on page 20. Total: 199
+2026-02-05 23:10:15,440 - INFO - Next button not found. Last page reached.
+2026-02-05 23:10:15,440 - INFO - Collected 199 unique club links.
+2026-02-05 23:18:41,247 - INFO - Scraping complete. Saved 199 clubs to wusa_clubs.json
