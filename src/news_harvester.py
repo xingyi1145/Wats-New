@@ -4,14 +4,14 @@ from duckduckgo_search import DDGS
 import time
 
 def harvest_news():
-    print("Initializing News Harvester for UW Nexus...")
+    print("Initializing News Harvester for UW Nexus (Updated)...")
     
-    # Define search queries
+    # Define relaxed search queries
     queries = [
-        '"University of Waterloo" "hackathon" 2026',
-        'site:uwaterloo.ca "call for applications" undergraduate research',
-        'site:uwaterloo.ca "guest lecture" OR "seminar"',
-        'site:eventbrite.ca "Waterloo student"'
+        'University of Waterloo student hackathon',
+        'site:uwaterloo.ca undergraduate research application',
+        'site:uwaterloo.ca guest lecture seminar',
+        'Waterloo student tech events'
     ]
 
     # Initialize DDGS
@@ -28,8 +28,10 @@ def harvest_news():
     for query in queries:
         print(f"\nSearching for: {query}")
         try:
-            # Fetch results (past month, max 10)
-            results = ddgs.text(keywords=query, region='ca-en', safesearch='moderate', timelimit='m', max_results=10)
+            # Fetch results (max 10, no time limit for broader results)
+            # Using arguments as requested: using mapped names for clarity
+            # Note: region='wt-wt' and safesearch='moderate' as requested
+            results = ddgs.text(keywords=query, region='wt-wt', safesearch='moderate', max_results=10)
             
             count = 0
             if results:
@@ -62,10 +64,12 @@ def harvest_news():
     output_file = "live_opportunities.json"
     print(f"\nSaving {len(all_results)} total unique opportunities to {output_file}...")
     
-    with open(output_file, 'w', encoding='utf-8') as f:
-        json.dump(all_results, f, indent=4, ensure_ascii=False)
-
-    print("Harvest complete!")
+    try:
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(all_results, f, indent=4, ensure_ascii=False)
+        print("Harvest complete!")
+    except Exception as e:
+        print(f"Error saving file: {e}")
 
 if __name__ == "__main__":
     harvest_news()
