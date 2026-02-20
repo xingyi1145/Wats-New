@@ -16,7 +16,7 @@ except FileNotFoundError:
 # Filter out any clubs that failed to get an embedding, just in case
 valid_clubs = [c for c in clubs if 'embedding' in c]
 # Convert the lists of floats back into a math-friendly numpy array
-club_embeddings = np.array([c['embedding'] for c in valid_clubs])
+club_embeddings = np.array([c['embedding'] for c in valid_clubs]).astype('float32')
 
 print("\n✅ Brain Loaded. Let's test it.")
 print("-" * 40)
@@ -35,7 +35,8 @@ while True:
     
     # 4. Get the Top 3 Matches
     # argsort sorts lowest to highest, so we take the last 3 and reverse the order
-    top_indices = np.argsort(similarities)[-3:][::-1] 
+    # explicitly convert to numpy to avoid tensor slicing issues
+    top_indices = np.argsort(similarities.numpy())[-3:][::-1] 
     
     print("\n🏆 Top 3 Recommendations:")
     for rank, idx in enumerate(top_indices, 1):
