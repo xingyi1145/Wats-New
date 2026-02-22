@@ -3,3 +3,4 @@ tqdm
 sentence-transformers
 duckduckgo-search
 duckduckgo-search
+numpy
