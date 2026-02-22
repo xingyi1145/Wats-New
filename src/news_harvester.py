@@ -1,6 +1,6 @@
 import json
 from datetime import datetime
-from duckduckgo_search import DDGS
+from ddgs import DDGS
 import time
 
 def harvest_news():
@@ -31,7 +31,7 @@ def harvest_news():
             # Fetch results (max 10, no time limit for broader results)
             # Using arguments as requested: using mapped names for clarity
             # Note: region='wt-wt' and safesearch='moderate' as requested
-            results = ddgs.text(keywords=query, region='wt-wt', safesearch='moderate', max_results=10)
+            results = ddgs.text(query, region='wt-wt', safesearch='moderate', max_results=10)
             
             count = 0
             if results:
