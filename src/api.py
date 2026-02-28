@@ -20,11 +20,32 @@ class AppState:
 
 state = AppState()
 
+# In-memory database for user interactions
+USER_STATE = {}
+# Structure: {"user_id": {"seen_links": set(), "liked_links": set()}}
+
+
+def get_user_state(user_id: str):
+    """Get or create user state."""
+    if user_id not in USER_STATE:
+        USER_STATE[user_id] = {
+            "seen_links": set(),
+            "liked_links": set()
+        }
+    return USER_STATE[user_id]
+
 
 # Request/Response Models
 class RecommendRequest(BaseModel):
     query: str
     top_k: Optional[int] = 5
+    user_id: str
+
+
+class InteractRequest(BaseModel):
+    user_id: str
+    link: str
+    action: str  # "like" or "skip"
 
 
 class RecommendationItem(BaseModel):
@@ -76,6 +97,19 @@ def load_data():
         print(f"  -> Loaded {len(valid_events)} live events.")
     except FileNotFoundError:
         print(f"  -> Warning: {events_path} not found.")
+
+    # Load global opportunities data
+    global_path = os.path.join(project_root, 'global_opportunities_vectors.json')
+    try:
+        with open(global_path, 'r', encoding='utf-8') as f:
+            global_opps = json.load(f)
+        valid_global = [g for g in global_opps if 'embedding' in g]
+        for g in valid_global:
+            g['_type'] = 'global_opportunity'
+        all_items.extend(valid_global)
+        print(f"  -> Loaded {len(valid_global)} global opportunities.")
+    except FileNotFoundError:
+        print(f"  -> Warning: {global_path} not found.")
 
     return all_items
 
@@ -144,16 +178,22 @@ async def root():
 @app.post("/api/recommend", response_model=RecommendResponse)
 async def recommend(request: RecommendRequest):
     """
-    Get semantic recommendations based on a query.
+    Get semantic recommendations based on a query, filtered by user's seen history.
 
     - **query**: The student interest text to search for
     - **top_k**: Number of results to return (default: 5)
+    - **user_id**: User identifier for tracking seen/liked items
     """
     query = request.query
-    top_k = min(request.top_k, len(state.all_items))  # Cap at max items
+    user_id = request.user_id
+    top_k = request.top_k
 
     if state.model is None or state.all_embeddings is None:
         return RecommendResponse(query=query, results=[])
+
+    # Get user state
+    user_state = get_user_state(user_id)
+    seen_links = user_state["seen_links"]
 
     # Encode the query
     query_vector = state.model.encode(query)
@@ -161,13 +201,22 @@ async def recommend(request: RecommendRequest):
     # Calculate cosine similarities
     similarities = util.cos_sim(query_vector, state.all_embeddings)[0]
 
-    # Get top k indices
-    top_indices = np.argsort(similarities.numpy())[-top_k:][::-1]
+    # Get all indices sorted by similarity (highest first)
+    all_indices = np.argsort(similarities.numpy())[::-1]
 
-    # Build response
+    # Filter out seen items and collect top_k unseen results
     results = []
-    for idx in top_indices:
+    for idx in all_indices:
+        if len(results) >= top_k:
+            break
+            
         item = state.all_items[idx]
+        link = item.get('link', '')
+        
+        # Skip if user has already seen this link
+        if link in seen_links:
+            continue
+        
         score = similarities[idx].item()
         item_type = item.get('_type', 'unknown')
 
@@ -181,13 +230,49 @@ async def recommend(request: RecommendRequest):
 
         results.append(RecommendationItem(
             title=title,
-            link=item.get('link', ''),
+            link=link,
             source=source,
             match_score=round(score * 100, 2),
             item_type=item_type
         ))
 
     return RecommendResponse(query=query, results=results)
+
+
+@app.post("/api/interact")
+async def interact(request: InteractRequest):
+    """
+    Record user interaction (like/skip) with an opportunity.
+
+    - **user_id**: User identifier
+    - **link**: URL of the opportunity
+    - **action**: Either "like" or "skip"
+    """
+    user_id = request.user_id
+    link = request.link
+    action = request.action.lower()
+
+    # Validate action
+    if action not in ["like", "skip"]:
+        return {"error": "Action must be 'like' or 'skip'", "success": False}
+
+    # Get or create user state
+    user_state = get_user_state(user_id)
+
+    # Always add to seen_links
+    user_state["seen_links"].add(link)
+
+    # If liked, also add to liked_links
+    if action == "like":
+        user_state["liked_links"].add(link)
+
+    return {
+        "success": True,
+        "user_id": user_id,
+        "action": action,
+        "total_seen": len(user_state["seen_links"]),
+        "total_liked": len(user_state["liked_links"])
+    }
 
 
 if __name__ == "__main__":
