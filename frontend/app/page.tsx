@@ -1,14 +1,27 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Home() {
+  const [userId, setUserId] = useState("");
   // Generate a random user ID for this session
-  const [userId] = useState(() => "user_" + Math.random().toString(36).substring(7));
   const [profileText, setProfileText] = useState("");
   const [isStarted, setIsStarted] = useState(false);
   const [queue, setQueue] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
+
+  // Run once on mount to grab or create the persistent ID
+  useEffect(() => {
+    let storedId = localStorage.getItem("nexus_user_id");
+    if (!storedId) {
+      storedId = "user_" + Math.random().toString(36).substring(7);
+      localStorage.setItem("nexus_user_id", storedId);
+    }
+    setUserId(storedId);
+  }, []);
+
+  // Prevent rendering the UI until the ID is loaded from storage
+  if (!userId) return null;
 
   // Function to pull unseen recommendations from the Python API
   const fetchRecommendations = async (queryToUse: string) => {
