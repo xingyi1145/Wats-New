@@ -22,7 +22,7 @@ state = AppState()
 
 # In-memory database for user interactions
 USER_STATE = {}
-# Structure: {"user_id": {"seen_links": set(), "liked_links": set()}}
+# Structure: {"user_id": {"seen_links": set(), "liked_links": set(), "vector": np.ndarray or None}}
 
 
 def get_user_state(user_id: str):
@@ -30,9 +30,30 @@ def get_user_state(user_id: str):
     if user_id not in USER_STATE:
         USER_STATE[user_id] = {
             "seen_links": set(),
-            "liked_links": set()
+            "liked_links": set(),
+            "vector": None
         }
     return USER_STATE[user_id]
+
+
+def get_item_vector_by_link(link: str) -> Optional[np.ndarray]:
+    """
+    Find an item's embedding vector by its link.
+    Returns None if not found.
+    """
+    for i, item in enumerate(state.all_items):
+        if item.get('link') == link:
+            # Return a copy to avoid modifying the base embeddings
+            return state.all_embeddings[i].copy()
+    return None
+
+
+def normalize_vector(vec: np.ndarray) -> np.ndarray:
+    """Normalize a vector for cosine similarity."""
+    norm = np.linalg.norm(vec)
+    if norm > 0:
+        return vec / norm
+    return vec
 
 
 # Request/Response Models
@@ -178,11 +199,14 @@ async def root():
 @app.post("/api/recommend", response_model=RecommendResponse)
 async def recommend(request: RecommendRequest):
     """
-    Get semantic recommendations based on a query, filtered by user's seen history.
+    Get semantic recommendations using Dynamic Vector Shifting.
 
-    - **query**: The student interest text to search for
+    - **query**: Initial interest text (only used if no stored vector exists)
     - **top_k**: Number of results to return (default: 5)
-    - **user_id**: User identifier for tracking seen/liked items
+    - **user_id**: User identifier for tracking seen/liked items and preference vector
+    
+    The user's preference vector evolves based on their likes, providing
+    increasingly personalized recommendations over time.
     """
     query = request.query
     user_id = request.user_id
@@ -195,11 +219,17 @@ async def recommend(request: RecommendRequest):
     user_state = get_user_state(user_id)
     seen_links = user_state["seen_links"]
 
-    # Encode the query
-    query_vector = state.model.encode(query)
+    # Dynamic Vector Shifting: use stored vector or encode query
+    if user_state["vector"] is not None:
+        # User has an evolved preference vector - use it
+        search_vector = user_state["vector"]
+    else:
+        # First time user - encode query and store as initial vector
+        search_vector = state.model.encode(query).astype('float32')
+        user_state["vector"] = search_vector.copy()
 
-    # Calculate cosine similarities
-    similarities = util.cos_sim(query_vector, state.all_embeddings)[0]
+    # Calculate cosine similarities using the user's preference vector
+    similarities = util.cos_sim(search_vector, state.all_embeddings)[0]
 
     # Get all indices sorted by similarity (highest first)
     all_indices = np.argsort(similarities.numpy())[::-1]
@@ -242,11 +272,14 @@ async def recommend(request: RecommendRequest):
 @app.post("/api/interact")
 async def interact(request: InteractRequest):
     """
-    Record user interaction (like/skip) with an opportunity.
+    Record user interaction and apply Dynamic Vector Shifting on likes.
 
     - **user_id**: User identifier
     - **link**: URL of the opportunity
     - **action**: Either "like" or "skip"
+    
+    When action is "like", the user's preference vector shifts toward
+    the liked item's vector using: new_vector = (old * 0.8) + (liked * 0.2)
     """
     user_id = request.user_id
     link = request.link
@@ -262,16 +295,33 @@ async def interact(request: InteractRequest):
     # Always add to seen_links
     user_state["seen_links"].add(link)
 
-    # If liked, also add to liked_links
+    vector_shifted = False
+    
+    # If liked, apply vector shifting
     if action == "like":
         user_state["liked_links"].add(link)
+        
+        # Apply Dynamic Vector Shifting if user has a vector
+        if user_state["vector"] is not None:
+            liked_item_vector = get_item_vector_by_link(link)
+            
+            if liked_item_vector is not None:
+                # Ensure shapes match
+                if user_state["vector"].shape == liked_item_vector.shape:
+                    # Apply vector shift formula: 80% user preference + 20% liked item
+                    new_vector = (user_state["vector"] * 0.8) + (liked_item_vector * 0.2)
+                    
+                    # Re-normalize for optimal cosine similarity performance
+                    user_state["vector"] = normalize_vector(new_vector)
+                    vector_shifted = True
 
     return {
         "success": True,
         "user_id": user_id,
         "action": action,
         "total_seen": len(user_state["seen_links"]),
-        "total_liked": len(user_state["liked_links"])
+        "total_liked": len(user_state["liked_links"]),
+        "vector_shifted": vector_shifted
     }
 
 
