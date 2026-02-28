@@ -3,103 +3,162 @@
 import { useState } from "react";
 
 export default function Home() {
-  const [query, setQuery] = useState("");
-  const [results, setResults] = useState([]);
+  // Generate a random user ID for this session
+  const [userId] = useState(() => "user_" + Math.random().toString(36).substring(7));
+  const [profileText, setProfileText] = useState("");
+  const [isStarted, setIsStarted] = useState(false);
+  const [queue, setQueue] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
 
-  const handleSearch = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!query.trim()) return;
-
+  // Function to pull unseen recommendations from the Python API
+  const fetchRecommendations = async (queryToUse: string) => {
     setLoading(true);
-    setError("");
-    setResults([]);
-
     try {
-      // This hits your local Python server!
-      const response = await fetch("http://127.0.0.1:8000/api/recommend", {
+      const res = await fetch("http://127.0.0.1:8000/api/recommend", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ query, top_k: 5 }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: queryToUse, top_k: 5, user_id: userId }),
       });
-
-      if (!response.ok) {
-        throw new Error("Failed to connect to the Opportunity Engine.");
-      }
-
-      const data = await response.json();
-      setResults(data.results);
-    } catch (err: any) {
-      setError(err.message || "Something went wrong.");
+      const data = await res.json();
+      setQueue((prev) => [...prev, ...data.results]);
+    } catch (error) {
+      console.error("Failed to fetch", error);
     } finally {
       setLoading(false);
     }
   };
 
-  return (
-    <main className="min-h-screen bg-gray-50 text-gray-900 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-3xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-10">
-          <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
-            WAT's NEW
-          </h1>
-          <p className="mt-4 text-xl text-gray-500">
-            Break the information bubble. Tell us what you care about in a few sentences, and we'll find your next opportunity.
-          </p>
-        </div>
+  const handleStart = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!profileText.trim()) return;
+    setIsStarted(true);
+    fetchRecommendations(profileText);
+  };
 
-        {/* Search Box */}
-        <form onSubmit={handleSearch} className="mb-10 bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-          <textarea
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="e.g., I love software engineering and coding, but I also want to get involved with music and performing arts..."
-            className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 min-h-[120px] resize-none"
-          ></textarea>
-          <div className="mt-4 flex justify-end">
+  const handleInteract = async (action: "like" | "skip", link: string) => {
+    // 1. Optimistically pop the top card off the queue for instant UI response
+    setQueue((prev) => prev.slice(1));
+
+    // 2. Tell the Python backend to update its memory
+    try {
+      await fetch("http://127.0.0.1:8000/api/interact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ user_id: userId, link: link, action: action }),
+      });
+    } catch (error) {
+      console.error("Interaction failed", error);
+    }
+
+    // 3. If we are running out of cards, fetch more in the background
+    if (queue.length <= 2) {
+      fetchRecommendations(profileText);
+    }
+  };
+
+  // --- VIEW 1: ONBOARDING ---
+  if (!isStarted) {
+    return (
+      <main className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+        <div className="max-w-xl w-full bg-white p-8 rounded-2xl shadow-lg text-center border border-gray-100">
+          <h1 className="text-4xl font-extrabold text-gray-900 mb-4">UW Nexus</h1>
+          <p className="text-gray-500 mb-8">
+            Stop searching. Start discovering. Tell us your major, your hobbies, and what you want to build.
+          </p>
+          <form onSubmit={handleStart}>
+            <textarea
+              value={profileText}
+              onChange={(e) => setProfileText(e.target.value)}
+              placeholder="e.g., I'm a CS student interested in open source, AI, and maybe joining a music club..."
+              className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 min-h-[150px] resize-none mb-6 text-gray-800"
+              required
+            />
             <button
               type="submit"
-              disabled={loading || !query.trim()}
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors disabled:bg-blue-300 disabled:cursor-not-allowed"
+              className="w-full bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition-all text-lg"
             >
-              {loading ? "Searching Vector Space..." : "Discover"}
+              Initialize My Feed
             </button>
-          </div>
-        </form>
+          </form>
+        </div>
+      </main>
+    );
+  }
 
-        {/* Error Message */}
-        {error && (
-          <div className="bg-red-50 text-red-600 p-4 rounded-lg mb-6 border border-red-200">
-            {error}
-          </div>
-        )}
+  // --- VIEW 2: THE DISCOVERY DECK ---
+  const currentCard = queue[0];
 
-        {/* Results List */}
-        <div className="space-y-4">
-          {results.map((result: any, index: number) => (
-            <div key={index} className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
-              <div className="flex justify-between items-start gap-4">
-                <h2 className="text-xl font-bold text-gray-900">
-                  <a href={result.link} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 hover:underline">
-                    {result.title}
-                  </a>
-                </h2>
-                <span className="bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full whitespace-nowrap">
-                  {result.match_score}% Match
+  return (
+    <main className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
+      <div className="w-full max-w-md">
+        
+        {/* Header */}
+        <div className="flex justify-between items-center mb-6 px-2">
+          <h1 className="text-2xl font-bold text-gray-800">For You</h1>
+          <span className="text-xs font-bold text-gray-400 bg-gray-200 px-3 py-1 rounded-full uppercase tracking-wider">
+            {userId.substring(0, 9)}
+          </span>
+        </div>
+
+        {/* The Card */}
+        {currentCard ? (
+          <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-200 transition-all">
+            <div className="p-8 min-h-[350px] flex flex-col justify-center">
+              <span className="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-bold uppercase tracking-wide mb-4 w-max">
+                {currentCard.source.replace("_", " ")}
+              </span>
+              <h2 className="text-3xl font-extrabold text-gray-900 mb-4 leading-tight">
+                {currentCard.title}
+              </h2>
+              <div className="mt-auto pt-6 border-t border-gray-100">
+                <span className="text-sm font-semibold text-gray-500">
+                  AI Match Score: <span className="text-green-600">{currentCard.match_score}%</span>
                 </span>
               </div>
-              <div className="mt-2 text-sm text-gray-500 flex items-center gap-2 font-medium">
-                <span className="uppercase tracking-wider px-2 py-1 bg-gray-100 rounded-md text-xs">{result.item_type || 'Opportunity'}</span>
-                <span>•</span>
-                <span>{result.source}</span>
-              </div>
             </div>
-          ))}
-        </div>
+
+            {/* Action Buttons */}
+            <div className="flex border-t border-gray-100">
+              <button
+                onClick={() => handleInteract("skip", currentCard.link)}
+                className="flex-1 py-6 text-xl font-bold text-gray-400 hover:bg-red-50 hover:text-red-500 transition-colors"
+              >
+                Skip
+              </button>
+              <div className="w-px bg-gray-100"></div>
+              <button
+                onClick={() => {
+                  window.open(currentCard.link, "_blank");
+                  handleInteract("like", currentCard.link);
+                }}
+                className="flex-1 py-6 text-xl font-bold text-blue-500 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+              >
+                Save & View
+              </button>
+            </div>
+          </div>
+        ) : (
+          /* Empty State / Loading State */
+          <div className="bg-white rounded-3xl shadow-lg p-12 text-center border border-gray-200 min-h-[400px] flex flex-col items-center justify-center">
+            {loading ? (
+              <div className="animate-pulse flex flex-col items-center">
+                <div className="h-12 w-12 bg-blue-200 rounded-full mb-4"></div>
+                <p className="text-gray-500 font-medium">Scanning vectors for more...</p>
+              </div>
+            ) : (
+              <div>
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">You beat the algorithm!</h3>
+                <p className="text-gray-500">We've run out of highly relevant matches for this specific vibe.</p>
+                <button 
+                  onClick={() => window.location.reload()}
+                  className="mt-6 px-6 py-2 bg-gray-900 text-white rounded-lg font-medium"
+                >
+                  Start Over
+                </button>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </main>
   );
