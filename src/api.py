@@ -1,5 +1,6 @@
 import json
 import os
+import sqlite3
 from contextlib import asynccontextmanager
 from typing import Optional
 
@@ -16,24 +17,122 @@ class AppState:
     model: SentenceTransformer = None
     all_items: list = []
     all_embeddings: np.ndarray = None
+    db_path: str = None
 
 
 state = AppState()
 
-# In-memory database for user interactions
-USER_STATE = {}
-# Structure: {"user_id": {"seen_links": set(), "liked_links": set(), "vector": np.ndarray or None}}
+
+# ============================================================================
+# SQLite Database Functions
+# ============================================================================
+
+def get_db_connection():
+    """Get a new database connection."""
+    conn = sqlite3.connect(state.db_path)
+    conn.row_factory = sqlite3.Row
+    return conn
 
 
-def get_user_state(user_id: str):
-    """Get or create user state."""
-    if user_id not in USER_STATE:
-        USER_STATE[user_id] = {
+def init_database():
+    """Initialize the SQLite database and create tables if they don't exist."""
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS users (
+            user_id TEXT PRIMARY KEY,
+            seen_links TEXT DEFAULT '[]',
+            liked_links TEXT DEFAULT '[]',
+            user_vector TEXT DEFAULT NULL
+        )
+    ''')
+    
+    conn.commit()
+    conn.close()
+    print("  -> SQLite database initialized.")
+
+
+def get_user_from_db(user_id: str) -> dict:
+    """
+    Get user state from database.
+    Returns dict with seen_links (set), liked_links (set), vector (np.ndarray or None).
+    Creates new user row if not exists.
+    """
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    
+    cursor.execute('SELECT * FROM users WHERE user_id = ?', (user_id,))
+    row = cursor.fetchone()
+    
+    if row is None:
+        # Create new user with empty state
+        cursor.execute(
+            'INSERT INTO users (user_id, seen_links, liked_links, user_vector) VALUES (?, ?, ?, ?)',
+            (user_id, '[]', '[]', None)
+        )
+        conn.commit()
+        conn.close()
+        return {
             "seen_links": set(),
             "liked_links": set(),
             "vector": None
         }
-    return USER_STATE[user_id]
+    
+    conn.close()
+    
+    # Parse JSON strings back to Python objects
+    try:
+        seen_links = set(json.loads(row['seen_links'])) if row['seen_links'] else set()
+    except (json.JSONDecodeError, TypeError):
+        seen_links = set()
+    
+    try:
+        liked_links = set(json.loads(row['liked_links'])) if row['liked_links'] else set()
+    except (json.JSONDecodeError, TypeError):
+        liked_links = set()
+    
+    try:
+        if row['user_vector']:
+            vector = np.array(json.loads(row['user_vector']), dtype='float32')
+        else:
+            vector = None
+    except (json.JSONDecodeError, TypeError):
+        vector = None
+    
+    return {
+        "seen_links": seen_links,
+        "liked_links": liked_links,
+        "vector": vector
+    }
+
+
+def save_user_to_db(user_id: str, seen_links: set, liked_links: set, user_vector: Optional[np.ndarray]):
+    """
+    Save user state to database.
+    Converts sets to JSON lists and numpy array to JSON list.
+    """
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    
+    # Convert Python objects to JSON strings
+    seen_links_json = json.dumps(list(seen_links))
+    liked_links_json = json.dumps(list(liked_links))
+    
+    # Convert numpy array to JSON string (or None)
+    if user_vector is not None:
+        vector_json = json.dumps(user_vector.tolist())
+    else:
+        vector_json = None
+    
+    cursor.execute('''
+        UPDATE users 
+        SET seen_links = ?, liked_links = ?, user_vector = ?
+        WHERE user_id = ?
+    ''', (seen_links_json, liked_links_json, vector_json, user_id))
+    
+    conn.commit()
+    conn.close()
 
 
 def get_item_vector_by_link(link: str) -> Optional[np.ndarray]:
@@ -140,6 +239,16 @@ async def lifespan(app: FastAPI):
     """Lifespan context manager to load resources on startup."""
     print("Starting up Wat's New API...")
 
+    # Initialize SQLite database
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    if os.path.basename(base_dir) == 'src':
+        project_root = os.path.dirname(base_dir)
+    else:
+        project_root = base_dir
+    state.db_path = os.path.join(project_root, 'users.db')
+    print(f"Initializing SQLite database at {state.db_path}...")
+    init_database()
+
     # Load AI Model
     print("Loading AI Model 'all-MiniLM-L6-v2'...")
     state.model = SentenceTransformer('all-MiniLM-L6-v2')
@@ -215,18 +324,20 @@ async def recommend(request: RecommendRequest):
     if state.model is None or state.all_embeddings is None:
         return RecommendResponse(query=query, results=[])
 
-    # Get user state
-    user_state = get_user_state(user_id)
+    # Get user state from database
+    user_state = get_user_from_db(user_id)
     seen_links = user_state["seen_links"]
+    user_vector = user_state["vector"]
 
     # Dynamic Vector Shifting: use stored vector or encode query
-    if user_state["vector"] is not None:
+    if user_vector is not None:
         # User has an evolved preference vector - use it
-        search_vector = user_state["vector"]
+        search_vector = user_vector
     else:
         # First time user - encode query and store as initial vector
         search_vector = state.model.encode(query).astype('float32')
-        user_state["vector"] = search_vector.copy()
+        # Save the initial vector to database
+        save_user_to_db(user_id, seen_links, user_state["liked_links"], search_vector)
 
     # Calculate cosine similarities using the user's preference vector
     similarities = util.cos_sim(search_vector, state.all_embeddings)[0]
@@ -289,38 +400,44 @@ async def interact(request: InteractRequest):
     if action not in ["like", "skip"]:
         return {"error": "Action must be 'like' or 'skip'", "success": False}
 
-    # Get or create user state
-    user_state = get_user_state(user_id)
+    # Get user state from database
+    user_state = get_user_from_db(user_id)
+    seen_links = user_state["seen_links"]
+    liked_links = user_state["liked_links"]
+    user_vector = user_state["vector"]
 
     # Always add to seen_links
-    user_state["seen_links"].add(link)
+    seen_links.add(link)
 
     vector_shifted = False
     
     # If liked, apply vector shifting
     if action == "like":
-        user_state["liked_links"].add(link)
+        liked_links.add(link)
         
         # Apply Dynamic Vector Shifting if user has a vector
-        if user_state["vector"] is not None:
+        if user_vector is not None:
             liked_item_vector = get_item_vector_by_link(link)
             
             if liked_item_vector is not None:
                 # Ensure shapes match
-                if user_state["vector"].shape == liked_item_vector.shape:
+                if user_vector.shape == liked_item_vector.shape:
                     # Apply vector shift formula: 80% user preference + 20% liked item
-                    new_vector = (user_state["vector"] * 0.8) + (liked_item_vector * 0.2)
+                    new_vector = (user_vector * 0.8) + (liked_item_vector * 0.2)
                     
                     # Re-normalize for optimal cosine similarity performance
-                    user_state["vector"] = normalize_vector(new_vector)
+                    user_vector = normalize_vector(new_vector)
                     vector_shifted = True
+
+    # Save updated state to database
+    save_user_to_db(user_id, seen_links, liked_links, user_vector)
 
     return {
         "success": True,
         "user_id": user_id,
         "action": action,
-        "total_seen": len(user_state["seen_links"]),
-        "total_liked": len(user_state["liked_links"]),
+        "total_seen": len(seen_links),
+        "total_liked": len(liked_links),
         "vector_shifted": vector_shifted
     }
 
