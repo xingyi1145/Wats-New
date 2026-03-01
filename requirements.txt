@@ -6,3 +6,7 @@ numpy
 fastapi
 uvicorn[standard]
 pydantic
+requests
+beautifulsoup4
+google-genai
+python-dotenv

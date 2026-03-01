@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Google - Software Engineering Intern",
+    "link": "https://google.com/careers",
+    "snippet": "Summer 2025 SWE internship at Google. Open to undergraduates in CS or related fields.",
+    "source": "spider_agent"
+  },
+  {
+    "title": "Amazon - SDE Intern",
+    "link": "https://amazon.jobs",
+    "snippet": "Amazon summer internship for software development engineers. Multiple locations in the US and Canada.",
+    "source": "spider_agent"
+  }
+]
