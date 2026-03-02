@@ -130,14 +130,24 @@ def extract_opportunities_with_llm(page_text: str) -> list[dict]:
                 contents=f"{SYSTEM_PROMPT}\n\n--- BEGIN SCRAPED TEXT ---\n{page_text}\n--- END SCRAPED TEXT ---",
             )
             break  # Success
-        except genai_errors.ClientError as e:
+        except genai_errors.APIError as e:
             if "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e):
-                wait = 10 * attempt
+                wait = 15 * attempt
                 print(f"  Rate limited (attempt {attempt}/{max_retries}). Retrying in {wait}s...")
                 time.sleep(wait)
                 if attempt == max_retries:
                     print("Error: Gemini API quota exhausted after all retries.")
                     print("Check your plan at https://ai.google.dev/gemini-api/docs/rate-limits")
+                    return []
+            else:
+                raise
+        except Exception as e:
+            if "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e):
+                wait = 15 * attempt
+                print(f"  Rate limited (attempt {attempt}/{max_retries}). Retrying in {wait}s...")
+                time.sleep(wait)
+                if attempt == max_retries:
+                    print("Error: Gemini API quota exhausted after all retries.")
                     return []
             else:
                 raise
