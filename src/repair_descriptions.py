@@ -8,10 +8,10 @@ from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeo
 # Determine paths relative to this script so it runs from anywhere
 current_dir = os.path.dirname(os.path.abspath(__file__))
 # Assuming structure: Projects/Wat's-New/src/repair_descriptions.py
-# Data is in: Projects/Wat's-New/wusa_clubs.json
+# Data is in: Projects/Wat's-New/data/wusa_clubs.json
 project_root = os.path.dirname(current_dir)
-input_filename = os.path.join(project_root, 'wusa_clubs.json')
-output_filename = os.path.join(project_root, 'wusa_clubs_fixed.json')
+input_filename = os.path.join(project_root, 'data', 'wusa_clubs.json')
+output_filename = os.path.join(project_root, 'data', 'wusa_clubs_fixed.json')
 
 print(f"Reading from: {input_filename}")
 print(f"Saving to: {output_filename}")

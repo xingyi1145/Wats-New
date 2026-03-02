@@ -14,8 +14,9 @@ def generate_embeddings():
     else:
         project_root = base_dir
 
-    input_file = os.path.join(project_root, 'wusa_clubs_fixed.json')
-    output_file = os.path.join(project_root, 'wusa_clubs_vectors.json')
+    data_dir = os.path.join(project_root, 'data')
+    input_file = os.path.join(data_dir, 'wusa_clubs_fixed.json')
+    output_file = os.path.join(data_dir, 'wusa_clubs_vectors.json')
 
     print(f"Loading data from {input_file}...")
     try:

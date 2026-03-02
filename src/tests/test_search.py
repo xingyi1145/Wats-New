@@ -1,4 +1,5 @@
 import json
+import os
 import numpy as np
 from sentence_transformers import SentenceTransformer, util
 
@@ -7,10 +8,14 @@ model = SentenceTransformer('all-MiniLM-L6-v2')
 
 print("Loading Vector Databases...")
 
+current_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.dirname(os.path.dirname(current_dir)) # Since tests is inside src
+data_dir = os.path.join(project_root, 'data')
+
 # Load clubs data
 all_items = []
 try:
-    with open('wusa_clubs_vectors.json', 'r', encoding='utf-8') as f:
+    with open(os.path.join(data_dir, 'wusa_clubs_vectors.json'), 'r', encoding='utf-8') as f:
         clubs = json.load(f)
     valid_clubs = [c for c in clubs if 'embedding' in c]
     for c in valid_clubs:
@@ -22,7 +27,7 @@ except FileNotFoundError:
 
 # Load live opportunities data
 try:
-    with open('live_opportunities_vectors.json', 'r', encoding='utf-8') as f:
+    with open(os.path.join(data_dir, 'live_opportunities_vectors.json'), 'r', encoding='utf-8') as f:
         events = json.load(f)
     valid_events = [e for e in events if 'embedding' in e]
     for e in valid_events:

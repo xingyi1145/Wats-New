@@ -2,6 +2,7 @@ import time
 import json
 import logging
 import random
+import os
 from typing import List, Dict, Optional
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 from tqdm import tqdm
@@ -19,7 +20,12 @@ logger = logging.getLogger(__name__)
 
 BASE_URL = "https://clubs.wusa.ca"
 START_URL = "https://clubs.wusa.ca/club_listings"
-OUTPUT_FILE = "wusa_clubs.json"
+
+current_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.dirname(current_dir) if os.path.basename(current_dir) == 'src' else current_dir
+data_dir = os.path.join(project_root, 'data')
+os.makedirs(data_dir, exist_ok=True)
+OUTPUT_FILE = os.path.join(data_dir, "wusa_clubs.json")
 
 def get_club_urls(page) -> List[str]:
     """

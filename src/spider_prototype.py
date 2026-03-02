@@ -20,10 +20,13 @@ from google.genai import errors as genai_errors
 # Configuration
 # ============================================================================
 
+current_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.dirname(current_dir) if os.path.basename(current_dir) == 'src' else current_dir
+
 TARGET_URL = (
     "https://raw.githubusercontent.com/pittcsc/Summer2025-Internships/dev/README.md"
 )
-OUTPUT_FILE = "spider_test.json"
+OUTPUT_FILE = os.path.join(project_root, "data", "spider_test.json")
 
 # ============================================================================
 # Step 1: Fetch and extract visible text

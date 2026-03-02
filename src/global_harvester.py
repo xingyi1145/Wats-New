@@ -1,3 +1,4 @@
+import os
 import json
 from datetime import datetime
 from ddgs import DDGS
@@ -64,7 +65,12 @@ def harvest_global_opportunities():
             print(f"  -> Error searching for '{query}': {str(e)}")
 
     # Save results
-    output_file = "global_opportunities.json"
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.dirname(current_dir) if os.path.basename(current_dir) == 'src' else current_dir
+    data_dir = os.path.join(project_root, 'data')
+    os.makedirs(data_dir, exist_ok=True)
+    output_file = os.path.join(data_dir, "global_opportunities.json")
+
     print(f"\nSaving {len(all_results)} total unique opportunities to {output_file}...")
     
     try:

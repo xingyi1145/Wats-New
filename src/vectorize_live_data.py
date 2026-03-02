@@ -64,8 +64,8 @@ def vectorize_live_data():
     else:
         project_root = base_dir
 
-    input_file = os.path.join(project_root, 'live_opportunities.json')
-    output_file = os.path.join(project_root, 'live_opportunities_vectors.json')
+    input_file = os.path.join(project_root, 'data', 'live_opportunities.json')
+    output_file = os.path.join(project_root, 'data', 'live_opportunities_vectors.json')
 
     print("Loading model 'all-MiniLM-L6-v2'...")
     model = SentenceTransformer('all-MiniLM-L6-v2')
@@ -82,8 +82,8 @@ def vectorize_global_opportunities():
     else:
         project_root = base_dir
 
-    input_file = os.path.join(project_root, 'global_opportunities.json')
-    output_file = os.path.join(project_root, 'global_opportunities_vectors.json')
+    input_file = os.path.join(project_root, 'data', 'global_opportunities.json')
+    output_file = os.path.join(project_root, 'data', 'global_opportunities_vectors.json')
 
     print("Loading model 'all-MiniLM-L6-v2'...")
     model = SentenceTransformer('all-MiniLM-L6-v2')
@@ -112,16 +112,16 @@ def vectorize_all():
     print("\n" + "=" * 60)
     print("1. VECTORIZING LOCAL OPPORTUNITIES")
     print("=" * 60)
-    local_input = os.path.join(project_root, 'live_opportunities.json')
-    local_output = os.path.join(project_root, 'live_opportunities_vectors.json')
+    local_input = os.path.join(project_root, 'data', 'live_opportunities.json')
+    local_output = os.path.join(project_root, 'data', 'live_opportunities_vectors.json')
     vectorize_data_file(local_input, local_output, model)
 
     # Vectorize global opportunities
     print("\n" + "=" * 60)
     print("2. VECTORIZING GLOBAL OPPORTUNITIES")
     print("=" * 60)
-    global_input = os.path.join(project_root, 'global_opportunities.json')
-    global_output = os.path.join(project_root, 'global_opportunities_vectors.json')
+    global_input = os.path.join(project_root, 'data', 'global_opportunities.json')
+    global_output = os.path.join(project_root, 'data', 'global_opportunities_vectors.json')
     vectorize_data_file(global_input, global_output, model)
 
     print("\n" + "=" * 60)

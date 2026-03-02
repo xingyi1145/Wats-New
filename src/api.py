@@ -191,9 +191,10 @@ def load_data():
         project_root = base_dir
 
     all_items = []
+    data_dir = os.path.join(project_root, 'data')
 
     # Load clubs data
-    clubs_path = os.path.join(project_root, 'wusa_clubs_vectors.json')
+    clubs_path = os.path.join(data_dir, 'wusa_clubs_vectors.json')
     try:
         with open(clubs_path, 'r', encoding='utf-8') as f:
             clubs = json.load(f)
@@ -206,7 +207,7 @@ def load_data():
         print(f"  -> Warning: {clubs_path} not found.")
 
     # Load live opportunities data
-    events_path = os.path.join(project_root, 'live_opportunities_vectors.json')
+    events_path = os.path.join(data_dir, 'live_opportunities_vectors.json')
     try:
         with open(events_path, 'r', encoding='utf-8') as f:
             events = json.load(f)
@@ -219,7 +220,7 @@ def load_data():
         print(f"  -> Warning: {events_path} not found.")
 
     # Load global opportunities data
-    global_path = os.path.join(project_root, 'global_opportunities_vectors.json')
+    global_path = os.path.join(data_dir, 'global_opportunities_vectors.json')
     try:
         with open(global_path, 'r', encoding='utf-8') as f:
             global_opps = json.load(f)
@@ -245,7 +246,10 @@ async def lifespan(app: FastAPI):
         project_root = os.path.dirname(base_dir)
     else:
         project_root = base_dir
-    state.db_path = os.path.join(project_root, 'users.db')
+        
+    data_dir = os.path.join(project_root, 'data')
+    os.makedirs(data_dir, exist_ok=True)
+    state.db_path = os.path.join(data_dir, 'users.db')
     print(f"Initializing SQLite database at {state.db_path}...")
     init_database()
 
