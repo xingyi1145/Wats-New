@@ -124,9 +124,36 @@ def vectorize_all():
     global_output = os.path.join(project_root, 'data', 'global_opportunities_vectors.json')
     vectorize_data_file(global_input, global_output, model)
 
+    # Vectorize spider opportunities
+    print("\n" + "=" * 60)
+    print("3. VECTORIZING SPIDER OPPORTUNITIES")
+    print("=" * 60)
+    spider_input = os.path.join(project_root, 'data', 'spider_opportunities.json')
+    spider_output = os.path.join(project_root, 'data', 'spider_opportunities_vectors.json')
+    vectorize_data_file(spider_input, spider_output, model)
+
     print("\n" + "=" * 60)
     print("ALL VECTORIZATION COMPLETE!")
     print("=" * 60)
 
+
+def vectorize_spider_opportunities():
+    """Vectorize spider-crawled opportunities."""
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    if os.path.basename(base_dir) == 'src':
+        project_root = os.path.dirname(base_dir)
+    else:
+        project_root = base_dir
+
+    input_file = os.path.join(project_root, 'data', 'spider_opportunities.json')
+    output_file = os.path.join(project_root, 'data', 'spider_opportunities_vectors.json')
+
+    print("Loading model 'all-MiniLM-L6-v2'...")
+    model = SentenceTransformer('all-MiniLM-L6-v2')
+
+    vectorize_data_file(input_file, output_file, model)
+    print("Done!")
+
+
 if __name__ == "__main__":
-    vectorize_live_data()
+    vectorize_all()

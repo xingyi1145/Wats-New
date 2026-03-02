@@ -232,6 +232,19 @@ def load_data():
     except FileNotFoundError:
         print(f"  -> Warning: {global_path} not found.")
 
+    # Load spider opportunities data
+    spider_path = os.path.join(data_dir, 'spider_opportunities_vectors.json')
+    try:
+        with open(spider_path, 'r', encoding='utf-8') as f:
+            spider_opps = json.load(f)
+        valid_spider = [s for s in spider_opps if 'embedding' in s]
+        for s in valid_spider:
+            s['_type'] = 'spider_opportunity'
+        all_items.extend(valid_spider)
+        print(f"  -> Loaded {len(valid_spider)} spider opportunities.")
+    except FileNotFoundError:
+        print(f"  -> Warning: {spider_path} not found.")
+
     return all_items
 
 
