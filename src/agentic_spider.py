@@ -54,7 +54,7 @@ REQUEST_HEADERS = {
     "User-Agent": "Mozilla/5.0 (compatible; WatsNew-Spider/1.0)"
 }
 
-POLITENESS_DELAY = 3  # seconds between requests
+POLITENESS_DELAY = 15  # seconds between requests (Ensures < 5 Requests Per Minute for Gemini)
 
 # ============================================================================
 # Heuristic bouncer – decide which links are worth crawling
@@ -187,7 +187,7 @@ def crawl(seed_urls: list[str], max_depth: int) -> list[dict]:
             # CIRCUIT BREAKER 4: Truncate massive pages so the LLM doesn't choke
             # Roughly limits the input to ~15,000 characters (keeps API costs low)
             if len(page_text) > 15000:
-                print("  ⚠️ Page is massive. Truncating text to prevent LLM crash...")
+                print("  Page is massive. Truncating text to prevent LLM crash...")
                 page_text = page_text[:15000]
 
         except Exception as e:
@@ -196,7 +196,7 @@ def crawl(seed_urls: list[str], max_depth: int) -> list[dict]:
             continue
 
         if len(page_text) < 100:
-            print("  ⏭ Page too short, skipping LLM call.")
+            print("  Page too short, skipping LLM call.")
             time.sleep(POLITENESS_DELAY)
             continue
 
@@ -214,7 +214,7 @@ def crawl(seed_urls: list[str], max_depth: int) -> list[dict]:
         time.sleep(POLITENESS_DELAY)
 
     if queue:
-        print(f"\n🛑 CIRCUIT BREAKER TRIPPED: Reached max limit of {MAX_PAGES_TO_PROCESS} pages. Stopping early.")
+        print(f"\nCIRCUIT BREAKER TRIPPED: Reached max limit of {MAX_PAGES_TO_PROCESS} pages. Stopping early.")
 
     return all_opportunities
 
