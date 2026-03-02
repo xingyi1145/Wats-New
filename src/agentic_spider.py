@@ -137,50 +137,59 @@ def fetch_html(url: str) -> str | None:
 # ============================================================================
 
 def crawl(seed_urls: list[str], max_depth: int) -> list[dict]:
-    """
-    BFS-style crawl starting from seed_urls up to max_depth hops.
-    Each reachable page is fed to the LLM extractor.
-    Returns a de-duplicated list of opportunity dicts.
-    """
     seen_urls: set[str] = set()
     all_opportunities: list[dict] = []
-    seen_links: set[str] = set()  # de-dup by opportunity link
+    seen_links: set[str] = set() 
+    
+    # CIRCUIT BREAKER 1: Hard limits to prevent infinite loops and API bankruptcy
+    MAX_PAGES_TO_PROCESS = 15  # Stop after processing this many pages
+    MAX_CHILDREN_PER_PAGE = 5  # Only follow the first 5 good links per page
+    pages_processed = 0
 
-    # Queue entries: (url, current_depth)
     queue: list[tuple[str, int]] = [(url, 0) for url in seed_urls]
+    
+    # Mark seeds as seen immediately so they aren't queued again
+    for url in seed_urls:
+        seen_urls.add(url.split("#")[0].rstrip("/"))
 
-    while queue:
+    while queue and pages_processed < MAX_PAGES_TO_PROCESS:
         url, depth = queue.pop(0)
 
-        # Normalise and skip duplicates
-        url = url.split("#")[0].rstrip("/")
-        if url in seen_urls:
-            continue
-        seen_urls.add(url)
-
         print(f"\n{'='*60}")
-        print(f"  [{depth}/{max_depth}] Crawling: {url}")
+        print(f"  [{depth}/{max_depth}] Crawling: {url} (Total Processed: {pages_processed}/{MAX_PAGES_TO_PROCESS})")
         print(f"{'='*60}")
 
-        # ----- Fetch raw HTML -----
         html = fetch_html(url)
         if html is None:
             continue
 
-        # ----- Discover child links (if we haven't reached max depth) -----
+        # ----- Discover child links -----
         if depth < max_depth:
             child_links = extract_links(html, url)
             kept = 0
             for link in child_links:
+                if kept >= MAX_CHILDREN_PER_PAGE:
+                    break # CIRCUIT BREAKER 2: Stop adding children
+
                 normalised = link.split("#")[0].rstrip("/")
+                # CIRCUIT BREAKER 3: Add to seen_urls BEFORE appending to queue
                 if normalised not in seen_urls and is_worth_crawling(normalised):
+                    seen_urls.add(normalised) 
                     queue.append((normalised, depth + 1))
                     kept += 1
-            print(f"  → Discovered {len(child_links)} links, {kept} passed the heuristic bouncer.")
+                    
+            print(f"  → Discovered {len(child_links)} links, kept {kept} (Capped at {MAX_CHILDREN_PER_PAGE}).")
 
-        # ----- Extract visible text and run LLM -----
+        # ----- Extract text and run LLM -----
         try:
             page_text = fetch_page_text(url)
+            
+            # CIRCUIT BREAKER 4: Truncate massive pages so the LLM doesn't choke
+            # Roughly limits the input to ~15,000 characters (keeps API costs low)
+            if len(page_text) > 15000:
+                print("  ⚠️ Page is massive. Truncating text to prevent LLM crash...")
+                page_text = page_text[:15000]
+
         except Exception as e:
             print(f"  ✗ Text extraction failed: {e}")
             time.sleep(POLITENESS_DELAY)
@@ -191,9 +200,10 @@ def crawl(seed_urls: list[str], max_depth: int) -> list[dict]:
             time.sleep(POLITENESS_DELAY)
             continue
 
+        # Hit the API
         opportunities = extract_opportunities_with_llm(page_text)
+        pages_processed += 1
 
-        # De-duplicate by link (or title if link is empty)
         for opp in opportunities:
             key = opp.get("link") or opp.get("title", "")
             if key and key not in seen_links:
@@ -201,12 +211,10 @@ def crawl(seed_urls: list[str], max_depth: int) -> list[dict]:
                 all_opportunities.append(opp)
 
         print(f"  ✓ Running total: {len(all_opportunities)} unique opportunities")
-
-        # Save incrementally
-        save_opportunities(all_opportunities)
-
-        # Be polite
         time.sleep(POLITENESS_DELAY)
+
+    if queue:
+        print(f"\n🛑 CIRCUIT BREAKER TRIPPED: Reached max limit of {MAX_PAGES_TO_PROCESS} pages. Stopping early.")
 
     return all_opportunities
 
