@@ -201,10 +201,13 @@ def crawl(seed_urls: list[str], max_depth: int) -> list[dict]:
             continue
 
         # Hit the API
-        opportunities = extract_opportunities_with_llm(page_text)
+        opportunities = extract_opportunities_with_llm(page_text, url)
         pages_processed += 1
 
         for opp in opportunities:
+            # Guarantee every opportunity has a valid link
+            if not opp.get("link"):
+                opp["link"] = url
             key = opp.get("link") or opp.get("title", "")
             if key and key not in seen_links:
                 seen_links.add(key)

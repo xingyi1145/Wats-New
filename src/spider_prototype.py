@@ -78,12 +78,12 @@ TASK: Extract every distinct opportunity you can find and return a JSON array.
 
 OUTPUT FORMAT (strict – no markdown fences, no commentary, ONLY the JSON array):
 [
-  {
+  {{
     "title": "<company or program name and role>",
     "link": "<application URL if present, otherwise empty string>",
     "snippet": "<Exactly two sentences summarizing the opportunity, including location and any deadline info.>",
     "source": "spider_agent"
-  }
+  }}
 ]
 
 RULES:
@@ -94,10 +94,13 @@ RULES:
 5. If no opportunities are found, return an empty array: []
 6. Limit output to the top 20 most distinct, well-described opportunities.
 7. De-duplicate: if the same company+role appears multiple times, keep only one.
+8. You must include a valid URL in the link field. If you cannot extract a specific application link from the text, you MUST fallback and use the provided source URL exactly as written: '{source_url}'.
+
+Source URL: {source_url}
 """
 
 
-def extract_opportunities_with_llm(page_text: str) -> list[dict]:
+def extract_opportunities_with_llm(page_text: str, source_url: str = "") -> list[dict]:
     """
     Send extracted text to Gemini and parse the structured JSON response.
     """
@@ -125,9 +128,10 @@ def extract_opportunities_with_llm(page_text: str) -> list[dict]:
     max_retries = 3
     for attempt in range(1, max_retries + 1):
         try:
+            prompt = SYSTEM_PROMPT.format(source_url=source_url or "unknown")
             response = client.models.generate_content(
                 model="gemini-2.5-flash",
-                contents=f"{SYSTEM_PROMPT}\n\n--- BEGIN SCRAPED TEXT ---\n{page_text}\n--- END SCRAPED TEXT ---",
+                contents=f"{prompt}\n\n--- BEGIN SCRAPED TEXT ---\n{page_text}\n--- END SCRAPED TEXT ---",
             )
             break  # Success
         except genai_errors.APIError as e:
@@ -202,7 +206,7 @@ def main():
     text = fetch_page_text(TARGET_URL)
 
     # Extract
-    opportunities = extract_opportunities_with_llm(text)
+    opportunities = extract_opportunities_with_llm(text, TARGET_URL)
 
     if not opportunities:
         print("\nNo opportunities extracted. Exiting.")
