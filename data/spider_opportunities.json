@@ -24,21 +24,9 @@
     "source": "spider_agent"
   },
   {
-    "title": "Google Summer of Code Contributor",
-    "link": "https://summerofcode.withgoogle.com/about",
-    "snippet": "Google Summer of Code is a global, online mentoring program focused on introducing new contributors to open source software development. GSoC contributors work on a 12+ week programming project with guidance from mentors, receiving a small stipend as an incentive.",
-    "source": "spider_agent"
-  },
-  {
     "title": "Google Summer of Code - Mentor Organization",
     "link": "https://summerofcode.withgoogle.com/get-started",
     "snippet": "Organizations can apply to be a mentor organization for the Google Summer of Code program, helping bring new developers to their open source community. Please note that organization registration for this program is currently closed.",
-    "source": "spider_agent"
-  },
-  {
-    "title": "Google Summer of Code (GSoC) Program",
-    "link": "https://summerofcode.withgoogle.com/help",
-    "snippet": "Google Summer of Code (GSoC) is a program focused on introducing developers to open source software development. Information on how it works, program rules, and the program timeline can be found on the official website.",
     "source": "spider_agent"
   }
 ]

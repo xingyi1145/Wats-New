@@ -10,6 +10,9 @@ import os
 import re
 from urllib.parse import urlparse, urlunparse
 
+import numpy as np
+from sentence_transformers import SentenceTransformer, util
+
 
 # ============================================================================
 # Path setup
@@ -22,6 +25,14 @@ project_root = (
     else current_dir
 )
 data_dir = os.path.join(project_root, "data")
+
+# ============================================================================
+# Model loading (once)
+# ============================================================================
+
+print("Loading sentence-transformers model...")
+MODEL = SentenceTransformer("all-MiniLM-L6-v2")
+SEMANTIC_THRESHOLD = 0.85
 
 
 # ============================================================================
@@ -122,11 +133,52 @@ def clean_file(filepath: str) -> int:
 
         cleaned.append(item)
 
+    exact_removed = removed
+    print(f"  Pass 1 (exact match): removed {exact_removed} duplicates, {len(cleaned)} remain.")
+
+    # ------------------------------------------------------------------
+    # Pass 2: Semantic deduplication via cosine similarity
+    # ------------------------------------------------------------------
+    if len(cleaned) > 1:
+        print("  Running semantic deduplication...")
+
+        comparison_texts = [
+            (item.get("title", "") + " " + item.get("snippet", "")).strip()
+            for item in cleaned
+        ]
+
+        embeddings = MODEL.encode(comparison_texts, convert_to_tensor=True,
+                                  show_progress_bar=False)
+        sim_matrix = util.cos_sim(embeddings, embeddings).cpu().numpy()
+
+        # Flag indices to drop (keep earlier item, drop later one)
+        semantic_dupes: set[int] = set()
+        for i in range(len(cleaned)):
+            if i in semantic_dupes:
+                continue
+            for j in range(i + 1, len(cleaned)):
+                if j in semantic_dupes:
+                    continue
+                if sim_matrix[i][j] > SEMANTIC_THRESHOLD:
+                    print(
+                        f"  ✗ Semantic duplicate (sim={sim_matrix[i][j]:.3f}): "
+                        f"\"{cleaned[j].get('title', '?')[:50]}\" "
+                        f"≈ \"{cleaned[i].get('title', '?')[:50]}\""
+                    )
+                    semantic_dupes.add(j)
+
+        semantic_removed = len(semantic_dupes)
+        if semantic_dupes:
+            cleaned = [item for idx, item in enumerate(cleaned)
+                       if idx not in semantic_dupes]
+        print(f"  Pass 2 (semantic): removed {semantic_removed} duplicates, {len(cleaned)} remain.")
+        removed += semantic_removed
+
     # Overwrite the original file
     with open(filepath, "w", encoding="utf-8") as f:
         json.dump(cleaned, f, indent=2, ensure_ascii=False)
 
-    print(f"  ✓ Kept {len(cleaned)} / {original_count} items ({removed} duplicates removed).")
+    print(f"  ✓ Kept {len(cleaned)} / {original_count} items ({removed} total duplicates removed).")
     return removed
 
 
