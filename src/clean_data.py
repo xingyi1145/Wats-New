@@ -32,7 +32,16 @@ data_dir = os.path.join(project_root, "data")
 
 print("Loading sentence-transformers model...")
 MODEL = SentenceTransformer("all-MiniLM-L6-v2")
-SEMANTIC_THRESHOLD = 0.85
+SEMANTIC_THRESHOLD = 0.78
+
+DOMAIN_BLACKLIST = [
+    "tiktok.com",
+    "youtube.com",
+    "facebook.com",
+    "instagram.com",
+    "coursejoiner.com",
+    "makeoverarena.com"
+]
 
 
 # ============================================================================
@@ -112,6 +121,12 @@ def clean_file(filepath: str) -> int:
     for item in items:
         norm_url = normalize_url(item.get("link", ""))
         norm_title = normalize_title(item.get("title", ""))
+
+        # Check domain blacklist
+        if norm_url and any(domain in norm_url for domain in DOMAIN_BLACKLIST):
+            print(f"  ✗ Spam domain removed: {norm_url}")
+            removed += 1
+            continue
 
         # Check for duplicate URL (skip empty URLs)
         if norm_url and norm_url in seen_urls:
