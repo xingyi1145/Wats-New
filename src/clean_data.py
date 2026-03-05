@@ -209,6 +209,7 @@ if __name__ == "__main__":
     files_to_clean = [
         os.path.join(data_dir, "global_opportunities.json"),
         os.path.join(data_dir, "spider_opportunities.json"),
+        os.path.join(data_dir, "live_opportunities.json"), # Add this line!
     ]
 
     total_removed = 0
