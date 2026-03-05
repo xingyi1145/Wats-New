@@ -132,6 +132,14 @@ def vectorize_all():
     spider_output = os.path.join(project_root, 'data', 'spider_opportunities_vectors.json')
     vectorize_data_file(spider_input, spider_output, model)
 
+    # Vectorize design teams
+    print("\n" + "=" * 60)
+    print("4. VECTORIZING DESIGN TEAMS")
+    print("=" * 60)
+    teams_input = os.path.join(project_root, 'data', 'design_teams.json')
+    teams_output = os.path.join(project_root, 'data', 'design_teams_vectors.json')
+    vectorize_data_file(teams_input, teams_output, model)
+
     print("\n" + "=" * 60)
     print("ALL VECTORIZATION COMPLETE!")
     print("=" * 60)
@@ -147,6 +155,24 @@ def vectorize_spider_opportunities():
 
     input_file = os.path.join(project_root, 'data', 'spider_opportunities.json')
     output_file = os.path.join(project_root, 'data', 'spider_opportunities_vectors.json')
+
+    print("Loading model 'all-MiniLM-L6-v2'...")
+    model = SentenceTransformer('all-MiniLM-L6-v2')
+
+    vectorize_data_file(input_file, output_file, model)
+    print("Done!")
+
+
+def vectorize_design_teams():
+    """Vectorize sedra design teams."""
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    if os.path.basename(base_dir) == 'src':
+        project_root = os.path.dirname(base_dir)
+    else:
+        project_root = base_dir
+
+    input_file = os.path.join(project_root, 'data', 'design_teams.json')
+    output_file = os.path.join(project_root, 'data', 'design_teams_vectors.json')
 
     print("Loading model 'all-MiniLM-L6-v2'...")
     model = SentenceTransformer('all-MiniLM-L6-v2')

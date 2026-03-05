@@ -245,6 +245,19 @@ def load_data():
     except FileNotFoundError:
         print(f"  -> Warning: {spider_path} not found.")
 
+    # Load design teams data
+    teams_path = os.path.join(data_dir, 'design_teams_vectors.json')
+    try:
+        with open(teams_path, 'r', encoding='utf-8') as f:
+            teams = json.load(f)
+        valid_teams = [t for t in teams if 'embedding' in t]
+        for t in valid_teams:
+            t['_type'] = 'design_team'
+        all_items.extend(valid_teams)
+        print(f"  -> Loaded {len(valid_teams)} design teams.")
+    except FileNotFoundError:
+        print(f"  -> Warning: {teams_path} not found.")
+
     return all_items
 
 
