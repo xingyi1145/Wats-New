@@ -1,0 +1,30 @@
+2026-03-04 20:54:06,830 [INFO] ============================================================
+2026-03-04 20:54:06,830 [INFO]   DAILY PIPELINE – High Velocity Data
+2026-03-04 20:54:06,830 [INFO] ============================================================
+2026-03-04 20:54:06,830 [INFO] ▶ Starting: Global Harvester (global_harvester.py)
+2026-03-04 20:54:20,054 [INFO] ✓ Completed: Global Harvester in 13.2s
+2026-03-04 20:54:20,054 [INFO] ▶ Starting: News Harvester (news_harvester.py)
+2026-03-04 20:54:32,774 [INFO] ✓ Completed: News Harvester in 12.7s
+2026-03-04 20:54:32,774 [INFO] ▶ Starting: Wat2Do Scraper (scrape_wat2do.py)
+2026-03-04 20:54:34,109 [INFO] ✓ Completed: Wat2Do Scraper in 1.3s
+2026-03-04 20:54:34,109 [INFO] ▶ Starting: Data Cleaner (clean_data.py)
+2026-03-04 20:54:43,602 [INFO] ✓ Completed: Data Cleaner in 9.5s
+2026-03-04 20:54:43,602 [INFO] ▶ Starting: Vectorizer (vectorize_live_data.py)
+2026-03-04 20:54:48,509 [INFO] ✓ Completed: Vectorizer in 4.9s
+2026-03-04 20:54:48,509 [INFO] ============================================================
+2026-03-04 20:54:48,509 [INFO]   DAILY PIPELINE COMPLETE: 5/5 succeeded, 0 failed.
+2026-03-04 20:54:48,509 [INFO] ============================================================
+2026-03-04 21:07:16,674 [INFO] ============================================================
+2026-03-04 21:07:16,674 [INFO]   DAILY PIPELINE – High Velocity Data
+2026-03-04 21:07:16,674 [INFO] ============================================================
+2026-03-04 21:07:16,674 [INFO] ▶ Starting: News Harvester (news_harvester.py)
+2026-03-04 21:07:28,899 [INFO] ✓ Completed: News Harvester in 12.2s
+2026-03-04 21:07:28,899 [INFO] ▶ Starting: Wat2Do Scraper (scrape_wat2do.py)
+2026-03-04 21:07:29,879 [INFO] ✓ Completed: Wat2Do Scraper in 1.0s
+2026-03-04 21:07:29,879 [INFO] ▶ Starting: Data Cleaner (clean_data.py)
+2026-03-04 21:07:39,700 [INFO] ✓ Completed: Data Cleaner in 9.8s
+2026-03-04 21:07:39,700 [INFO] ▶ Starting: Vectorizer (vectorize_live_data.py)
+2026-03-04 21:07:47,127 [INFO] ✓ Completed: Vectorizer in 7.4s
+2026-03-04 21:07:47,127 [INFO] ============================================================
+2026-03-04 21:07:47,127 [INFO]   DAILY PIPELINE COMPLETE: 4/4 succeeded, 0 failed.
+2026-03-04 21:07:47,127 [INFO] ============================================================

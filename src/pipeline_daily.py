@@ -45,7 +45,6 @@ logger = logging.getLogger("pipeline_daily")
 PYTHON = sys.executable  # Use the same interpreter running this script
 
 STEPS = [
-    ("Global Harvester",     os.path.join(current_dir, "global_harvester.py")),
     ("News Harvester",       os.path.join(current_dir, "news_harvester.py")),
     ("Wat2Do Scraper",       os.path.join(current_dir, "scrape_wat2do.py")),
     ("Data Cleaner",         os.path.join(current_dir, "clean_data.py")),

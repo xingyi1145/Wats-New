@@ -45,6 +45,7 @@ logger = logging.getLogger("pipeline_monthly")
 PYTHON = sys.executable
 
 STEPS = [
+    ("Global Harvester",     os.path.join(current_dir, "global_harvester.py")),
     ("Clubs Scraper",        os.path.join(current_dir, "scrape_clubs.py")),
     ("Design Teams Scraper", os.path.join(current_dir, "scrape_design_teams.py")),
     ("Embeddings Generator", os.path.join(current_dir, "generate_embeddings.py")),

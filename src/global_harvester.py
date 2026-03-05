@@ -74,6 +74,12 @@ def harvest_global_opportunities():
     print(f"\nSaving {len(all_results)} total unique opportunities to {output_file}...")
     
     try:
+        if os.path.exists(output_file):
+            with open(output_file, 'r', encoding='utf-8') as f:
+                existing_data = json.load(f)
+            existing_data.extend(all_results)
+            all_results = existing_data
+
         with open(output_file, 'w', encoding='utf-8') as f:
             json.dump(all_results, f, indent=4, ensure_ascii=False)
         print("Global harvest complete!")
