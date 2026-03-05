@@ -1,0 +1,242 @@
+[
+  {
+    "title": "Baja SAE",
+    "link": "https://waterloobaja.ca/",
+    "snippet": "The University of Waterloo Baja SAE team designs and builds an off-road, single seat vehicle to compete annually at SAE sanctioned Baja competitions. The competition events include endurance, acceleration, top speed and manoeuvrability events. Each team is provided with a 10 horsepower engine that cannot be modified; the rest of the vehicle is designed and built from scratch every year, such as the frame, suspension, powertrain and controls.",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "Battery Workforce Challenge",
+    "link": "https://uwevolution.com/",
+    "snippet": "We are a student-run design team focused on designing, building, and integrating an electric vehicle (EV) battery pack into a Ram ProMaster cargo van. Our team is part of the Battery Workforce Challenge (BWC), an Advanced Vehicle Technology Competition (AVTC) series sponsored by the U.S. Department of Energy and Stellantis and managed by Argonne National Laboratory.",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "Concrete Canoe Team",
+    "link": "https://waterlooconcretecanoe.ca",
+    "snippet": "The UW Concrete Canoe Teamdesigns, builds, and races a canoe made entirely of reinforced concrete for the annual Canadian National Concrete Canoe Competition (CNCCC). The competition rules change each year to incorporate new challenges and we are generally evaluated our concrete mix design, hull design/modelling, structural design/analysis, construction & project management, sustainability including GHG accounting, impact evaluation & mitigation, equity diversity and inclusion (EDI) initiatives, paddling race performance, and spirit. We also dabble in programming, website/UX design, graphic design and much more.",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "Concrete Toboggan Team",
+    "link": "https://waterlootoboggan.ca/",
+    "snippet": "The Waterloo Toboggan Team (est. 1984) designs and builds a 5-person sled with steering, braking, suspension, and concrete skis, then races it against other universities in Canada's oldest and largest student engineering competition; the Great Northern Concrete Toboggan Race (GNCTR). 400+ students from 20+ schools gather annually for three days at GNCTR to showcase their themed toboggans to judges, pass safety inspections, and hit speeds of over 70 km/h.",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "Electrium Mobility",
+    "link": "https://electriummobility.com/",
+    "snippet": "Electrium Mobility is a student design team at the University of Waterloo dedicated to building sustainable, portable, and electric transportation solutions in the form of electric skateboards, bikes, scooters, and other portable electric mobility options. The team currently holds internal competitions where multiple sub-teams test and compete with the personal electric vehicles they have built. Our focus is being a beginner-friendly team and providing students a hands-on experience while minimizing the learning curve.",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "Engineers Without Borders",
+    "link": "https://www.facebook.com/ewbuw/",
+    "snippet": "Engineers Without Borders (EWB) is an non-governmental organization founded by Waterloo graduates that work towards ending poverty within the world. With 34 professional and student chapters across Canada, we work to support initiatives in Ghana, Malawi, Uganda, Zambia, and many more countries. The University of Waterloo EWB chapter is committed to developing leaders with the skills and perspective necessary to create sustainable social change in local, national, and international communities, especially focusing on Indigenous communities within Canada.",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "F_rmlab",
+    "link": "https://frmlab.ca/Landing",
+    "snippet": "F_RMlab is a design and research collective engaged in advanced computational design tools in support of new paradigms of public space where dynamic interaction, social responsiveness, regenerative materials and systemic resilience are integral goals in building. F_RMlab promotes computational discourse and media at the University of Waterloo School of Architecture through the process of collaborative design and experimentation in real-world projects. Since 2012, we have frequently exhibited at design festivals with installation work, utilizing computational design tools and alternative methods of digital fabrication to explore the intersection of technology and art as well as push the possibilities of interactive architecture.",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "Formula Nano",
+    "link": "https://uwformulanano.ca/",
+    "snippet": "Formula Nano is dedicated to designing, building, and racing molecular machines at the nanoscale. We're working towards competing in the next international Nanocar Race where teams compete to race single molecules using a specialized scanning tunneling microscope. Our team members focus on the synthesis and characterization of molecular components in the lab or on simulating and optimizing the nanocar using computational models, exploring two important pillars of nanotechnology engineering.",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "UW Formula Electric",
+    "link": "https://www.uwfsae.ca/",
+    "snippet": "University of Waterloo Formula Electric (UWFE, formerly known as Waterloo Formula Electric and UW Formula Motorsports), is a student design team dedicated to designing, building, testing, and competing with a formula-style open-wheel electric racecar each year in the FSAE Michigan and Formula Hybrid + Electric competition series. If you're interested in being a racecar engineer and manufacturing a vehicle from the ground-up each year, consider joining the team!",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "Hacker Fab",
+    "link": "https://www.waterloofab.com/",
+    "snippet": "Waterloo Hacker Fab is establishing Canada’s first open-source microchip fabrication lab, with all equipment engineered from scratch. Our goal is to develop reliable processes to build NMOSFET chips with a 10-micron gate length in a 24-hour turnaround.",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "Industry 4.0 Team",
+    "link": "https://uwaterloo.ca/sedra-student-design-centre/directory-teams",
+    "snippet": "The University of Waterloo Industry 4.0 design team is focused on promoting the unique Management Engineering program offered here at the University. Our team designs and organizes an \"industry 4.0\"-theme competition for high school students across the country to participate in and learn about these concepts in a fun and engaging manner. The members of our team get the opportunity to plan and execute a competition from scratch and deal with all the various components that go into such a project, all the while learning more about our field.",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "International Genetically Engineered Machine Team (iGEM)",
+    "link": "https://igem.uwaterloo.ca/",
+    "snippet": "The goal of the Waterloo International Genetically Engineered Machine team (iGEM) is to engineer biological processes like electrical and software systems, rewiring naturally-occurring genetic components using principles from synthetic biology. The team competes annually at the iGEM competition, allowing students to explore new and exciting ways to solve real world problems using biological parts.",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "MedTechResolve",
+    "link": "https://uwmedtechresolve.ca",
+    "snippet": "MedTechResolve aims to automate the process of diagnosis, treatment, and prognosis, both inside and outside of the emergency room (ER). Our current project focuses on shortening the waiting time as well as reducing excessive reliance on human assistance during triage in the ER. The team participates in the John Hopkins Healthcare Design Competition annually.",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "Midnight Sun Solar Car Team",
+    "link": "https://www.uwmidsun.com/",
+    "snippet": "The Midnight Sun Solar Rayce Car Team designs, manufactures, and races solar-electric cars capable of travelling on public highways. Our mission is to educate the public and promote innovation in sustainable energy technologies. Midnight Sun’s membership spans from the undergraduate level all the way to university alumni and come from all of UW’s six faculties.",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "Robotics Team (UWRT)",
+    "link": "https://www.uwaterloorobotics.com/",
+    "snippet": "The uWaterloo Robotics Team focuses on the constantly evolving field of autonomous vehicles and the team frequently takes on multiple projects and competitions each year. These competitions have included the NASA Sample Return Robot Challenge, the International Autonomous Robot Racing Challenge, the Intelligent Ground Vehicle Competition, the University Rover Challenge and a UW mini-sumo robotics competition as an introductory project for junior team members.",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "Steel Bridge Design Team",
+    "link": "https://www.uwaterloosteelbridge.com/",
+    "snippet": "The Steel Bridge Design Team's focus is on designing, fabricating, and competing with a modular steel bridge at an annual international competition. The design portion requires creativity and a quick mind, with upper year team members helping to teach technical skills along the way. The fabrication team uses welders, mills, saws, and grinders to fabricate each module of the bridge.",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "The Waterloo Alternative Protein Project",
+    "link": "http://www.altprotein.ca",
+    "snippet": "The Waterloo Alternative Protein Project is the first chapter of the Good Food Institute’s Alt. Protein Project in Canada. The project aims to create a sustainable and secure food system through research, entrepreneurship, and innovation.",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "UWAFT",
+    "link": "https://www.uwaft.ca/",
+    "snippet": "At UWAFT (University of Waterloo Alternative Fuel Team) we continuously break new ground in the field of sustainable transportation through innovation, technology, and student engagement. Through active community involvement we spread the message of sustainability locally, nationally, and internationally.",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "UWATERLOO IISE",
+    "link": "http://uwaterlooiise.ca/",
+    "snippet": "IISE is the world's largest professional society dedicated to the support of the industrial & systems engineering profession and individuals involved with improving quality and productivity. ​ The UWaterloo IISE Chapter was formed in 2012 and has since gone on to provide countless opportunities and services for students to reach their full potential.",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "UW ASIC",
+    "link": "https://uwasic.com/",
+    "snippet": "UWASIC is a student design team at the University of Waterloo dedicated to exploring the world of ASIC and FPGA development.Our mission is to bridge the gap between academic learning and industry practice, preparing the next generation of chip designers. Website:https://uwasic.com/ Email:uwasic.waterloo@gmail.com",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "UW Biomechatronics Design Team",
+    "link": "https://uwbiotron.netlify.app/",
+    "snippet": "The UW Biomechatronics Design Team (aka Biotron) is a design team at the University of Waterloo that designs and builds biomechanical devices to solve biomedical problems. We are a group of science and engineering students that create solutions to emerging and existing problems in the biomedical field.Our team is comprised of 4 sub-teams: EMG Fabric, e-NABLE, Spine Bio Sticker, and Tetra. Each team is working on creating solutions to different biomedical issues",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "UW Blueprint",
+    "link": "http://uwblueprint.org",
+    "snippet": "UW Blueprint strives to make technology accessible and useful for those who create communities and promote public welfare. We are a group of students dedicated to building and promoting technology for social good. We partner with non-profits to provide technology services such as web applications, mobile applications and analysis tools—free of charge.",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "UW NanoRobotics Group",
+    "link": "https://uwaterloo.ca/sedra-student-design-centre/directory-teams",
+    "snippet": "UWNRG is a student-run design team aiming to solve modern problems with nano solutions. Over the past few years, UWNRG has gone from competing in IEEE’s International ICRA competition to establishing its very own research group. Our current project involves designing and fabricating a FET sensor with graphene oxide gel for bio-sensing applications.",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "UW Orbital",
+    "link": "https://uwaterloo.ca/sedra-student-design-centre/directory-teams",
+    "snippet": "UW Orbital is a group of determined individuals, of all different skill levels and programs, coming together to build a CubeSat with the goal of competing in the upcoming Canadian Satellite Design Challenge (CSDC). Throughout the design challenge, students will have the chance to learn about electrical, mechanical and firmware engineering, as well as get exposure to the managerial and business side of the space industry. The team hopes to build a launchpad for students to enter the SpaceTech industry by providing technical, hands-on experience and opportunities to develop their professional networks.",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "UW REACT - FIRST Robotics",
+    "link": "https://uwaterloo.ca/first-robotics-competition/",
+    "snippet": "UW REACT keeps the spirit of theFIRST Robotics Competitionalive after high school by building fully autonomous FRC robots. We design, manufacture, program, and compete against other FRC teams, but without using a human driver. We also host the worlds largest Robot in 3 Days event every year, where two teams of students build FRC robots in just 72 hours, completing the entire FRC challenge 40 days before bag and tag.",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "UW Reality Labs",
+    "link": "https://github.com/uwrealitylabs",
+    "snippet": "UW Reality Labs is a student design team at the University of Waterloo that specializes in XR (extended reality) and spatial computing. Our team offers students hands-on experience with cutting-edge VR (virtual reality) and AR (augmented reality) technologies, as well as experimental spatial experiences. We encourage highly interested students from all engineering disciplines to join us!",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "UWSiO",
+    "link": "https://ca.linkedin.com/company/uw-sio",
+    "snippet": "UWSiO (University of Waterloo Silicon Integrated Optics) is a dynamic group of students focused on advancing and revolutionizing data storage through the use of silica systems. In an age of rapidly growing and often wasteful data production, we aim to develop solutions that are more efficient, durable, and scalable. Our mission extends beyond advancing storage technology; we are committed to making it widely accessible.",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "UW Vex U Robotics Team",
+    "link": "https://www.uwvexu.com/",
+    "snippet": "The UW VEX U Robotics design team; designs, builds and programs robots to compete in the international VEX U Robotics competition. Every season a new challenge is announced in which over 300 teams spend the year constructing, optimising and competing against each other. These robots are capable of precise object manipulation, visual object detection, unaided autonomous motion and navigation, driver-assisted remote operation, and much more.",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "WAT ARROW",
+    "link": "https://watarrow.com/",
+    "snippet": "WatArrow is a new design team at the University of Waterloo that focuses on the design of small airplanes to compete in the SAE Aero Design competition. We design, build, test, and compete with our electric competition aircraft. Everything that our team produces is in-house.",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "Wat Street",
+    "link": "https://linktr.ee/watstreet",
+    "snippet": "Wat Street is a student-run Design Team at the University of Waterloo that strives to provide students with a comprehensive education in the fields of financial investment strategies and algorithm development. The team's primary goal is to create a space where students can learn the fundamentals of quantitative analysis and how to apply them in real-world situations. We will participate in trading competitions such as Optiver's ReadyTraderGo and partner with trading firms to develop algorithms for a variety of markets.",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "Warrior Home",
+    "link": "https://www.warriorhome.ca/",
+    "snippet": "The Warrior Home Design Team is a multidisciplinary student design team at the University of Waterloo working towards implementing a high-performance, sustainable, and net-zero energy building in the affordable housing market. Each year, the team hopes to partner with a community that seeks to improve building design with a focus on sustainability and resilience. In 2020, Warrior Home will be partnering with Ottawa Community Housing.",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "Waterloo Aerial Robotics Group (WARG)",
+    "link": "https://www.uwarg.com/",
+    "snippet": "The Waterloo Aerial Robotics Group provides support to all student-run unmanned aerial vehicle (UAV) projects at Waterloo. These projects have included fixed wing aircraft for the Unmanned Systems Canada Competition and a fire detection quadrotor for a capstone design project. The team also hosts engineering design competitions for upper year students at Waterloo.",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "Waterloo RoboSoccer Team",
+    "link": "https://uw-robosoccer.github.io/",
+    "snippet": "The Waterloo RoboSoccer Team (UWRS) develops autonomous humanoid robots to compete in 4-on-4 soccer matches at the annual RoboCup competition. In collaboration with UW’s RoboHub and industry advisors, the team strives to push the boundaries of robotic intelligence and agility through innovative reinforcement learning models, advanced control theory, and cutting-edge electro-mechanical systems. Website:https://uw-robosoccer.github.io/ Email:uwrobosoccer@gmail.com",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "Waterloo Rocketry Team",
+    "link": "https://www.waterloorocketry.com/",
+    "snippet": "This isn't your uncle's hobby rocketry. Waterloo Rocketry builds sounding rockets that deliver 10 pounds of payload to altitudes of up to 23 000 feet. This team competes annually at the Intercollegiate Rocket Engineering Competition, the world’s biggest competition between undergraduate rocketry teams.",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "Waterloo Space Research Team (WSRT)",
+    "link": "https://www.uwspaceresearch.ca/",
+    "snippet": "UW Space Research empowers undergraduate students to explore the frontiers of space research through hands-on design, engineering, and experimentation. Our mission is to advance knowledge in aerospace applications, science, and technology while fostering innovation and collaboration. By providing opportunities to build and test impactful projects, we aim to equip the next generation of leaders in space exploration and engineering.",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "Waterloop",
+    "link": "http://www.teamwaterloop.com/",
+    "snippet": "The Waterloop project is the response by a group of dedicated University of Waterloo students to the SpaceX Hyperloop pod challenge to independently design and build a prototype Hyperloop pod to be tested on a one-mile test track in Hawthorne, California in the summer of 2016.",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "WATFlow",
+    "link": "https://www.linkedin.com/company/watflow",
+    "snippet": "WATFlow is a student design team at the University of Waterloo focused on developing innovative water and wastewater solutions that support sustainable urban water management. The team provides students with practical design experience in environmental engineering, addressing modern water challenges across southern Ontario while preparing the next generation of engineers to lead in sustainable water infrastructure and environmental innovation. WATFlow is currently working on a stormwater management project as part of the Water Environment Association of Ontario (WEAO) Student Design Competition.",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "WATOLINK",
+    "link": "https://www.watolink.ca/",
+    "snippet": "WATOLINK offers students an opportunity to develop applications involving action-classification via EEG signal analysis and inference. Our team is currently laying the groundwork for a project that we will submit to the NeuroTechX Competition in 2022.Later on, we may start to develop our own sensor technology and BCI hardware. The efforts of this team could eventually go towards graduate research and could scale towards longer term projects involving speech rendering to make telepathy and brain-controlled applications involving audio generation and mind-to-AI communication commercially viable.",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "WATonomous",
+    "link": "https://www.watonomous.ca/",
+    "snippet": "WATonomous is the flagship autonomy design team at the University of Waterloo. Our team centers around robotics software and designing systems capable of making autonomous decisions. Our team offers students hands-on experience working on cutting-edge robotics platforms like autonomous vehicles, humanoid robots, and racecars.",
+    "source": "sedra_design_centre"
+  },
+  {
+    "title": "WAT.ai",
+    "link": "http://watai.ca/",
+    "snippet": "Our goal is to establish an environment to enable the continued growth of AI talent and suitable access to opportunities within the waterloo community. We provide opportunities for undergraduate and graduate students to engage in impactful AI projects through collaboration with companies and internal research.",
+    "source": "sedra_design_centre"
+  }
+]

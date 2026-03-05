@@ -1,19 +1,23 @@
 """
-Scrapes the UWaterloo Sedra Student Design Centre directory to generate seed URLs.
+Scrape UWaterloo Sedra Student Design Centre Directory
+
+Extracts team names, descriptions, and website links from the
+accordion-style directory page and saves to data/design_teams.json.
 """
 
 import json
 import os
 import re
+
 import requests
 from bs4 import BeautifulSoup
-from urllib.parse import urlparse
 
 # ============================================================================
 # Configuration
 # ============================================================================
 
 TARGET_URL = "https://uwaterloo.ca/sedra-student-design-centre/directory-teams"
+FALLBACK_LINK = TARGET_URL
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = (
@@ -23,81 +27,120 @@ project_root = (
 )
 data_dir = os.path.join(project_root, "data")
 os.makedirs(data_dir, exist_ok=True)
-OUTPUT_FILE = os.path.join(data_dir, "design_team_seeds.json")
+OUTPUT_FILE = os.path.join(data_dir, "design_teams.json")
 
 
-def clean_url(url: str) -> str:
-    """Sanitize URL: ensure it starts with http and has no trailing punctuation."""
-    url = url.strip()
-    if not url.startswith("http"):
+# ============================================================================
+# Helpers
+# ============================================================================
+
+def first_sentences(text: str, n: int = 3) -> str:
+    """Return the first n sentences of a string."""
+    if not text:
         return ""
-    # Remove trailing punctuation
-    url = re.sub(r"[.,;'\"\(\)\[\]\|]+$", "", url)
-    return url
+    sentences = re.split(r"(?<=[.!?])\s+", text.strip())
+    return " ".join(sentences[:n]).strip()
 
 
-def scrape_design_teams():
+def find_website_link(block) -> str:
+    """
+    Extract the team website URL from a content block.
+    Prefers <a> tags whose href is an external http link.
+    Skips mailto: links.
+    """
+    for a_tag in block.find_all("a", href=True):
+        href = a_tag["href"].strip()
+        if href.startswith("mailto:"):
+            continue
+        if href.startswith("http"):
+            return href
+    return ""
+
+
+# ============================================================================
+# Scraper
+# ============================================================================
+
+def scrape_design_teams() -> list[dict]:
     print(f"Fetching: {TARGET_URL}")
-    try:
-        response = requests.get(TARGET_URL, timeout=15, headers={
-            "User-Agent": "Mozilla/5.0 (compatible; WatsNew-Spider/1.0)"
+    resp = requests.get(TARGET_URL, timeout=15, headers={
+        "User-Agent": "Mozilla/5.0 (compatible; WatsNew-Spider/1.0)"
+    })
+    resp.raise_for_status()
+
+    soup = BeautifulSoup(resp.text, "html.parser")
+    main = soup.find("main") or soup
+
+    details_blocks = main.find_all("details")
+    print(f"Found {len(details_blocks)} team accordion blocks.\n")
+
+    teams: list[dict] = []
+
+    for block in details_blocks:
+        # --- Title ---
+        summary = block.find("summary")
+        if not summary:
+            continue
+        title = summary.get_text(strip=True)
+        if not title:
+            continue
+
+        # --- Content div ---
+        content = block.find("div", class_="details__content")
+        if not content:
+            content = block
+
+        # --- Description ---
+        paragraphs = content.find_all("p")
+        if paragraphs:
+            full_text = " ".join(p.get_text(strip=True) for p in paragraphs)
+        else:
+            full_text = content.get_text(strip=True)
+        snippet = first_sentences(full_text, n=3)
+
+        # --- Link ---
+        link = find_website_link(content) or FALLBACK_LINK
+
+        teams.append({
+            "title": title,
+            "link": link,
+            "snippet": snippet,
+            "source": "sedra_design_centre",
         })
-        response.raise_for_status()
-    except requests.RequestException as e:
-        print(f"Failed to fetch {TARGET_URL}: {e}")
+
+        print(f"  ✓ {title}")
+        print(f"    Link: {link[:80]}")
+        print(f"    Snippet: {snippet[:100]}...")
+
+    return teams
+
+
+# ============================================================================
+# Entry point
+# ============================================================================
+
+def main():
+    print("=" * 60)
+    print("  Sedra Design Centre – Team Directory Scraper")
+    print("=" * 60)
+
+    teams = scrape_design_teams()
+
+    if not teams:
+        print("\nNo teams extracted.")
         return
 
-    soup = BeautifulSoup(response.text, "html.parser")
-    
-    # Try to scope to main content area to avoid nav/footer noise
-    main_content = soup.find("main") or soup.find("div", class_="region-content") or soup
-    
-    raw_links = set()
-
-    # Strategy 1: Look for "Website: http..." in text
-    text_nodes = main_content.find_all(string=re.compile(r"Website:\s*http", re.IGNORECASE))
-    for node in text_nodes:
-        # Extract the URL from the string
-        match = re.search(r"Website:\s*(https?://[^\s]+)", node, re.IGNORECASE)
-        if match:
-            raw_links.add(match.group(1))
-
-    # Strategy 2: Extract all external hrefs that might be team websites
-    # Teams are often listed as links. We want external ones, mostly avoiding common social/spam domains.
-    blocked_domains = [
-        "uwaterloo.ca", "facebook.com", "twitter.com", "instagram.com", 
-        "linkedin.com", "youtube.com", "tiktok.com", "github.com"
-    ]
-    
-    for a_tag in main_content.find_all("a", href=True):
-        href = a_tag["href"].strip()
-        if not href.startswith("http"):
-            continue
-            
-        parsed = urlparse(href)
-        domain = parsed.netloc.lower()
-        
-        # Check if domain is blocked
-        if any(block in domain for block in blocked_domains):
-            continue
-            
-        raw_links.add(href)
-
-    # Sanitize and deduplicate
-    clean_links = set()
-    for link in raw_links:
-        cleaned = clean_url(link)
-        if cleaned:
-            clean_links.add(cleaned)
-
-    # Sort for consistent output
-    final_links = sorted(list(clean_links))
-    
-    print(f"Extracted {len(final_links)} design team seed URLs.")
-
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        json.dump(final_links, f, indent=2, ensure_ascii=False)
-        
+        json.dump(teams, f, indent=2, ensure_ascii=False)
+
+    print(f"\n{'='*60}")
+    print(f"  Scraped {len(teams)} design teams.")
+    print(f"  Saved to {OUTPUT_FILE}")
+    print(f"{'='*60}")
+
+
+if __name__ == "__main__":
+    main()
     print(f"Saved seeds to {OUTPUT_FILE}")
 
 if __name__ == "__main__":
