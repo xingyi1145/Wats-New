@@ -359,13 +359,17 @@ async def recommend(request: RecommendRequest):
     seen_links = user_state["seen_links"]
     user_vector = user_state["vector"]
 
-    # Dynamic Vector Shifting: use stored vector or encode query
+    # ALWAYS encode the explicit frontend query to ensure responsiveness
+    query_vector = state.model.encode(query).astype('float32')
+
+    # Dynamic Vector Shifting: Combine explicit query with stored preference vector
     if user_vector is not None:
-        # User has an evolved preference vector - use it
-        search_vector = user_vector
+        # 60% explicitly typed query, 40% accumulated swipe history
+        blended = (query_vector * 0.6) + (user_vector * 0.4)
+        search_vector = normalize_vector(blended)
     else:
-        # First time user - encode query and store as initial vector
-        search_vector = state.model.encode(query).astype('float32')
+        # First time user - use exact query
+        search_vector = query_vector
         # Save the initial vector to database
         save_user_to_db(user_id, seen_links, user_state["liked_links"], search_vector)
 
