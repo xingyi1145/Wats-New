@@ -47,6 +47,7 @@ PYTHON = sys.executable  # Use the same interpreter running this script
 STEPS = [
     ("News Harvester",       os.path.join(current_dir, "news_harvester.py")),
     ("Wat2Do Scraper",       os.path.join(current_dir, "scrape_wat2do.py")),
+    ("Agentic Spider",       os.path.join(current_dir, "agentic_spider.py")),
     ("Data Cleaner",         os.path.join(current_dir, "clean_data.py")),
     ("Vectorizer",           os.path.join(current_dir, "vectorize_live_data.py")),
 ]

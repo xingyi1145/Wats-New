@@ -28,5 +28,17 @@
     "link": "https://summerofcode.withgoogle.com/get-started",
     "snippet": "Organizations can apply to be a mentor organization for the Google Summer of Code program, helping bring new developers to their open source community. Please note that organization registration for this program is currently closed.",
     "source": "spider_agent"
+  },
+  {
+    "title": "Simplify Backend Take-Home Project Assessment",
+    "link": "https://github.com/SimplifyJobs/backend-take-home",
+    "snippet": "This public repository hosts a backend take-home project, designed to evaluate candidates for potential backend roles at Simplify. The assessment, last updated on March 2, 2026, is part of the hiring process for their US-based operations.",
+    "source": "spider_agent"
+  },
+  {
+    "title": "Simplify WebExtension Take-Home Project Assessment",
+    "link": "https://github.com/SimplifyJobs/extension-take-home",
+    "snippet": "This repository features a take-home project likely used to assess candidates for web extension development roles at Simplify. Although no description is provided, it was last updated on February 7, 2026, for roles within their United States team.",
+    "source": "spider_agent"
   }
 ]
