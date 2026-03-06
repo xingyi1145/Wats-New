@@ -174,6 +174,7 @@ class RecommendationItem(BaseModel):
     source: str
     match_score: float
     item_type: str
+    snippet: Optional[str] = None
 
 
 class RecommendResponse(BaseModel):
@@ -396,6 +397,8 @@ async def recommend(request: RecommendRequest):
         item_type = item.get('_type', 'unknown')
 
         # Determine title and source based on type
+        snippet = item.get('snippet') or item.get('description') or item.get('content') or ""
+        
         if item_type == 'club':
             title = item.get('club_name', 'Unknown Club')
             source = item.get('category', 'N/A')
@@ -408,7 +411,8 @@ async def recommend(request: RecommendRequest):
             link=link,
             source=source,
             match_score=round(score * 100, 2),
-            item_type=item_type
+            item_type=item_type,
+            snippet=snippet
         ))
 
     return RecommendResponse(query=query, results=results)
