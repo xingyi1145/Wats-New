@@ -48,6 +48,16 @@ def init_database():
         )
     ''')
     
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS interactions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id TEXT,
+            item_link TEXT,
+            action TEXT,
+            timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+        )
+    ''')
+    
     conn.commit()
     conn.close()
     print("  -> SQLite database initialized.")
@@ -162,7 +172,7 @@ class RecommendRequest(BaseModel):
     user_id: str
 
 
-class InteractRequest(BaseModel):
+class InteractionRequest(BaseModel):
     user_id: str
     link: str
     action: str  # "like" or "skip"
@@ -419,7 +429,7 @@ async def recommend(request: RecommendRequest):
 
 
 @app.post("/api/interact")
-async def interact(request: InteractRequest):
+async def interact(request: InteractionRequest):
     """
     Record user interaction and apply Dynamic Vector Shifting on likes.
 
@@ -437,6 +447,16 @@ async def interact(request: InteractRequest):
     # Validate action
     if action not in ["like", "skip"]:
         return {"error": "Action must be 'like' or 'skip'", "success": False}
+
+    # Save interaction telemetry to database
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute('''
+        INSERT INTO interactions (user_id, item_link, action)
+        VALUES (?, ?, ?)
+    ''', (user_id, link, action))
+    conn.commit()
+    conn.close()
 
     # Get user state from database
     user_state = get_user_from_db(user_id)
