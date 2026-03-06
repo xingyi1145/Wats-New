@@ -115,39 +115,51 @@ export default function Home() {
 
         {/* The Card */}
         {currentCard ? (
-          <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-200 transition-all">
-            <div className="p-8 min-h-[350px] flex flex-col justify-center">
-              <span className="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-bold uppercase tracking-wide mb-4 w-max">
-                {currentCard.source.replace("_", " ")}
-              </span>
-              <h2 className="text-3xl font-extrabold text-gray-900 mb-4 leading-tight">
+          <div className="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow border border-gray-200 flex flex-col">
+            <a 
+              href={currentCard.link} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="block flex-grow mb-6 cursor-pointer"
+            >
+              <h2 className="text-xl font-semibold text-gray-800">
                 {currentCard.title}
               </h2>
-              <div className="mt-auto pt-6 border-t border-gray-100">
-                <span className="text-sm font-semibold text-gray-500">
-                  AI Match Score: <span className="text-green-600">{currentCard.match_score}%</span>
+              <p className="text-sm text-gray-600 mt-2 line-clamp-3">
+                {currentCard.snippet || "No description provided."}
+              </p>
+              
+              <div className="mt-4 flex justify-between items-center text-xs">
+                <span className="text-gray-400 font-medium">
+                  Source: {currentCard.source}
+                </span>
+                <span className="font-semibold text-gray-500">
+                  Match: <span className="text-green-600">{currentCard.match_score || "N/A"}%</span>
                 </span>
               </div>
-            </div>
+            </a>
 
             {/* Action Buttons */}
-            <div className="flex border-t border-gray-100">
+            <div className="flex border-t border-gray-100 -mx-6 -mb-6">
               <button
                 onClick={() => handleInteract("skip", currentCard.link)}
-                className="flex-1 py-6 text-xl font-bold text-gray-400 hover:bg-red-50 hover:text-red-500 transition-colors"
+                className="flex-1 py-4 text-lg font-bold text-gray-400 hover:bg-red-50 hover:text-red-500 transition-colors rounded-bl-lg"
               >
                 Skip
               </button>
               <div className="w-px bg-gray-100"></div>
-              <button
-                onClick={() => {
-                  window.open(currentCard.link, "_blank");
+              <a
+                href={currentCard.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => {
+                  // Allow the link to open normally but also trigger the interaction sync
                   handleInteract("like", currentCard.link);
                 }}
-                className="flex-1 py-6 text-xl font-bold text-blue-500 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                className="flex-1 py-4 text-lg font-bold text-blue-500 hover:bg-blue-50 hover:text-blue-600 transition-colors text-center rounded-br-lg"
               >
-                Save & View
-              </button>
+                View Opportunity
+              </a>
             </div>
           </div>
         ) : (
