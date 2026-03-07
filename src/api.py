@@ -329,7 +329,7 @@ app.add_middleware(
         "http://127.0.0.1:3000",
         "http://localhost:5173",  # Vite default port
         "http://127.0.0.1:5173",
-        "https://wats-new-yourname.vercel.app", # Replace with actual Vercel URL
+        "https://wats-new-waterloo.vercel.app", # Replace with actual Vercel URL
     ],
     allow_credentials=True,
     allow_methods=["*"],
