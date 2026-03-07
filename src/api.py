@@ -329,6 +329,7 @@ app.add_middleware(
         "http://127.0.0.1:3000",
         "http://localhost:5173",  # Vite default port
         "http://127.0.0.1:5173",
+        "https://wats-new-yourname.vercel.app", # Replace with actual Vercel URL
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -501,4 +502,5 @@ async def interact(request: InteractionRequest):
 
 
 if __name__ == "__main__":
-    uvicorn.run("api:app", host="0.0.0.0", port=8000, reload=True)
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("api:app", host="0.0.0.0", port=port, reload=True)
