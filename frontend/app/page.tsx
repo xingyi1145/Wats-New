@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
+
 export default function Home() {
   const [userId, setUserId] = useState("");
   const [profileText, setProfileText] = useState("");
@@ -23,7 +25,7 @@ export default function Home() {
   const fetchRecommendations = async (queryToUse: string) => {
     setLoading(true);
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/recommend", {
+      const res = await fetch(`${API_BASE}/api/recommend`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ query: queryToUse, top_k: 5, user_id: userId }),
@@ -49,7 +51,7 @@ export default function Home() {
     setQueue((prev) => prev.slice(1));
 
     try {
-      await fetch("http://127.0.0.1:8000/api/interact", {
+      await fetch(`${API_BASE}/api/interact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ user_id: userId, link: link, action: action }),
