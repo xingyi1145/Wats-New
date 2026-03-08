@@ -10,6 +10,7 @@ export default function Home() {
   const [isStarted, setIsStarted] = useState(false);
   const [queue, setQueue] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
+  const [hasViewedCurrent, setHasViewedCurrent] = useState(false);
 
   useEffect(() => {
     let storedId = localStorage.getItem("nexus_user_id");
@@ -65,11 +66,49 @@ export default function Home() {
     }
   };
 
+  const logTelemetry = async (novelty: number, utility: number) => {
+    if (!queue[0]) return;
+    try {
+      await fetch(`${API_BASE}/api/telemetry`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          item_id: queue[0].link,
+          vibe: profileText,
+          novelty,
+          utility
+        }),
+      });
+    } catch (error) {
+      // Ignored
+    }
+  };
+
+  const handleNext = () => {
+    if (!queue[0]) return;
+    if (hasViewedCurrent) {
+      logTelemetry(1, 1);
+      // Viewed, assume utility=1 is a 'like'
+      handleInteract("like", queue[0].link);
+    } else {
+      logTelemetry(1, 0);
+      handleInteract("skip", queue[0].link);
+    }
+    setHasViewedCurrent(false);
+  };
+
+  const handleAlreadyKnow = () => {
+    if (!queue[0]) return;
+    logTelemetry(0, 1);
+    handleInteract("like", queue[0].link);
+    setHasViewedCurrent(false);
+  };
+
   // Safely open the link without interrupting React's state update
   const handleViewOpportunity = (e: React.MouseEvent, link: string) => {
     e.preventDefault();
+    setHasViewedCurrent(true);
     window.open(link, "_blank", "noopener,noreferrer");
-    handleInteract("like", link);
   };
 
   // --- VIEW 1: ONBOARDING ---
@@ -157,19 +196,29 @@ export default function Home() {
             </div>
 
             {/* Sticky Action Footer */}
-            <div className="p-6 bg-slate-50 border-t border-slate-100 flex gap-4">
-              <button
-                onClick={() => handleInteract("skip", currentCard.link)}
-                className="flex-1 py-5 rounded-xl text-lg font-bold text-slate-500 bg-white border-2 border-slate-200 hover:bg-slate-100 hover:text-slate-700 hover:border-slate-300 transition-all shadow-sm"
-              >
-                Pass
-              </button>
-              <button
-                onClick={(e) => handleViewOpportunity(e, currentCard.link)}
-                className="flex-[2] py-5 rounded-xl text-lg font-bold text-white bg-blue-600 hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/30 transform hover:-translate-y-0.5"
-              >
-                View Opportunity
-              </button>
+            <div className="bg-slate-50 border-t border-slate-100 flex flex-col">
+              <div className="p-6 flex gap-4 pb-4">
+                <button
+                  onClick={handleNext}
+                  className="flex-1 py-5 rounded-xl text-lg font-bold text-slate-500 bg-white border-2 border-slate-200 hover:bg-slate-100 hover:text-slate-700 hover:border-slate-300 transition-all shadow-sm"
+                >
+                  Next
+                </button>
+                <button
+                  onClick={(e) => handleViewOpportunity(e, currentCard.link)}
+                  className="flex-[2] py-5 rounded-xl text-lg font-bold text-white bg-blue-600 hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/30 transform hover:-translate-y-0.5"
+                >
+                  View Opportunity
+                </button>
+              </div>
+              <div className="pb-4 px-6 text-center">
+                <button 
+                  onClick={handleAlreadyKnow}
+                  className="text-sm text-slate-400 hover:text-slate-600 font-medium transition-colors"
+                >
+                  I already know about this.
+                </button>
+              </div>
             </div>
           </div>
         ) : (

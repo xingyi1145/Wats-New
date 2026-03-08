@@ -6,7 +6,7 @@ from typing import Optional
 
 import numpy as np
 import uvicorn
-from fastapi import FastAPI
+from fastapi import FastAPI, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from sentence_transformers import SentenceTransformer, util
@@ -176,6 +176,13 @@ class InteractionRequest(BaseModel):
     user_id: str
     link: str
     action: str  # "like" or "skip"
+
+
+class TelemetryData(BaseModel):
+    item_id: str
+    vibe: str
+    novelty: int
+    utility: int
 
 
 class RecommendationItem(BaseModel):
@@ -499,6 +506,31 @@ async def interact(request: InteractionRequest):
         "total_liked": len(liked_links),
         "vector_shifted": vector_shifted
     }
+
+
+def log_telemetry_to_file(data: TelemetryData):
+    """Background task to write telemetry data to a JSONL file."""
+    # Determine project root path
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.dirname(base_dir) if os.path.basename(base_dir) == 'src' else base_dir
+    data_dir = os.path.join(project_root, 'data')
+    os.makedirs(data_dir, exist_ok=True)
+    telemetry_path = os.path.join(data_dir, 'telemetry.jsonl')
+    
+    try:
+        with open(telemetry_path, 'a', encoding='utf-8') as f:
+            f.write(data.model_dump_json() + '\n')
+    except Exception as e:
+        print(f"Error writing telemetry: {e}")
+
+
+@app.post("/api/telemetry")
+async def telemetry(data: TelemetryData, background_tasks: BackgroundTasks):
+    """
+    Log user telemetry (novelty, utility) for model training.
+    """
+    background_tasks.add_task(log_telemetry_to_file, data)
+    return {"status": "logged"}
 
 
 if __name__ == "__main__":

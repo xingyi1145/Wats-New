@@ -4,58 +4,82 @@ from datetime import datetime
 from ddgs import DDGS
 import time
 
+# Layer 1: The Bouncer (Explicitly block junk domains)
+BLACKLIST_DOMAINS = [
+    'wikipedia.org', 'knowyourmeme.com', 'cbc.ca', 'globalnews.ca', 
+    'ctvnews.ca', 'reddit.com', 'quora.com', 'medium.com', 'facebook.com',
+    'instagram.com', 'tiktok.com', 'therecord.com', 'thestar.com'
+]
+
+# Layer 2: The Keyword Requirement (Must prove it's actually UWaterloo)
+REQUIRED_KEYWORDS = ['waterloo', 'uw', 'wusa']
+ACTION_KEYWORDS = ['apply', 'register', 'deadline', 'join', 'hackathon', 'event', 'ticket']
+
+def is_valid_opportunity(link, title, snippet):
+    link_lower = link.lower()
+    text_to_check = (title + " " + snippet).lower()
+
+    # 1. Reject blacklisted domains
+    for domain in BLACKLIST_DOMAINS:
+        if domain in link_lower:
+            return False
+            
+    # 2. Reject if it doesn't mention Waterloo explicitly
+    if not any(kw in text_to_check for kw in REQUIRED_KEYWORDS):
+        return False
+        
+    # 3. Reject if it doesn't sound like an actionable opportunity
+    if not any(kw in text_to_check for kw in ACTION_KEYWORDS):
+        return False
+        
+    return True
+
 def harvest_news():
-    print("Initializing News Harvester for UW Nexus (Updated)...")
+    print("Initializing News Harvester for UW Nexus (Strict Mode)...")
     
-    # Define relaxed search queries
+    # Layer 3: Targeted Search Dorks
     queries = [
-        'University of Waterloo student hackathon',
-        'site:uwaterloo.ca undergraduate research application',
-        'site:uwaterloo.ca guest lecture seminar',
-        'Waterloo student tech events'
+        'site:devpost.com "University of Waterloo" hackathon',
+        'site:lu.ma "Waterloo" tech event OR hackathon',
+        'site:ticketfi.com "University of Waterloo" event',
+        'site:uwaterloo.ca/news "apply" OR "register" undergraduate',
+        'site:wusa.ca/events "register" OR "tickets"'
     ]
 
-    # Initialize DDGS
     ddgs = DDGS()
-    
-    # Storage for results
     all_results = []
     seen_links = set()
-    
     current_date = datetime.now().strftime("%Y-%m-%d")
 
-    print(f"Processing {len(queries)} search queries...")
+    print(f"Processing {len(queries)} strict search queries...")
 
     for query in queries:
         print(f"\nSearching for: {query}")
         try:
-            # Fetch results (max 10, no time limit for broader results)
-            # Using arguments as requested: using mapped names for clarity
-            # Note: region='wt-wt' and safesearch='moderate' as requested
             results = ddgs.text(query, region='wt-wt', safesearch='moderate', max_results=10)
             
             count = 0
             if results:
                 for result in results:
-                    link = result.get('href')
+                    link = result.get('href', '')
+                    title = result.get('title', '')
+                    snippet = result.get('body', '')
                     
-                    # Deduplication check
                     if link and link not in seen_links:
-                        seen_links.add(link)
-                        
-                        entry = {
-                            "title": result.get('title'),
-                            "link": link,
-                            "snippet": result.get('body'),
-                            "source": "web_harvester",
-                            "date_fetched": current_date
-                        }
-                        all_results.append(entry)
-                        count += 1
+                        # Pass through our strict algorithmic filter
+                        if is_valid_opportunity(link, title, snippet):
+                            seen_links.add(link)
+                            entry = {
+                                "title": title,
+                                "link": link,
+                                "snippet": snippet,
+                                "source": "web_harvester",
+                                "date_fetched": current_date
+                            }
+                            all_results.append(entry)
+                            count += 1
             
-            print(f"  -> Found {count} new unique results.")
-            
-            # Be polite to the search engine
+            print(f"  -> Found {count} valid, actionable results.")
             time.sleep(2)
             
         except Exception as e:
@@ -68,15 +92,11 @@ def harvest_news():
     os.makedirs(data_dir, exist_ok=True)
     output_file = os.path.join(data_dir, "live_opportunities.json")
     
-    print(f"\nSaving {len(all_results)} total unique opportunities to {output_file}...")
+    # Because we want a clean slate, we will NOT append to the old garbage data today.
+    # We will overwrite it entirely.
+    print(f"\nSaving {len(all_results)} highly-targeted opportunities to {output_file}...")
     
     try:
-        if os.path.exists(output_file):
-            with open(output_file, 'r', encoding='utf-8') as f:
-                existing_data = json.load(f)
-            existing_data.extend(all_results)
-            all_results = existing_data
-
         with open(output_file, 'w', encoding='utf-8') as f:
             json.dump(all_results, f, indent=4, ensure_ascii=False)
         print("Harvest complete!")
