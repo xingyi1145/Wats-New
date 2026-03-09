@@ -1,513 +1,1388 @@
 [
-  {
-    "title": "Making hackathons fun again and breaking a Guinness World ...",
-    "link": "https://uwaterloo.ca/news/eweal-making-hackathons-fun-again-breaking-guinness-world-record",
-    "snippet": "Sep 18, 2025 · Canada’s largest student -led hackathon returned to the University of Waterloo for its annual weekend of intense innovation. More than 1000 student hackers from around the world gathered at the Faculty of Engineering to experience 36 hours of fast builds and fun games.",
-    "source": "web_harvester",
-    "date_fetched": "2026-02-21"
-  },
-  {
-    "title": "Hack the North 2025: Canada's Biggest Hackathon - University ...",
-    "link": "https://hackthenorth2025.devpost.com/",
-    "snippet": "Sep 12, 2025 · Join 1000+ students from all around the globe at the University of Waterloo to build something incredible in just 36 hours. At Hack the North, our goal is to make it easy for anyone to dream big.",
-    "source": "web_harvester",
-    "date_fetched": "2026-02-21"
-  },
-  {
-    "title": "StarterHacks UWaterloo",
-    "link": "https://uw.starterhacks.ca/",
-    "snippet": "Join us for the world's first and largest beginner-focused hackathon . No matter what program you’re in or what your skill level is, at StarterHacks you can find your tech community. Join us in-person for a weekend of learning, collaboration, and impactful innovation.",
-    "source": "web_harvester",
-    "date_fetched": "2026-02-21"
-  },
-  {
-    "title": "Waterloo student wins national hackathon | Waterloo News |",
-    "link": "https://uwaterloo.ca/news/waterloo-student-wins-national-hackathon",
-    "snippet": "... student in Waterloo ’s Master of Digital Experience Innovation program on the Stratford Campus, won the first Canadian Open Data Experience , a ...",
-    "source": "web_harvester",
-    "date_fetched": "2026-02-21"
-  },
-  {
-    "title": "Hackathons | Waterloo Data and Artificial Intelligence",
-    "link": "https://uwaterloo.ca/artificial-intelligence-institute/events/hackathons",
-    "snippet": "The University of Waterloo acknowledges that much of our work takes place on the traditional territory of the Neutral, Anishinaabeg, and ...",
-    "source": "web_harvester",
-    "date_fetched": "2026-02-21"
-  },
-  {
-    "title": "Math students named finalists at Berkeley AI Hackathon |",
-    "link": "https://uwaterloo.ca/news/mathematics/math-students-named-finalists-berkeley-ai-hackathon",
-    "snippet": "... students – Rajan Agarwal (Software Engineering), Elijah Kurien (Software Engineering), Ishaan Dey (Software Engineering) and Joshua Yan (Computer ...",
-    "source": "web_harvester",
-    "date_fetched": "2026-02-21"
-  },
-  {
-    "title": "Creating a beginner-friendly hackathon | Waterloo News |",
-    "link": "https://uwaterloo.ca/news/math-innovation/creating-beginner-friendly-hackathon",
-    "snippet": "StarterHacks, the beginner-friendly hackathon returning to Waterloo campus this May, grew out of a friendship between co-founders William Nippard and ...",
-    "source": "web_harvester",
-    "date_fetched": "2026-02-21"
-  },
-  {
-    "title": "Undergraduate research opportunities at Waterloo | Undergraduate Programs | University of Waterloo",
-    "link": "https://uwaterloo.ca/future-students/missing-manual/student-life/undergraduate-research-opportunities-waterloo",
-    "snippet": "4 weeks ago - There are also campus-wide opportunities to participate in full-time research under the supervision of an eligible grant holder by applying for an Undergraduate Student Research Award (USRA) through the Natural Sciences and Engineering Research Council (NSERC). The application process is done through the NSERC’s online system, and the Office of Research provides more information on USRA’s.",
-    "source": "web_harvester",
-    "date_fetched": "2026-02-21"
-  },
-  {
-    "title": "Undergraduate Research Assistant (URA) application form | Combinatorics and Optimization | University of Waterloo",
-    "link": "https://uwaterloo.ca/combinatorics-and-optimization/ura-application",
-    "snippet": "September 24, 2025 - Application form for the Combinatorics and Optimization Undergraduate Research Assistantship Program.",
-    "source": "web_harvester",
-    "date_fetched": "2026-02-21"
-  },
-  {
-    "title": "Undergraduate Research Assistantships (URA) | Engineering | University of Waterloo",
-    "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura",
-    "snippet": "October 7, 2025 - The URA Supervisor List will ... their project(s). Please see the current URA Supervisor List for some faculty contact information. Complete a URA Application Form (PDF). ...",
-    "source": "web_harvester",
-    "date_fetched": "2026-02-21"
-  },
-  {
-    "title": "CS URA Student Application Form | Cheriton School of Computer Science | University of Waterloo",
-    "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura-student-application",
-    "snippet": "December 16, 2025 - Please complete the following information to apply to the Undergraduate Research Assistantship (URA) program.",
-    "source": "web_harvester",
-    "date_fetched": "2026-02-21"
-  },
-  {
-    "title": "Undergraduate research opportunities - FAQ | Cheriton School of Computer Science | University of Waterloo",
-    "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-faq",
-    "snippet": "December 5, 2025 - I will be completing my degree this term but want to do research next term. Am I allowed to apply for the USRA/MURA/URA? ... Students must connect with a potential supervisor before applying for the NSERC USRA, MURA, URF, or URA. Please refer to each award page for more detail on a supervisor’s eligibility. To process any application, the supervisor is required to submit their portion during the application process.",
-    "source": "web_harvester",
-    "date_fetched": "2026-02-21"
-  },
-  {
-    "title": "Undergraduate Research Assistantship (URA) program | Cheriton School of Computer Science | University of Waterloo",
-    "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
-    "snippet": "January 13, 2026 - I am interested in working with undergraduate students on a research project that aims to apply fast matrix multiplication techniques to speed up the processing of database analytical queries. This research has practical applications in social network analysis, statistical inference, visualization, graph mining, and machine learning over relational data.",
-    "source": "web_harvester",
-    "date_fetched": "2026-02-21"
-  },
-  {
-    "title": "Undergraduate Research Assistantship Program | Combinatorics and Optimization | University of Waterloo",
-    "link": "https://uwaterloo.ca/combinatorics-and-optimization/undergraduates/undergraduate-research",
-    "snippet": "October 20, 2025 - The portal for applications for Spring 2026 is open Oct.20-Dec 5. ... 16-paid weeks of applied and theoretical mathematics-related research in a broad range of research areas.",
-    "source": "web_harvester",
-    "date_fetched": "2026-02-21"
-  },
-  {
-    "title": "President's Research Award Application | The Centre | University of Waterloo",
-    "link": "https://uwaterloo.ca/the-centre/forms-and-official-documents/forms-undergraduate-students/presidents-research-award-application",
-    "snippet": "June 5, 2025 - If you are participating in an undergraduate faculty research program, you are required to complete your faculty's research application form(s) by the posted term deadline.",
-    "source": "web_harvester",
-    "date_fetched": "2026-02-21"
-  },
-  {
-    "title": "Undergraduate Research Fellowship (URF) | Cheriton School of Computer Science | University of Waterloo",
-    "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/undergraduate-research-fellowship-urf",
-    "snippet": "October 27, 2025 - The information form gathers basic information and provides some additional checks that your application is submitted correctly. It should be completed when you’re ready to submit the single PDF with your cover letter, resume, and transcript (see next part). ... 1. A single PDF containing a cover letter, resume, and transcript. Your PDF file must have the filename “YourFirstName_YourLastName.pdf” and it must contain these items in the following order: Your cover letter should be 1 to 2 pages with: your research interests; why you want to pursue a URF; what your future plans are for graduate school; why you're interested in working on the specific project(s) you selected or the project you're already sponsored for.",
-    "source": "web_harvester",
-    "date_fetched": "2026-02-21"
-  },
-  {
-    "title": "Vision Science Research Seminar Series | Optometry & Vision",
-    "link": "https://uwaterloo.ca/optometry-vision-science/optometry-and-vision-science-research/vision-science-research-seminar-series",
-    "snippet": "Vision Science Research Seminar Series lecture : The role of \" coarse \" stereopsis in typical and atypical vision",
-    "source": "web_harvester",
-    "date_fetched": "2026-02-21"
-  },
-  {
-    "title": "Summit 2019 Photo Gallery | Global Engagement Seminar |",
-    "link": "https://uwaterloo.ca/global-engagement-seminar/past-seminars/socio-cultural-and-political-implications-artificial/summit-2019-photo-gallery",
-    "snippet": "A big thank you to our Guest Speakers, the 2019 Jarislowsky Fellows, Instructors and Students for your hard work in making the GES Program Summit a ...",
-    "source": "web_harvester",
-    "date_fetched": "2026-02-21"
-  },
-  {
-    "title": "Lecture | Waterloo Events | University of Waterloo",
-    "link": "https://uwaterloo.ca/events/lecture",
-    "snippet": "Shaw-Mannell Award and Lecture ... Guest lecturer Rev. ... This free public lecture is on Wednesday, November 19, at 7:30 PM, in the Grebel Chapel.",
-    "source": "web_harvester",
-    "date_fetched": "2026-02-21"
-  },
-  {
-    "title": "Undergraduate Research Assistantship Noticeboard |",
-    "link": "https://uwaterloo.ca/combinatorics-and-optimization/undergraduates/undergraduate-research/ura-noticeboard",
-    "snippet": "Graduate students, faculty members, and guests . The last few weeks of seminars will be presentations from the URA students themselves.",
-    "source": "web_harvester",
-    "date_fetched": "2026-02-21"
-  },
-  {
-    "title": "WaterLeadership | Build a Research Career | Water Institute |",
-    "link": "https://uwaterloo.ca/water-institute/events/waterleadership-build-research-career",
-    "snippet": "Building a research career ... Distinguished Lectures ... Guest speaker: ... Seminar ;",
-    "source": "web_harvester",
-    "date_fetched": "2026-02-21"
-  },
-  {
-    "title": "Presentation Rooms | Chemical Engineering | University of",
-    "link": "https://uwaterloo.ca/chemical-engineering/resources-facilities/computing-facilities/presentation-rooms",
-    "snippet": "E6 2024, E6 4022 and DWE 2529 are lecture rooms with computer audio/video projection and a wireless microphone for in room and remote attendee ...",
-    "source": "web_harvester",
-    "date_fetched": "2026-02-21"
-  },
-  {
-    "title": "Workshop | Water Institute | University of Waterloo",
-    "link": "https://uwaterloo.ca/water-institute/workshop",
-    "snippet": "... part of the Water Institute's WaterLeadership training series , the Water Institute, presents, \" Innovation Leadership Skills” with special guest ...",
-    "source": "web_harvester",
-    "date_fetched": "2026-02-21"
-  },
-  {
-    "title": "Waterloo Tech Week",
-    "link": "https://waterlootechweek.ca/",
-    "snippet": "Waterloo Tech Week is a decentralized collection of events celebrating the region’s innovation, talent, and tech! Happening September 8-11, 2025.",
-    "source": "web_harvester",
-    "date_fetched": "2026-02-21"
-  },
-  {
-    "title": "Science & Tech Events in Waterloo, Canada - Explore New Innovations | Eventbrite",
-    "link": "https://www.eventbrite.ca/b/canada--waterloo--10327/science-and-tech/",
-    "snippet": "Discover the best Science & Tech events in your area and online · Science & Tech · Waterloo · Date · Explore what's popular within Science & Tech · High Tech · Science · Medicine · Robotics · Fri, Feb 13, 8:30 AM · Federation Hall · Check ticket price on event ·",
-    "source": "web_harvester",
-    "date_fetched": "2026-02-21"
-  },
-  {
-    "title": "Events - Communitech",
-    "link": "https://www.communitech.ca/community/events/",
-    "snippet": "Inside Waterloo Region’s tech ecosystem — who’s building, what’s next, and where to connect.",
-    "source": "web_harvester",
-    "date_fetched": "2026-02-21"
-  },
-  {
-    "title": "WatCamp: Tech Events in Waterloo Region",
-    "link": "https://watcamp.com/",
-    "snippet": "Comumunity curated calendar of tech events in Waterloo Region.",
-    "source": "web_harvester",
-    "date_fetched": "2026-02-21"
-  },
-  {
-    "title": "Student-led takeover of Tri-Cities tech continues with Waterloo Tech Week | BetaKit",
-    "link": "https://betakit.com/student-led-takeover-of-tri-cities-tech-continues-with-waterloo-tech-week/",
-    "snippet": "September 8, 2025 - The student-lead Waterloo Tech Week will feature more than 60 events from Sept. 8 to 11, including panels, meetups, workshops, and parties .",
-    "source": "web_harvester",
-    "date_fetched": "2026-02-21"
-  },
-  {
-    "title": "Tech Waterloo Region | Meetup",
-    "link": "https://www.meetup.com/techwaterlooregion/",
-    "snippet": "Each presentation is made by a Waterloo Region technology company big or small, and they use their time to share a lesson learned, a counter-intuitive finding, or demo a new technology. You’ll meet someone new over some food and drinks provided before each 5x5. Every TechWR also includes a Community Mic session, where anyone in attendance has a chance to address the entire event to promote themselves, their product, their event, or whatever they want!",
-    "source": "web_harvester",
-    "date_fetched": "2026-02-21"
-  },
-  {
-    "title": "Events | See Upcoming Events | WatSPEED at the University of Waterloo",
-    "link": "https://watspeed.uwaterloo.ca/events/index.html",
-    "snippet": "3 weeks ago - Join this free info session with Waterloo expert Will Xiang on August 17, 2022 , and learn about the real-life applications predictive analytics for businesses. ... Join this free session on April 27, 2022 and discover how to kickstart or accelerate your career in the field of data science.",
-    "source": "web_harvester",
-    "date_fetched": "2026-02-21"
-  },
-  {
-    "title": "Hardware Hack Days – University of Waterloo – FABrIC",
-    "link": "https://fabricinnovation.ca/hardware-hack-days-university-of-waterloo/",
-    "snippet": "Hardware Hack Days is a two-day, hands-on workshop where high-school students and teachers team up with engineers to design and build real microchips. This event is an opportunity to understand the digital world beyond Facebook and Google. At Hardware Hack Days , Matt Venn will show you how ...",
-    "source": "web_harvester",
-    "date_fetched": "2026-02-21"
-  },
-  {
-    "title": "CxC AI Hackathon 2026 - Nomad Futurist",
-    "link": "https://nomadfuturist.org/event/cxc-ai-hackathon-2026/",
-    "snippet": "The University of Waterloo Data Science Club’s CxC AI Hackathon , happening February 6-8, 2026, returns for its 5th year as Waterloo’s largest student -run AI hackathon .",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-04"
-  },
-  {
-    "title": "Undergraduate Student Research Awards - University of Waterloo",
-    "link": "https://uwaterloo.ca/public-health-sciences/current-undergraduate-students/funding-awards/undergraduate-student-research-awards",
-    "snippet": "Natural Sciences and Engineering Research Council of Canada (NSERC) Undergraduate Student Research Awards eligibility and how to apply",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-04"
-  },
-  {
-    "title": "Undergraduate Research Assistantships in the Faculty of Mathematics",
-    "link": "https://uwaterloo.ca/math/undergraduate-research-assistantships-faculty-mathematics",
-    "snippet": "This award provides research experience that nurtures an interest in research careers and mathematics experience for undergraduate students with financial support during a full-time, on-campus or remote position for 16 weeks. Students should apply online using the MURA Program application form.",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-04"
-  },
-  {
-    "title": "Undergraduate Research Award - University of Waterloo",
-    "link": "https://uwaterloo.ca/institute-for-quantum-computing/outreach/useqip/ura",
-    "snippet": "Undergraduate Research Award If you are an undergraduate student and would like the opportunity to work alongside one of the 30+ research groups at the Institute for Quantum Computing (IQC) in the summer, you should apply for the Undergraduate Research Award (URA) through the USEQIP application .",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-04"
-  },
-  {
-    "title": "PDF Application for Engineering Undergraduate Research Assistantship (URA)",
-    "link": "https://uwaterloo.ca/engineering/sites/default/files/uploads/documents/ura-application-form-winter-2026_0.pdf",
-    "snippet": "FACULTY OF ENGINEERING APPLICATION FOR UNDERGRADUATE RESEARCH ASSISTANTSHIP (URA) Winter 2026 PART A: To be filled out by applying Engineering Student. Name: Student I.D. #: Previous academic term overall average is 80% or",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-04"
-  },
-  {
-    "title": "Guest Lecture : D2M (Direct-2-Mobile) | Electrical and Computer...",
-    "link": "https://uwaterloo.ca/electrical-computer-engineering/events/guest-lecture-d2m-direct-2-mobile",
-    "snippet": "Research seminars and lectures .Location coordinates. Lecture . Waterloo Engineering.",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-04"
-  },
-  {
-    "title": "MNS 10 Seminar : Nanofabrication and Devices with WIN Guest ...",
-    "link": "https://uwaterloo.ca/materials-nanosciences-society/events/mns-10-seminar-nanofabrication-and-devices-win-guest",
-    "snippet": "Come out today to the MNS Seminar to welcome Dr. William Wong from the Waterloo Institute of Nanotechnology who will be presenting on novel methods of \"Heterogeneous integration...",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-04"
-  },
-  {
-    "title": "CBB Visionary Lecture Series Seminar - Suneet Singh Tuli...",
-    "link": "https://uwaterloo.ca/bioengineering-biotechnology/events/cbb-visionary-lecture-series-seminar-suneet-singh-tuli-next",
-    "snippet": "Guest Presentation: Suneet Singh Tuli, is the founder and CEO of DataWind Inc. a leader in low-cost Internet connectivity for emerging markets.",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-04"
-  },
-  {
-    "title": "Lecture | Global Engagement Seminar",
-    "link": "https://uwaterloo.ca/global-engagement-seminar/lecture",
-    "snippet": "This is a public event featuring projects by our Global Engagement Seminar students, and contributions from our six distinguished 2022 Jarislowsky fellows.",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-04"
-  },
-  {
-    "title": "Guest Seminars | Centre for Bioengineering and Biotechnology",
-    "link": "https://uwaterloo.ca/bioengineering-biotechnology/funding-opportunities/guest-seminars",
-    "snippet": "Invited lectures and seminars for the scientific community offer opportunities for industry, government and other organizations to showcase their business and relationship to the University and...",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-04"
-  },
-  {
-    "title": "How to Plan and Deliver Impactful Guest Lectures | Centre for Teaching Excellence | University of Waterloo",
-    "link": "https://uwaterloo.ca/centre-for-teaching-excellence/catalogs/tip-sheets/how-plan-and-deliver-impactful-guest-lectures",
-    "snippet": "December 10, 2025 - Guidance for graduate students, new faculty, and others in delivering effective guest lectures.",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-04"
-  },
-  {
-    "title": "Guest Lecture: Resistive Feedback DACs in high-SFDR continuous-time delta-sigma ADCs | Electrical and Computer Engineering | University of Waterloo",
-    "link": "https://uwaterloo.ca/electrical-computer-engineering/events/guest-lecture-resistive-feedback-dacs-high-sfdr-continuous",
-    "snippet": "May 21, 2024 - Online: please register for the seminar at: https://uwaterloo.zoom.us/webinar/register/WN_EYjZRlCNSzuG-wOiTPuptw",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-04"
-  },
-  {
-    "title": "HeForShe Special Guest Lecture: Professor Hilary Lappin-Scott | Science | University of Waterloo",
-    "link": "https://uwaterloo.ca/science/events/heforshe-special-guest-lecture-professor-hilary-lappin-scott",
-    "snippet": "October 20, 2017 - The Faculty of Science HeForShe working group and the Department of Biology invite you to attend a special guest lecture: What works to support greater equality, diversity and inclusivity in STEM and beyond?",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-04"
-  },
-  {
-    "title": "Dr. Pamela Palmater to be a 2021 Jarislowsky Fellow | Global Engagement Seminar | University of Waterloo",
-    "link": "https://uwaterloo.ca/global-engagement-seminar/news/dr-pamela-palmater-be-2021-jarislowsky-fellow",
-    "snippet": "May 17, 2024 - Pamela D. Palmater as a Jarislowsky Fellow for the 2021 ARTS 490 seminar focused on the global pandemic. Dr. Palmater will deliver a guest lecture to our students and provide mentorship as they develop their final projects for the end-of-term Global Engagement Summit event.",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-04"
-  },
-  {
-    "title": "CBB/WIN Lecture: Dr. Alessandro Olivo, University College London | Waterloo Institute for Nanotechnology | University of Waterloo",
-    "link": "https://uwaterloo.ca/institute-nanotechnology/events/cbbwin-lecture-dr-alessandro-olivo-university-college-london",
-    "snippet": "May 17, 2024 - Please join the Centre for Bioengineering and Biotechnology (CBB) and the Waterloo Institute for Nanotechnology (WIN) on Tuesday January 22, 2019 for a guest lecture by Dr.",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-04"
-  },
-  {
-    "title": "University of Waterloo events",
-    "link": "https://uwaterloo.ca/events/",
-    "snippet": "1 day ago · At Waterloo, we're proud to host a wide variety of events for the campus community and our larger community. Find out what's happening on campus, from free public lectures to workshops and information sessions. For support with your event , view our resources for event planners and contact community.relations@uwaterloo.ca.",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-04"
-  },
-  {
-    "title": "Eventbrite - Discover the Best Local Events & Things to Do",
-    "link": "https://www.eventbrite.com/",
-    "snippet": "Find tickets to your next unforgettable experience. Browse concerts, workshops, yoga classes, charity events , food and music festivals, and more things to do.",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-04"
-  },
-  {
-    "title": "WaterlooHacks: Waterloo Hacks is a 46-hour hackathon open to",
-    "link": "https://waterloohacks.devpost.com/",
-    "snippet": "Waterloo Hacks is a 46-hour hackathon open to University of Waterloo and Wilfrid Laurier University students of varying skill levels.",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-05"
-  },
-  {
-    "title": "JAMHacks 8",
-    "link": "https://2024.jamhacks.ca/",
-    "snippet": "Held at the University of Waterloo ’s Engineering 7 – Canada’s largest engineering school and a pipeline for engineering talent for the ...",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-05"
-  },
-  {
-    "title": "Electrical and Computer Engineering Seminar Series - University of Waterloo",
-    "link": "https://uwaterloo.ca/electrical-computer-engineering/electrical-and-computer-engineering-seminar-series",
-    "snippet": "A monthly seminar series, featuring one ECE faculty member who presents their latest research, highlighting key challenges in the field.",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-05"
-  },
-  {
-    "title": "Knowledge Integration seminar series Fall 2025 - University of Waterloo",
-    "link": "https://uwaterloo.ca/knowledge-integration/knowledge-integration-seminar-series-fall-2025",
-    "snippet": "Each seminar features a workshop for KI students, or a guest speaker that is a public talk open to all students, faculty, staff, alumni and members of the ...",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-05"
-  },
-  {
-    "title": "Some lectures online - activities both online and in class | Centre for Teaching Excellence | University of Waterloo",
-    "link": "https://uwaterloo.ca/centre-for-teaching-excellence/some-lectures-online-activities-both",
-    "snippet": "Online lectures, video conferencing and face-to-face guest lectures are used to present course concepts. Students are assessed through individual assignments, ...",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-05"
-  },
-  {
-    "title": "Seminar | Waterloo Events",
-    "link": "https://uwaterloo.ca/events/seminar?page=17",
-    "snippet": "Join us on Dec 1st to find out! Our guest speaker Daphne Yao discusses data breaches, government regulations, and cybersecurity risks in our newest CPI Talk!",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-05"
-  },
-  {
-    "title": "WIN and Electrical and Computer Engineering Seminar with Benoît Lessard | Waterloo Institute for Nanotechnology",
-    "link": "https://uwaterloo.ca/institute-nanotechnology/events/win-and-electrical-and-computer-engineering-seminar-benoit",
-    "snippet": "Please join the Waterloo Institute for Nanotechnology and the Department of Electrical and Computer Engineering on Thursday, January 30, 2025, for a guest ...",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-05"
-  },
-  {
-    "title": "Scholarships in Canada for International Students 2026",
-    "link": "https://scholarshiproar.com/canada-scholarships/",
-    "snippet": "The University of Waterloo Scholarship is a fully funded scholarship for international students . This scholarship is offered for undergraduate, master’s, and PhD studies. The Waterloo University scholarship is valued at up to $10,000.",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-05"
-  },
-  {
-    "title": "Waterloo Engineering | Twitter, Facebook | Linktree",
-    "link": "https://linktr.ee/UWaterlooEngineering",
-    "snippet": "The University of Waterloo ’s Faculty of Engineering has its first welding lab in the Department of Mechanical and Mechatronics Engineering (MME) with CWB funds. Waterloo Engineering Students answer Reddit Questions! Creating tiny biomedical factorie...",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-05"
-  },
-  {
-    "title": "University of Waterloo Student ID | Know Your Meme",
-    "link": "https://knowyourmeme.com/memes/university-of-waterloo-student-id",
-    "snippet": "The original photo of the University of Waterloo student ID of an engineering undergraduate who looks jaded and depressed by his senior year.",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-05"
-  },
-  {
-    "title": "NSERC USRA application | Biology | University of Waterloo",
-    "link": "https://uwaterloo.ca/biology/undergraduate-studies/nserc-usra",
-    "snippet": "NSERC USRA application . Award information. What are these awards for? Undergraduate Student Research Awards (USRA) are meant to stimulate your interest in research in the natural...",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-05"
-  },
-  {
-    "title": "Applying for an NSERC (Natural Sciences and Engineering Research ...)",
-    "link": "https://uwaterloo.ca/applied-mathematics/current-undergraduates/undergraduate-summer-research/applying-nserc-undergraduate-research-award",
-    "snippet": "You may apply for NSERC Undergraduate Research Award for the fall, winter, or spring term.Spring 2026 term application deadline",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-05"
-  },
-  {
-    "title": "Undergraduate research opportunities | Applied Mathematics",
-    "link": "https://uwaterloo.ca/applied-mathematics/current-undergraduates/undergraduate-research-opportunities",
-    "snippet": "Each spring term (May-August) the Department of Applied Mathematics organizes a very active undergraduate research program involving about twelve students, s.",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-05"
-  },
-  {
-    "title": "Get involved | Psychology Research on Exercise and Health Lab",
-    "link": "https://uwaterloo.ca/psychology-research-exercise-health-lab/get-involved",
-    "snippet": "To apply, please complete the Undergraduate Research Application Form and reach out to Dr. Harris to request a meeting to discuss ongoing work in the lab and your specific research ...",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-05"
-  },
-  {
-    "title": "Get involved | Vascular Observations through Research on...",
-    "link": "https://uwaterloo.ca/vascular-observations-research-technology-exercise-lab/get-involved",
-    "snippet": "If you are interested in any of the following positions, we encourage you to fill out our undergraduate research application form and reach out for informational interviews to ask for more...",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-05"
-  },
-  {
-    "title": "2022 Sally Weaver Award Guest Lecture | Anthropology | University of Waterloo",
-    "link": "https://uwaterloo.ca/anthropology/events/2022-sally-weaver-award-guest-lecture",
-    "snippet": "May 16, 2024 - Join us for this year's Sally Weaver Award presentation and guest lecture with Susan Kirkpatrick Smith, BA in Anthropology (Florida State University)",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-05"
-  },
-  {
-    "title": "ARCH 246 - Public Guest Lecture: Thea Kurdi | Waterloo Architecture",
-    "link": "https://waconnect.uwaterloo.ca/news_and_events/event/lecture/arch-246-public-guest-lecture-thea-kurdi",
-    "snippet": "Join the ARCH 246 class for a lecture by Thea Kurdi, DesignABLE, entitled “Applying Accessible Design Beyond Checklists: Connecting the dots to ensure useability.”",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-05"
-  },
-  {
-    "title": "Guest Lecture: Illuminating Spaces | Classical Studies | University of Waterloo",
-    "link": "https://uwaterloo.ca/classical-studies/events/guest-lecture-illuminating-spaces",
-    "snippet": "May 16, 2024 - Guest Lecture: Illuminating Spaces",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-05"
-  },
-  {
-    "title": "Guest Lecture: Indigenous Maths, Global Math, and Indigenizing Mathematics with Dr. Edward Doolittle | Mathematics | University of Waterloo",
-    "link": "https://uwaterloo.ca/math/events/guest-lecture-indigenization-mathematics-dredward-doolittle",
-    "snippet": "May 21, 2024 - The Faculty of Mathematics is pleased to host a special guest lecture by Dr. Edward Doolittle, an expert in the Indigenization of Mathematics. He will be sharing his expertise during a lecture on November 9, 2022, from 2 to 3 p.m.",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-05"
-  },
-  {
-    "title": "Guest Lecture: Dr. Olga Palagia | Classical Studies | University of Waterloo",
-    "link": "https://uwaterloo.ca/classical-studies/events/guest-lecture-dr-olga-palagia",
-    "snippet": "May 16, 2024 - The Department of Classical Studies is proud to present a lecture by Dr. Olga Palagia from the University of Athens. The lecture, which is open to the public, is titled Ritual Dances in Greek Sculpture.",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-05"
-  },
-  {
-    "title": "Guest lecture: Lina Lahiri, Sauerbruch Hutton | Architecture | University of Waterloo",
-    "link": "https://uwaterloo.ca/architecture/events/guest-lecture-lina-lahiri-sauerbruch-hutton",
-    "snippet": "September 12, 2025 - Guest lecture: Lina Lahiri, Sauerbruch Hutton",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-05"
-  },
-  {
-    "title": "Students - Velocity incubator",
-    "link": "https://www.velocityincubator.com/students",
-    "snippet": "Showcasing University of Waterloo student teams with innovative, high-potential business ideas. ... Upcoming events and deadlines. Feb 25, 2026. 12:00 pm.",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-05"
-  },
-  {
-    "title": "Events - Accelerator Centre",
-    "link": "https://www.acceleratorcentre.com/event-calendar/",
-    "snippet": "Connect, learn, and grow. Our events bring founders and industry experts together to share insights, knowledge, and opportunities.",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-05"
-  },
-  {
-    "title": "Events from December 5, 2025 – January 12 - Waterloo Undergraduate Student Association",
-    "link": "https://wusa.ca/events/",
-    "snippet": "List of events in Photo View · Pronoun Pin Contest · Shrink Plastic Workshop · Mental Health Week: Nacho Crawl · UWAS Kitchener Rangers Night · UWJSA Princess ...",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-05"
-  },
-  {
-    "title": "Browse Event/Courses - GoSignMeUp",
-    "link": "https://uwaterloo.gosignmeup.com/public/Course/browse?courseid=7911",
-    "snippet": "Welcome to the University of Waterloo's Training and Development Registration System. This system, on the GoSignMeUp platform, is currently being used to ...",
-    "source": "web_harvester",
-    "date_fetched": "2026-03-05"
-  }
+    {
+        "title": "Amazon Nova AI Hackathon",
+        "link": "https://amazon-nova.devpost.com/",
+        "snippet": "Location: {'icon': 'globe', 'location': 'Online'}. Dates: Feb 02 - Mar 16, 2026. Themes: Machine Learning/AI, Beginner Friendly, Social Good. Prizes: $<span data-currency-value>40,000</span>.",
+        "source": "devpost_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "Gemini Live Agent Challenge",
+        "link": "https://geminiliveagentchallenge.devpost.com/",
+        "snippet": "Location: {'icon': 'globe', 'location': 'Online'}. Dates: Feb 16 - Mar 16, 2026. Themes: Communication, Machine Learning/AI, Voice skills. Prizes: $<span data-currency-value>80,000</span>.",
+        "source": "devpost_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "FigBuild 2026",
+        "link": "https://figbuild2026.devpost.com/",
+        "snippet": "Location: {'icon': 'globe', 'location': 'Online'}. Dates: Mar 06 - 09, 2026. Themes: Design, Beginner Friendly, Low/No Code. Prizes: $<span data-currency-value>30,000</span>.",
+        "source": "devpost_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "GitLab AI Hackathon",
+        "link": "https://gitlab.devpost.com/",
+        "snippet": "Location: {'icon': 'globe', 'location': 'Online'}. Dates: Feb 09 - Mar 25, 2026. Themes: Databases, Machine Learning/AI, Productivity. Prizes: $<span data-currency-value>65,000</span>.",
+        "source": "devpost_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "DigitalOcean Gradient™ AI Hackathon",
+        "link": "https://digitalocean.devpost.com/",
+        "snippet": "Location: {'icon': 'globe', 'location': 'Online'}. Dates: Jan 28 - Mar 18, 2026. Themes: Databases, Machine Learning/AI, Open Ended. Prizes: $<span data-currency-value>20,000</span>.",
+        "source": "devpost_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "Airia AI Agents Hackathon",
+        "link": "https://airia-hackathon.devpost.com/",
+        "snippet": "Location: {'icon': 'globe', 'location': 'Online'}. Dates: Feb 16 - Mar 19, 2026. Themes: Machine Learning/AI, Beginner Friendly, Enterprise. Prizes: $<span data-currency-value>7,000</span>.",
+        "source": "devpost_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "Byte 2 Beat",
+        "link": "https://byte2beat.devpost.com/",
+        "snippet": "Location: {'icon': 'globe', 'location': 'Online'}. Dates: Dec 05, 2025 - Mar 28, 2026. Themes: Beginner Friendly, Health, Machine Learning/AI. Prizes: $<span data-currency-value>1,500</span>.",
+        "source": "devpost_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "Hackonomics 2026",
+        "link": "https://hackonomics26.devpost.com/",
+        "snippet": "Location: {'icon': 'globe', 'location': 'Online'}. Dates: Jan 23 - Mar 30, 2026. Themes: Beginner Friendly, Education, Open Ended. Prizes: $<span data-currency-value>0</span>.",
+        "source": "devpost_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "Agents Assemble - The Healthcare AI Endgame",
+        "link": "https://agents-assemble.devpost.com/",
+        "snippet": "Location: {'icon': 'globe', 'location': 'Online'}. Dates: Mar 04 - May 11, 2026. Themes: Health, Machine Learning/AI, Beginner Friendly. Prizes: $<span data-currency-value>25,000</span>.",
+        "source": "devpost_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Gladimir Baranoski - Predictive simulation of light and matter interactions aiming at theoretical and practical applications in realistic image synthesis, biophotonics, biomedical optics and remote sensing",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Diogo Barradas - Network security, privacy enhancing technologies, internet censorship, digital forensics",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Christopher Batty - Scientific Computing, Graphics, Physics simulation: liquids, smoke, deformables, etc.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Raouf Boutaba - Management of networks, systems and services, network virtualization, software-defined networking, Internet of Things, 5G and beyond mobile networks, network security",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Peter Buhr - C∀ (Cforall) Programming Language and Runtime System",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Nancy Day - Formal methods, logic, software engineering, software modelling, state diagrams, requirements, specification",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Yuntian Deng - Natural language processing, machine learning, and multi-agent systems",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Sergey Gorbunov - Cryptography, security, blockchains and distributed systems",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Xi He - Privacy and security for big data management and analysis",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Urs Hengartner - Security and privacy for smartphones and mobile apps",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Jesse Hoey - Affective Computing, Health Informatics, Artificial Intelligence",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Lesley Istead - Computer graphics, image processing, film; natural language processing, machine learning",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Craig Kaplan - Procedural modelling, 2D computer graphics, ornamental design, Tiling theory and geometry",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Martin Karsten - Operating Systems, System Software, Networking",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Florian Kerschbaum - Data science, security, privacy",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Edith Law - Human-AI Interaction, Technology for Fostering Human Values",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Jimmy Lin - Big data, information retrieval, databases",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Sihang Liu - Computer Systems, Computer Architecture, and Storage Systems",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Anna Lubiw - Computational geometry, graph drawing, graph algorithms, and combinatorial optimization",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Sujaya Maiyya - Data privacy, databases, distributed systems",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Ali Mashtizadeh - Operating systems, distributed systems, storage, architecture, compliers",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Mei Nagappan - Software Engineering: Mining Software Repositories, Mobile App Market Analytics, Software Bots",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Naomi Nishimura - Graph algorithms, fixed-parameter tractability, combinatorial reconfiguration",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Pascal Poupart - Machine Learning, Artificial Intelligence, Health Informatics",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Gregor Richards - Programming languages, dynamic languages, JavaScript, JIT, gradual typing",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Ken Salem - Databases, distributed systems, cloud computing",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Shlomi Steinberg - Rendering, computational optics, computer graphics",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Chengnian Sun - Software testing: program reduction, automated Android app testing, compiler testing",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Mina Tahmasbi Arashloo - Networked systems, with a focus on software defined networking (SDN), programmable data planes",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Justin Wan - Scientific computing, computational finance, medical imaging, physics-based simulation",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Stephen Watt - Algorithms and systems for computer algebra, programming languages and compilers, mathematical handwriting recognition and document analysis",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Grant Weddell - Database technology for precompiled real-time application",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Meng Xu - Software Security via Automated Program Analysis and Testing",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Hong Zhang - Large-scale Data Analytics, Machine Learning Systems, Application and Network Scheduling, Serverless & Cloud Computing",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Hongyang Zhang - Machine learning, AI security, and trustworthy ML",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Yizhou Zhang - Programming languages: designing and implementing new languages, probabilistic programming and intelligence, proof assistants",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Math Research Project",
+        "link": "https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura",
+        "snippet": "Faculty: Math. Jian Zhao - Information Visualization, Human-Computer Interaction, Data Science",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Mohammad Araji - Architecture",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title : The Long-Term Costs of Rapid Construction of Multi-Unit Residential in Waterloo Region Description : The Waterloo Region (WR) has been experiencing an explosion in the construction of high-rise condominiums, raising fundamental questions about their environmental and social effects, including critical considerations for lifecycle assessment such as energy performance and embodied carbon, and for core community housing needs of suitability for family size and ability, adequate repair, and affordability. This research undertakes a longitudinal study of high-rise buildings in the region built in different eras of housing. It is part of a larger national SSHRC funded partnership grant led by the University of Montreal that involves 14 different universities and numerous citizen, government and professional partners.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Adrian Blackwell - Architecture",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title : The Long-Term Costs of Rapid Construction of Multi-Unit Residential in Waterloo Region Description : The Waterloo Region (WR) has been experiencing an explosion in the construction of high-rise condominiums, raising fundamental questions about their environmental and social effects, including critical considerations for lifecycle assessment such as energy performance and embodied carbon, and for core community housing needs of suitability for family size and ability, adequate repair, and affordability. This research undertakes a longitudinal study of high-rise buildings in the region built in different eras of housing. It is part of a larger national SSHRC funded partnership grant led by the University of Montreal that involves 14 different universities and numerous citizen, government and professional partners.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Adrian Blackwell - Architecture",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Architects Against Housing Alienation Description: Architects Against Housing Alienation is a research creation project that is coordinated by a group of faculty members at the Universities of Waterloo and British Columbia and includes practicing architects, housing advocates and housing activists. The project focuses on the problem of the hyper-commodification of housing as a central cause of housing unaffordability. It seeks to find ways to promote de-commodified housing solutions. We are looking for an undergraduate student with an interest in housing affordability and current housing policy and skills in social media.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Elizabeth English - Architecture",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Amphibious Housing for Flood Mitigation in Canada Description: The use of amphibious foundations is a climate change adaptation strategy that is gaining popularity around the world. This innovative technology provides a form of flood mitigation that has many advantages over the standard flood protection techniques in common use today. The URA position involves students in ongoing research projects to develop amphibious construction prototypes for specific sites in various locations in Canada. Projects may focus on flood mitigation for First Nations populations vulnerable to repetitive seasonal flooding, the retrofit of heritage properties for flood resilience that minimizes changes to appearance, or individual clients seeking a new approach to flood damage prevention.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Rick Haldenby - Architecture",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Description : Design, Culture and Community: the role of design and schools of design in economic, cultural and urban development in mid-size cities.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Nasser M. Abukhdeir - Chemical Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Descriptions : Computational Studies of Liquid Crystal Dynamics for Optics Applications Computational Pattern Identification and Classification Techniques for Surface Self-Assembly",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Jeff Gostick - Chemical  Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Computational analysis of volumetric images of porous materials Description : Volumetric images, or 3D images, can be obtained from a variety of methods such as x-ray and neutron tomography, NMR imaging, and focused ion-beam milling combined with electron microscopy. With the relentless increase in computation power it has become feasible to determine structural and transport properties of materials directly from such images, bypassing the need to perform time consuming and costly experiments. This approach is being applied to 3D printed parts, battery electrodes, and virus filtration membranes, to name few. My lab specializes in the development of novel computational algorithms for the analysis of 3D images, and we  are the lead developers of the open-source software packages OpenPNM and PoreSpy (both available on Github). Our work leverages the latest developments in artificial intelligence, high performance paralleized computing, and computer vision, to create new tools for materials researchers. Interested applicants should be proficient with Python and interested in a career in data science, big data, computational analyst.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Michael Tam - Chemical Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Descriptions : Applications of renewable nanomaterials in water treatment Development of rapid drying coating systems",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Maxime van Der Heijden - Chemical Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Additive manufacturing of porous electrodes for redox flow batteries Description: We are looking for a motivated student to join our research group on the manufacturing of porous materials for electrochemical devices using additive manufacturing. The candidate will design porous electrodes using computer-aided design software and will develop new resin formulations that both meet the specific requirements for redox flow battery electrodes. The student will manufacture these structures using Digital Light Processing 3D printing, followed by thermal treatment steps to obtain conductive carbon electrodes. Finally, the candidate will evaluate the performance of the 3D printed electrodes in redox flow batteries.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Valerie Ward - Chemical Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title : Development of biorefinery technologies for microalgae Description: Microalgae are a promising feedstock for the production of sustainable chemicals to replace current petrochemical based products. We are undertaking a number of projects exploring the use of microalgae for applications in materials, as chemical feedstocks, for therapeutic protein production, and for high value terpenoid production. We explore both the upstream process development and strain engineering as well as the downstream recovery and purification of products. Please contact for more info.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Boxin Zhao - Chemical Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Description : Adhesion and Interfacial Phenomena of Polymeric Thin Films",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: James Craig - Civil & Environmental Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Description : Development and analysis of improved hydrological models.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Monica Emelko - Civil & Environmental  Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Descriptions : Investigating the impacts of climate change on drinking water treatability. Understanding Pathogen Transport and Survival in the Subsurface",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Eugene Kim - Civil & Environmental Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Multi-hazard resilience of structures. Description: Analysis of coastal structures under sequential earthquake-tsunami loading.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Daniel Lacroix - Civil & Environmental Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title : Multi-hazard resilience of tall wood structures Description: Tall and high-profile wood structures may be at risk for damage due to earthquakes, fire, deliberate attacks, accidental explosions, or a combination of such events which could lead to a progressive collapse. This project is to develop a research framework associated with the multi-hazard performance of tall wood structures and to identify critical parameters affecting the behaviour. Student will use the acquired knowledge to conduct a parametric analysis on a simple structure. A senior student that intends to pursue graduate studies in CEE is preferred. Other information or restrictions: Held jointly with Dr. Eugene Kim (CPH 3662)",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Daniel Lacroix - Civil & Environmental Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Computer software for inelastic analysis of FRP reinforced wood beams Description: This project looks at extending the capabilities of an existing software capable of predicting the load-deformation of unretrofitted and retrofitted glulam beams and columns for dynamic analysis. Amongst other tasks, the primary challenge is to develop and implement a sectional analysis for various retrofit configurations. A senior student who is capable of programming (e.g.Visual Studio, Python) and intends to pursue graduate studies in CEE is preferred.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Alana Lund - Civil & Environmental Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Vibration-based Vulnerability Assessment of Civil Structures Description: Though our buildings and bridges can often appear monolithic, they are susceptible to very real forces (weather, vehicle cycles, earthquakes, etc.) that deteriorate their performance over time. The focus of this project is to enhance our ability to characterize the current condition of our infrastructure, estimate its future behaviors with respect to potential hazards it may experience, and develop efficient strategies to improve that performance. Students will have the opportunity to perform structural dynamics experiments and use tools from data science (Bayesian inference, machine learning, etc.) to build our capacity to understand our infrastructure. All applicants are welcome, but 3 rd and 4 th year students with an interest in exploring graduate studies in CEE will be given preference.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Maria Anna Polak - Civil & Environmental Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Description : Structural Engineering Testing and Analysis.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Rebecca Saari - Civil & Environmental Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title : Health Impacts of Climate Change and Climate Policy. Brief Description : Student will assist in the analysis for an ongoing study of the health impacts of climate change and climate policy. Student will quantify the costs and health benefits of policy, examining questions that are highly relevant to current policy questions in North America. Students of all backgrounds that are interested in this area are welcome. An  introductory level of statistics is preferred. The student will be building on existing Python scripts, so Python experience is highly preferred.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Chul Min Yeum - Civil & Environmental Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Virtual/Augmented Reality Applications in Structures Assessment Description: I am looking for a senior student who is interested in working on a research project next term, which can also lead to opportunities in graduate studies in the topic of smart structure technology with our research group (cviss.net). The project will revolve around cutting-edge smart structure topics, particularly in virtual reality applications (VR, AR, & MR), computer vision, and machine learning. The goal is to devise high-impact, practical virtual reality (VR) applications for structure maintenance and asset management to enable engineers with VR devices to make the best decisions built on the availability of various information from a real-world, digital model or AI-enabled data analytics. It is preferred that students have taken courses related to computer vision or machine learning and have programming backgrounds such as languages (e.g., Python, C++/C#), web service (e.g., AWS, Azure), and software (e.g., Unity, 3D modeling software). If you are interested in the research project, please contact me by email: cmyeum@uwaterloo.ca. Find more information on my lab website: https://cviss.net",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Shunde Yin - Civil & Environmental Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Coupled thermal, hydraulic, mechanical, and chemical processes Description: Please reach out for more information.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Sahar Azad - Elecctrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Fault-Blocking Converter Modeling Description : Fault-blocking converters are a new type of AC-DC converters that can be used to block the DC fault current and at the same time provide reactive power support to the AC power system. The objective of this project is to develop the model of a specific fault-blocking converter in teh PSCAD software.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Sahar Azad - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Modeling of HVDC Grids Description: Modeling of HVDC Grids",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Michal Bajcsy - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title : Nonlinear optics with hollow-core photonic crystal fibers Description : This project studies the possibilities for light-matter interaction enhancement through the confinement provided by a hollow-core photonic-crystal fiber and through novel quantum optics techniques. This project will further explore possible practical applications of this platform, such as: all-optical switching or bio-sensing.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Dayan Ban - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Description : Quantum/Nano Semiconductor Devices. Energy harvesting devices Artificial intelligence/machine learning",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Slim Boumaiza - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Description : Hardware/Software Design of Wireless Radio Systems. Other Information : Suitable for 3A to 4B term students.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Kerstin Dautenhahn - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Developing social robots for education and therapy for children. Description: Development of programs for social robots used in the Social and Intelligent Robotics Research Lab (SIRRL). The goal is to teach, motivate and engage children using social robots as a tool in the hands of teachers/therapists/instructors/parents. This work will address the development of social robots that can aid students with or without special needs to boost their social, emotional, academic and cognitive skills.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Kerstin Dautenhahn - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Robots to support healthy living and healthy aging. Description: Contribute to the development of programs for social robots to assist healthy aging and healthy living for older adults. This work will contribute to research projects in the Social and Intelligent Robotics Research Lab (SIRRL). Applications of this technology are to support older adults in long-term care and assistive living and home environments.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Kerstin Dautenhahn - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title : Social robots to support mental health and wellbeing. Description: Developing programs for social robots to assist in mental health and wellbeing. This work will contribute to research projects in the Social and Intelligent Robotics Research Lab (SIRRL). Applications of this technology are to support children, adolescents and adults, including university students, to improve their wellbeing and mental health through exercises, e.g. addressing anxiety during public speaking or supporting mindfulness and relaxation exercises mediated by social robots.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Werner Dietl - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Description : Developing correct software is difficult and many programming errors are discovered by end users, which causes embarrassment, monetary damage, and -in the extreme- harm to people. My research focuses on practical approaches to prevent more programming mistakes during development. Optional type systems improve the static guarantees of a programming language like Java, and are a light-weight approach to improve correctness. In your URA, you'll learn about high-quality software development and work on a research project, e.g., by performing a case study, improving an existing tool, or prototyping a new tool. Research on improving code quality and programmer productivity will also benefit your own programming skills. You can contact me via email ( wdietl@uwaterloo.ca ). Also, feel free to take a look at my homepage .",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Sebastian Fischmeister - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Description : Improving experimentation in Computer Science and Computer Engineering. You'll learn about: Operating Systems Compilers A little bit of statistics",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Arie Gurfinkel - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Automated Software Verification and Program Analysis Description: Our group is working on scalable automated verification that is usable by software engineers and is integrated into the software development life-cycle. Verification ensures that software satisfies given properties for all possible inputs, and be used to prove absence of bugs. You will be able to use your programming skills and contribute to the development of the automated verification tool SeaHorn and will learn about Compilers, Constraint Solvers (SAT, SMT), and Automated Verification. Depending on your interests and experience, you will be able to work on various parts of the framework, and focus on Logic-based Reasoning, Compiler Optimizations, Program Analysis, Pointer Analysis, Testing Infrastructure, Smart Contracts, or C++ Standard Library implementations. The project uses technologies like C++, Python, LLVM, Z3, Docker, Travis.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Vincent Gaudet - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Hardware architectures for machine learning Description: This project explores machine learning accelerators based on field-programmable gate array devices, and will involve a combination of software simulation and design of hardware architectures at the register transfer level.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Wojciech Golab - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title : In- Memory Data Structures for Next Generation Multi-Core Machines Description : To harness the power of parallel architectures, software designers must synchronize threads that concurrently access shared resources, such as in-memory data structures. The project will focus on synchronization in multi-core computers, which provide multiple processing elements or cores attached to a pool of shared memory. Growing core counts and disruptive innovations, such as transactional and persistent main memories, continue to drive research in this area. The specific goal of this project will be to design, prototype, and evaluate novel synchronization algorithms suitable for real world applications, such as in-memory data management and analytics systems.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Arie Gurfinkel - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Automated Software Verification Brief Description: Modern software systems are incredibly complex engineered artifacts. They rely on intricate algorithms, developed by large, often distributed, teams, and are build out of many interconnected components. Software bugs are common even in such safety-critical industries as medical devices, automotive, and avionics. Yet, we are increasingly becoming dependent on reliable operation of such systems. Furthermore, the impact of software bugs on safety and security is increasing as the border between safety- and non-safety-critical systems is eroded. Dealing with this complexity requires automation in verification and certification. While the last few decades have seen tremendous progress towards this goal, effective automated verification remains a grand challenge. The long term objective the project is to develop scalable automated verification that is usable by software engineers and is integrated into the software development life-cycle. You will contribute to the development of the automated verification tool SeaHorn and will learn about Compilers, Constraint Solvers (SAT/SMT), and Automated Verification.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Nachiket Kapre - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Embedded Machine Learning with FPGAs Description: Student will develop VHDL/Verilog or OpenCL descriptions of neural networks suitable for embedded implementation. Applications include computational support for robotics, embedded vision, drones",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Na Young Kim - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Quantum Nanoelectronics and Nanophotonics Description: Assist senior group members in various aspects by developing experimental tools, building analog/digital circuits, programming automation codes, and constructing a spectrometer and a laser depending on capability.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Christopher Nielsen - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Development of feedback controllers Description: Development of feedback controllers for a rotational double pendulum.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Yash Vardhan Pant - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Autonomous Robot Software Development Description: This project involves developing software to deploy and test algorithms for perception, decision-making, and motion planning in autonomous mobile robots, specifically real-world 1/10th-scale ground robots and quad-rotor aerial robots. Examples of tasks include localization, object detection, motion planning, control, mapping, and developing physics-based simulators. The project requires familiarity with C++/Python and ROS2; bonus points for experience with Docker, Tensorflow/PyTorch, and the MuJoCo (or similar) physics simulator.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Mahla Poudineh - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Developing new platforms for bio-sensing applications Description: In Poudineh Lab, we develop bio-sensing approaches for therapeutics and diagnostics purposes and translating biomedical devices to the clinic. Currently, the focus is on two main projects: Wearable sensors for in vivo molecular tracking: Developing wearable sensors similar to the continuous glucose monitoring patches that can measure biomarkers beyond glucose Beter diabetes management: Developing a platform for measuring insulin and glucagon-two important hormones for adjusting glucose level in blood",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Omar Ramahi - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Description : Biomedical Applications of Electromagnetics and Acoustics",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Sebastian Schulz - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Inverse design of metasurfaces for hyperspectral imaging applications Descriptions: Hyperspectral imaging is an imaging modality where spectral information is recorded for every pixel in an image. Typically this requires expensive camera systems, combining complex optics, to either raster scan a spectrometer input over a image or, in single-shot operation send light to many spectrometers simultaneously. In this project we propose to implement a low-cost single shot hyperspectral imaging system, by combining a colour selective transmission metasurfaces with a standard CCD camera. Metasurfaces are flat optical elements, where the structure rather than constituent material dominates the optical response. Therefore, we aim to develop a number of compact metasurfaces pixels, with varying transmission spectra, to cover the visible spectral region. The design of these pixels can be aided by machine learning approaches, such as inverse design, e.g. using the open-source Spins-B package. This will begin as a computation only project, but can subsequently involve the optical characterisation fabricated devices designed by the RA. Interested candidates are encouraged to contact me for more details.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Sebastian Schulz - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Machine learning based optical speckle analysis for spectrometry applications Description: Light that propagates through a disordered medium will form what is known as a Speckle pattern, a seemingly random distribution of bright and dark regions, from the interference of many different possible light paths through the medium. Yet this speckle pattern is only seemingly random, in fact is is deterministically formed and depends on the incident light, as well as the disordered medium though which the light propagates. Therefore if one of these two is known, a Speckle pattern can be used to infer information about the other. E.g. one application is to measure minute deviations in a laser wavelength by observing variations of a Speckle pattern. Another potential application, the one of interest to this project is that the speckle pattern can be used to identify the spectrum of the optical input. During this project the speckle will be generated via a disordered integrated spectrometer developed in my group and is detected using an infrared camera. The aim of this project is to investigate machine learning based speckle analysis options, to improve the device resolution and accuracy. This is a computation only project at this stage and interested candidates are encouraged to contact me for details. This project can continue over multiple terms.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: George Shaker - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Descriptions : Wearable Wireless Systems Energy Harvesting Systems mm-Wave Electromagnetics 5G for IoT Radar Sensor Systems Drone Connectivity",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Siva Sivoththaman - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Description : Opto-Electronic Characterization of Silicon Devices",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Ladan Tahvildari - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Descriptions : STARMX: An Autonomic Computing Framework Implementing Log & Trace Analyzer for Middleware & DB Implementing Enterprise Services for ISLEE",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Lin Tan - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Descriptions : Automated program repair: we will develop new approaches to automatically learn fix patterns from existing bug patches, and generate new patches automatically. Good programming skills and strong motivation in research are required. Background in compilers is a plus. Document assisted testing and program synthesis: analysing software documents to improve software testing and automated program generation. Good programming skills and strong motivation in research required. Background in machine learning and natural language processing is a plus. Building a next generation version control system that understands programming languages. Other Information : Other projects in software testing, text analytics, and addressing security bugs are available.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: David Wang - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Descriptions: 3-D Binaural recording Haptics (computer generated sense of touch)",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Zhou Wang - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title : Image and video processing: perceptual and deep learning approaches Description: Image and video processing, compression, streaming using perceptually motivated and deep learning approaches. Possibly involve algorithm and software development, data processing and analysis, and perceptual experiment.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Lan Wei - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Cryogenic CMOS for quantum computing Description: This project is for 3rd/4th year students only. In this project, the students are encouraged to explore the CMOS device and circuit at cryogenic temperatures aiming for control and operation of silicon quantum bits for quantum computing, including Cryogenic CMOS device characterization and modeling Cryogenic CMOS circuit design for quantum computing",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Lan Wei - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Wide-bandgap semiconductor device compact modeling Description: This project is for 3 rd /4 th year students with proper device and circuit background only. The students are expected to have taken some of the related courses, including ECE331/463/444. In this project, students will explore transistor physics, compact modeling in Verilog-A, and parameter extraction for wide-bandgap based semiconductor devices (such as Gallium nitride, Silicon-carbide). The students will have the opportunities to work on industry-standard compact model, mainstream EDA/TCAD software.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: William Wong - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: NEMO Software Implementation Analysis Description: Investigation and development of software to monitor the use of microfabrication tools in the Giga-to-Nanoelectronics facility on campus. The software development will be used to determine machine operation time and intervals between repair cycles along with operating costs to help improve the overall function of the facility.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Sibel Alumur Alev - Management Science and Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Facility Location in Supply Chain and Logistics Networks Description: Development of optimization models to address facility location problems faced in supply chain and logistics networks.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Sharon Ferguson - Management Science and Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Developing Collaboration Technology for a Flexible Future of Work Description: Post COVID-19, workplaces are experimenting with new workplace configurations, including varying hybrid schedules, alternating between asynchronous and synchronous work time, and more flexible working hours (e.g., 4-day work weeks). These changes challenge our traditional collaboration patterns and collaboration platform (e.g., Zoom, Microsoft Teams) use. This project aims to study collaboration in these emerging workplace configurations, identify which collaboration constructs are affected, and design more effective collaboration technology to support these new forms of working. This project will involve observing collaboration through in-person/online observations, interviews, surveys, and digital trace data collection; using qualitative, quantitative, and natural language processing methods to analzye collaboration patterns; using software engineering and user experience fundamentals to design new collaborative technology; and using user testing methods and controlled experiments to evaluate the technology. Students will need experience in either software engineering, natural language processing and analytics, or human subject studies. This work will contribute to publications in HCI venues such as CHI and CSCW.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Saeed Ghadimi - Management Science and Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Revisiting gradient descent Description: We study the gradient descent method for solving convex optimization problems. We try to improve its well-known convergence rate and show its optimality by establishing lower bounds. Potential candidates will have a solid mathematical optimization background.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Houra Mahmoudzadeh - Management Science and Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Optimization of radiation therapy treatment planning for cancer Description: Radiation therapy is one of the main methods for treating cancer. High energy beams are used to eradicate cancer cells while trying to spare the surrounding healthy organs. The treatment planning process can be viewed as a large-scale optimization approach. We use mathematical programming techniques to formulate different types of cancer treatment planning problems using real patient data. Different projects are defined based on specific cancer sites, different delivery machine specifications, and various clinical requirements defined for personalized treatments.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Jatin Nathwani - Management Science and Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Descriptions : Analysis of Energy Consumption & Environmental Indicators Energy Policy in the Context of Environmental Sustainability",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Mehrdad Pirnia - Management Science and Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Optimization model in energy market Description: The aim of this project is providing clean, affordable and reliable energy for consumers, from busy urban areas to remote northern communities. The student needs to look at technologies such as renewables, storage capacities, and more modern initiatives (electric vehicles and smart appliances) and use optimization techniques to prescribe the best policies to achieve environmental targets and cost reduction incentives. The projects involves a high degree of data analytics.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Sirisha Rambhatla - Management Science and Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Semantic Segmentation in Computer Vision Applications under distribution shifts (use of foundation models)",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Oliver Schneider - Management Science and Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Haptic Prototyping and Analysis Description: Haptic technology engages people through the sense touch in diverse ways, such as force feedback, mid-air vibrations, or programmable friction. This project involves hands-on research developing new haptic interactions and studying the implications of haptic technology in applications like VR gaming, education, and therapy. Students will do hardware prototyping (Arduino, sensors, motors), software prototyping (Javascript/NodeJS, Unity), analysis (R, Matlab, study design), or some combination thereof. This work will contribute to research projects that will be published at top Human-Computer Interaction (HCI) and haptics venues.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Olga Vechtomova - Management Science and Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Deep learning models for text generation Description: The Natural Language Processing (NLP) Lab conducts research in natural language generation, text style transfer, natural language understanding, audio/music representation learning and generation of text for artistic applications, including lyrics and poetry. The URA will participate in one of the ongoing research projects. The responsibilities include designing, implementing and evaluating neural networks for text generation. Extensive experience with Python and deep learning libraries, such as PyTorch or TensorFlow, is required. Previous experience working on natural language processing and/or computational audio projects is a bonus.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Olga Vechtomova - Management Science and Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: 3D graphics web development Description : The Natural Language Processing (NLP) Lab conducts research in natural language generation and artistic/creative applications of NLP and AI. This project is aimed at creating a multimedia art installation backed by real-time AI system. It involves the development of an interactive web application using Three.js, React.js and WebGL. This role requires experience creating 3D graphics and animation using Three.js, as well as writing custom vertex and fragment shaders using WebGL or OpenGL Shading Language. The successful candidate will be expected to work off the existing codebase written in Three.js and React.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Olga Vechtomova - Management Science and Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Development of web-based application for a deep learning NLP project. Description : The Natural Language Processing (NLP) Lab conducts research in natural language generation, text style transfer, natural language understanding and multi-modal representation learning. This role is part of a project building an interactive real-time web application for a deep learning project. The URA will be expected to build a fully functional real-time web application. Extensive experience developing web applications using React.js is required.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Arash Arami - Mechanical & Mechatronics Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Modeling of Human Neuromechanics and Sensorimotor Deficits Description: Use machine learning, signal processing, and system identification techniques. Analyze human movement data and physiological data. Build models and statistical analysis.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Cliff Butcher - Mechanical & Mechatronics Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title : Fracture Characterization of Advanced High Strength Materials for Vehicle Crash Applications- Description : This project focuses on the experimental and numerical characterization of the mechanical properties and fracture mechanisms of advanced high strength automotive alloys including ultra high strength boron steel and high strength \"military-grade\" aluminum. These mechanical properties are used to develop sophisticated numerical fracture models to design the forming operations of automotive structural components and predict their behaviour in vehicle crash simulations. The research can be tailored to the student's interest with a focus on the design of test fixtures, experimental characterization or numerical modelling of industrial forming operations to predict fracture. This research project provides a unique opportunity to work directly with our industrial partners in the automotive industry. A PhD candidate will assist the student with supervision and training of the numerical modelling and lab experiments.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Teng Cui - Mechanical & Mechatronics Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Mechanical characterization and simulation of solid-state batteries Description: Solid-state batteries (SSBs) are a promising next-generation energy storage technology, offering improved safety, higher energy density, and faster charging compared with conventional lithium-ion batteries. However, SSBs face significant mechanical challenges during electrochemical cycling, including fracture, fatigue, and local delamination. These issues remain a critical obstacle for the commercialization of SSBs. Prof Cui’s group has multiple projects for URA and USRA students working on SSB architecture design, nanomechanical characterization, as well as finite element simulation of mechanical behavior of SSBs. Students will gain a strong foundation in battery technology while developing expertise in nanomechanical characterization and simulations. The skills acquired through this project will greatly prepare students for careers in both academia and industry. If you are interested, please reach out the Prof. Cui (teng.cui@uwaterloo.ca).",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Kaan Erkorkmaz - Mechanical & Mechatronics Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Description : Precision Machine Design Instrumentation and Controls",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Baris Fidan - Mechanical & Mechatronics Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Instrumentation and Control of Mobile Robotic Networks. Description: The project involves coding and testing of a set of robotic/vehicle network localization, coordination, and control algorithms. The tasks include instrumentation and implementation on wheeled lab robots and/or UAVs.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Kevin Musselman - Mechanical & Mechatronics Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Spatial atomic layer deposition and related devices Description: Spatial atomic layer deposition is an emerging technique for the rapid, open-air deposition of nanoscale electronic materials. We have ongoing projects related to the development of spatial atomic layer deposition manufacturing, printing and characterization of thin films, and integration of the thin films into devices, including gas sensors and perovskite photovoltaics. A project may involve mechatronic design, thin film characterization, and other nano/micro fabrication techniques.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Robert Nishida - Mechanical & Mechatronics Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Combining Sensor Tech for Enhanced Wildfire Smoke Detection Description : In hot, dry areas with wildfires, PM2.5 (the mass of particulate matter <2.5 μm in diameter) often exceeds 200 μg/m3, deemed \"hazardous\" by air quality guidelines. Wildfire smoke disproportionately affects vulnerable populations, such as the elderly, as well as communities in certain geographic locations. This project aims to combine multiple low-cost particle sensors and design them for deployment on drones for early wildfire smoke detection and actionable, local air quality data. You can contact me via email ( robert.nishida@uwaterloo.ca ). Also, feel free to take a look at my research interests",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Zhao Pan - Mechanical & Mechatronics Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Curiosity-driven micro/bio-fluid physics in daily lives Description : We are a curious group that invites students investigating interesting problems around us by learning from nature through mathematics/fluid physics lens. We look for high impact works based on creative ideas. A few examples of our projects include: How can men’s pants and restrooms stay away from splashing back body fluids? Half of the population on the earth have been suffering from this issue since urinals were invented over 100 years ago. We will solve the problem by learning from dessert moss, nautilus shells, and puppies. How to design a fiber network that holds and manipulates liquids for future smart agriculture? We will start with learning from raindrops on pine tree needles and droplets on spider webs. How to improve helmet safety design? Remember the party trick that you can shatter a beer bottle by striking the top of it with your bare hands? High-speed photography of this trick will inspire us.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Armaghan Salehian - Mechanical & Mechatronics Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Description: Piezoelectric energy harvesting to harvest electricity from mechanical vibrations Cable harnessed dynamics and vibrations modeling of periodic structures.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Elizabeth (Beth) Weckman - Mechanical & Mechatronics Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Fire Safety Engineering Description: Interested in fluids, thermal and materials performance. There are a variety of projects available related to ongoing projects through the UW Fire Research Labs. Other Information or Restrictions: Of benefit to have transportation as some testing is normally done at the labs which are off campus near the Erb St Landfill site.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: John Wen - Mechanical & Mechatronics Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Description : Synthesis and Characterization of Nanomaterial for Advanced Energy Research.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Xiaoyu Wu - Mechanical & Mechatronics Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Hybrid energy storage system Description: Low-cost large scale energy storage is required due to the increasing variable renewables in the grid. In this topic, we will analyze the benefits of combining multiple energy storage technologies into one system. Models will be built to optimize the ideal combination for energy storage to improve the sustainability. Energy storage will also be combined with other commodity production to make the system more flexible and efficient.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Yimin Wu - Mechanical & Mechatronics Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title : Strained Engineered Artificial Leaf for CO2 conversions to fuels Description : Photocatalytic CO2 conversion systems, also addressed as artificial leaves, can convert CO2 into useful fuels with solar energy. We have ongoing projects related to the development of photocatalytic reaction systems that utilize strain engineering to enhance the conversion performance. These projects involve reactor design and optimization, performance evaluation, and patent/paper preparation.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Yimin Wu - Mechanical & Mechatronics Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Photocatalytic Reactor for Converting Plastic Waste into Value-Added Chemicals Description: Photocatalytic plastic conversion is considered one of the most promising recycling strategies due to its sustainability and environmental friendliness. We will work on developing better photocatalytic reaction systems to improve the use of light and enhance the conversion performance. These projects involve reactor design and optimization, performance evaluation.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Hongxia Yang - Mechanical & Mechatronics Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Combustion and Explosion Safety in Reactive Flows Description: Our group investigates the fundamental combustion characteristics of reactive compressible fluids, with a focus on applications in explosion safety and energy efficiency. We combine experimental, numerical, and analytical methods to study flame/detonation behaviour, flame acceleration, pressure wave-flame interactions, and flame/detonation quenching in various scenarios. This project offers a hands-on opportunity to contribute to the establishment of a new laboratory and engage in research addressing real-world explosion safety challenges. Depending on your interests and background, you can get involved in areas such as: •     Design and Prototyping using computer-aided design software (e.g., SolidWorks), •     Machining and Fabrication of custom components, •     Experimental Setup and Testing, including laboratory-scale experiments with high-speed visualisation techniques, •     Computational Research, including numerical simulations using our in-house tools and data analysis with Python/MATLAB/Mathematica/Maple. Students will receive direct mentorship and guidance throughout the project. Whether you're looking to apply your current skills or are excited to explore new areas, I’d be happy to discuss how you can get involved. Please feel free to email me ( hongxia.yang@uwaterloo.ca ) or stop by my office for more information.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Serhiy Yarusevyh - Mechanical & Mechatronics Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Fluid Mechanics Research Laboratory Description: We have a very active, internationally recognized research group specializing in engineering applications of fluid mechanics and aerodynamics. We are always open to providing research opportunities to motivated students in the areas related to our ongoing projects.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Norman Zhou - Mechanical & Mechatronics Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Description : Processing of medical and smart materials.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: David Clausi - Systems Design Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Applied Computer Vision Description : Machine learning, AI, deep learning applied to computer vision in the realm of satellite remote sensing and sports analytics. Funded by : Research Account",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Moojan Ghafurian - Systems Design Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Emotionally intelligent agents for supporting older adults Description: Apply different methodologies for developing emotionally intelligent agents, and implement and test them on a variety of user interfaces including mobile-based applications and social robots.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Moojan Ghafurian - Systems Design Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Emotionally intelligent agents for supporting children Description: Development of a mobile-based applications including a range of different games and connecting it with a social robot. Implementation of social robot behaviours with the goal of supporting children's cognitive development.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Moojan Ghafurian - Systems Design Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Smart home environments equipped with social robots for health monitoring Description: Integration of social robots with a variety of different health sensors for remote health/wellbeing monitoring. Managing data gathered from multiple sources and data visualization. The goal of this project is to provide in-home health/wellbeing support.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Parsin Haji Reza - Systems Design Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Integrative Molecular Imaging for Cell-to-Clinic Precision Medicine. Description: We design and fabricate a novel medical imaging system that we call it photoacoustic remote sensing (PARS) microscopy. This is a fast, non-contact, non-invasive, safe and accurate technique that can measure oxygen saturation, oxygen metabolic activity and multilayered histology-like information. Oxygen saturation and oxygen metabolic activity play a vital role in understanding several diseases including early tumour and vision loss diagnosis and treatment. Additionally, when the oncologic care team must remove a tumour, it is essential that no malignant tissue left behind.  The ability to predict tumour aggressiveness, margin and metastatic potential could significantly affect clinical practice in oncology. It is also shown that abnormal retinal oxygen saturation and metabolic activity are the leading causes of vision loss (e.g. age-related macular degeneration, diabetic retinopathy and glaucoma). The ability to precisely detect aberrant retinal oxygen metabolic activity in a non-contact setting is essential for improving investigations and diagnoses of ocular diseases. In addition, for various applications is surgical oncology and orthology contact is impractical, or the working space and footprint is an issue (e.g. endoscopy and surgery). We will work on technical hardware and software development as well as several imaging applications.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Jennifer Howcroft - Systems Design Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title : Biomedical Stakeholder Cafe Description: This opportunity is available for the fall term only. The Biomedical Stakeholder Cafe is a relatively new event that brings capstone teams together with health care professionals and individuals with lived experience for two evenings of conversations. Tasks include logistical and emailing support for the event and survey data analysis post-event.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Chrystopher Nehaniv - Systems Design Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Computational Algebraic Intelligence Description: Development and application of computer algebraic tools for the automatically creating coordinate systems in a science, technology, engineering or mathematics (STEM)application area in a finite discrete-event system models. Artificial algebraic intellitgence provides novel methods for AI systems to understand and hierarchichally manipulate (e.g. autonomously generating strategies for solving a permutation puzzle like Rubik's cube). Other information or restrictions: Strong programming ability in a higher level language, and experience with scripting languages. Excellent English spoken and writing skills. Strong mathematical aptitude required, familiarity with discrete mathematics/graph theory/finite automata highly desirable as background. Level 3A/3B/4A/4B.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Reem Roufail - Systems Design Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Negative poisson ratio Description : Study the properties of positive Poisson ratio of polymers utilizing 3D printing technology. Other information or restrictions: Will utilize professional money to cover one student.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Reem Roufail - Systems Design Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Shape Memory Polymer Description : Develop shape memory polymer utilizing 3D printing technology. Other information or restrictions: Will utilize professional money to cover one student.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Thomas Willett - Systems Design Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title : Biomimetic Biomaterials- Description : Student will assist in both computation and experimental work concerning the development of novel biomimetic biomaterials.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Thomas Willett - Systems Design Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Mechanical Testing of 3D printed nanocomposite biomaterials. Description: RA will assist post doctoral fellow with experiments mainly involving 3D printing and mechanical testing.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Alexander Wong - Systems Design Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Descriptions : Computer-aided disease analysis using medical imaging",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: John Yeow - Systems Design Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Description : MEMS, Nanotechnology/Device Development",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: John Zelek - Systems Design Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: AI for Infrastructure, Transportation, Urbanism, and other Applications. Description: Most of our research work consists of using Artificial Intelligence methods (such as machine learning including deep learning) to solve complex problems in a variety of applications.  A lot of the problems involve computer vision and or robotics.   Examples of applications include infrastructure monitoring including roads, buildings; building 3D maps from cameras for autonomous vehicles; monitoring manufacturing process control to predict failures; object detection and recognition; 3D human body modelling for human fitting; Reinforcement Learning to learn how to move; human motion modelling for sports analytics;... to name a few.  Currently there are over a dozen graduate students in the lab.  Ideally you will work with one of the graduate students as part of our team.  The projects vary depending on the partners we are currently teamed with.  Ideal candidates should have some exposure to machine learning, be proficient in programming with python, C++ and machine learning tools.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Zhongwei Chen - Chemical Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Descriptions : Advanced Nano-Structured Catalysts for Fuel Cells and Metal-Air Batteries Development of Advanced Graphene Materials for Next Generation Battery",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Maxime van Der Heijden - Chemical Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Additive manufacturing of porous electrodes for redox flow batteries Description: We are looking for a motivated student to join our research group on the manufacturing of porous materials for electrochemical devices using additive manufacturing. The candidate will design porous electrodes using computer-aided design software and will develop new resin formulations that both meet the specific requirements for redox flow battery electrodes. The student will manufacture these structures using Digital Light Processing 3D printing, followed by thermal treatment steps to obtain conductive carbon electrodes. Finally, the candidate will evaluate the performance of the 3D printed electrodes in redox flow batteries.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Engineering Research Project",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Additive manufacturing of porous electrodes for redox flow batteries Description: We are looking for a motivated student to join our research group on the manufacturing of porous materials for electrochemical devices using additive manufacturing. The candidate will design porous electrodes using computer-aided design software and will develop new resin formulations that both meet the specific requirements for redox flow battery electrodes. The student will manufacture these structures using Digital Light Processing 3D printing, followed by thermal treatment steps to obtain conductive carbon electrodes. Finally, the candidate will evaluate the performance of the 3D printed electrodes in redox flow batteries.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Shunde Yin - Civil & Environmental Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Coupled thermal, hydraulic, mechanical, and chemical processes",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Omid Abari - Computer Science",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Intelligent Connectivity for the Internet-of-Things Description: The ICON lab at the School of Computer Science is conducting research in the area of wireless networks and mobile systems, with applications to the Internet of Things (IoT). Our research focuses on the design and implementation of software-hardware systems that deliver ubiquitous sensing, computing, and communications at scale.  We borrow techniques from diverse areas including computer networks, machine learning, signal processing, hardware design, and HCI. The student will do research on designing new connectivity and sensing systems for virtual reality, smart city and smart home applications. We are looking for students with one or multiple of following skills: Experience with C/C++ programming, and interests in designing systems Familiarity with Micro-Controller, Raspberry Pi or FPGA programming Hardware design (Familiarity with PCB design would be a plus) Research experience in wireless networks and systems Interested students should email Omid Abari ( omid.abari@uwaterloo.ca ).",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Sebastian Schulz - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Metasurface based optical image processing for visually impaired athletes Description: Visually impaired (blind or low visison) sport often requires support personel, such as a guide runner. The need for support personel could be reduced through image analysis, e.g. through image processing and object tracking, to ensure that for example a runner or swimmer does not leave their lane. However, real time image processing requires fast computation, which is not convenient to carry during sports activities. The aim of this project is to create an optical metasurfaces or filter based all-optical image processing system that performs optical computation, e.g. contrast enhancement or edge detection and enhancement to in the future allow a low computation system, e.g. a mobile phone, to perform the remainder of the image processing and then provide feedback to the athlete. In this project the RA would be expected to assemble an optical characterisation setup, obtain images of a representative environment, eg. a running track, under varying conditions. This would then be followed by using existing filters, designed by a previous RA on the project to perform all-optical image processing. Additionally the RA would be expected to then further improve the filters used, as well as miniaturize the optical set-up. This research opportunity will not be available in Fall 2025 but is to be offered again in the Winter or Spring of 2026. Interested students are encouraged to contact me for more details.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Michal Bajcsy - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title : Systems for Non-Linear Optics at Single Photon Levels Description : This project focuses on design of nano-photonic structures and studies of quantum optics schemes that would enable development of scalable on-chip devices for all optical signal processing at single photon levels. The research will include training in the following areas: use of commercial FDTD software to simulate photonic structures, basic nano-fabrication techniques (photolithography, PECVD), optical testing of fabricated structures, and basic electronics and fiber optics.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Mark Crowley - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Machine Learning Tools Software Development Description: The UWECEML lab carries out research into decision making under uncertainty, prediction of spatiotemporal dynamics and anomaly detection in domains ranging from Forest wildfires, to embedded systems processes to autonomous driving. The student RA will carry out vital work to extend existing software frameworks we use for simulation of dynamic process and to help with running of new experiments in collaboration with graduate students in the lab. This position will involve programming in python on unix and windows machines to set update existing libraries, build experimental frameworks, run experiments on a range of datasets and help with visualizing the outputs. Student must have development experience and have a deep knowledge of python a must, knowledge of scipy, pyplot, tensorflow would be beneficial. Familiarity with machine learning algorithms such as random forests, deep learning, CNNs, Reinforcement Learning a plus but not required.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Guang Gong - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Implementation of WG cipher automation using GAP. Description: A part of research in the ComSec lab (comsec.uwaterloo.ca) is development of cryptographic algorithms and protocols in hardware and software. WG stream ciphers are defined over small finite fields which aim at securing loT devices. A part of ongoing research is design automation using GAP and VHDL> This project is to implement more sophisticated search methods (for example reducing the search space based on the fact that reciprocal of an irreducible/primitive polynomial is also irreducible/primitive). The efficiency of implemented functions in GAP can be tested using GAPs profiling facilities. The goal is to reduce the time for the search for the small fields and to adapt the methods to work on bigger fields as well: in the initial stage, we want to extend GF (2^128), possibly larger. Other information and restrictions: Requirements: basic coding experience in any language, knowledge of algorithms, finite fields, experience with GAP is desired but not mandatory, as long as the student has experience with some other CAS.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Arie Gurfinkel - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Automated Software Verification Brief Description: Modern software systems are incredibly complex engineered artifacts. They rely on intricate algorithms, developed by large, often distributed, teams, and are build out of many interconnected components. Software bugs are common even in such safety-critical industries as medical devices, automotive, and avionics. Yet, we are increasingly becoming dependent on reliable operation of such systems. Furthermore, the impact of software bugs on safety and security is increasing as the border between safety- and non-safety-critical systems is eroded. Dealing with this complexity requires automation in verification and certification. While the last few decades have seen tremendous progress towards this goal, effective automated verification remains a grand challenge. The long term objective the project is to develop scalable automated verification that is usable by software engineers and is integrated into the software development life-cycle. You will contribute to the development of the automated verification tool SeaHorn and will learn about Compilers, Constraint Solvers (SAT/SMT), and Automated Verification.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Pin-Han Ho - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Deep machine learning for media classification Description: The project is on programming of software module and applications for a novel deep learning architecture for video/multimedia inspection/classification.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Pin-Han Ho - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Video snapshot acquisition Description: The project is to prototype a video snapshot system that includes a media server and FPGA programming on Altera's Dex system.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Nachiket Kapre - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Accelerated Machine Learning with FPGAs Description: Companies like Microsoft, Intel, Google, NVIDIA are developing specialized chips for accelerating machine learning computations. We will investigate the use of FPGA-based or FPGA-like architectures for such applications. The student will write VHDL/Verilog or OpenCL descriptions of these computations and evaluate various cost/performance tradeoffs in their implementations.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Hiren Patel - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Generating Verilog from High-level Specifications Description: This project implements a back-end that generates synthesizable Verilog from a subset of SystemC specifications. SystemC is a high-level language built on top of C++ used for modeling and simulating digital hardware systems.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Mahla Poudineh - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Developing new platforms for bio-sensing applications Description: In Poudineh Lab, we develop bio-sensing approaches for therapeutics and diagnostics purposes and translating biomedical devices to the clinic. Currently, the focus is on two main projects: Wearable sensors for in vivo molecular tracking: Developing wearable sensors similar to the continuous glucose monitoring patches that can measure biomarkers beyond glucose Better diabetes management: Developing a platform for measuring insulin and glucagon-two important hormones for adjusting glucose level in blood.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: George Shaker - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Descriptions : Wearable Wireless Systems Energy Harvesting Systems mm-Wave Electromagnetics 5G for IoT Radar Sensor Systems Drone Connectivity",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Kami Vaniea - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Creating Helpful Scam Avoidance Advice Description: Scams can be hard to detect, especially for people who are in a new context, such as moving jobs, coming to university, or starting a new phase of their lives. For these people, it can be very frightening to hang up on someone claiming their SIN has just been deactivated, or ignore an email claiming that Amazon just billed them $900. Most advice given to people on how to detect and avoid scams is overly general; for example: \"look at the URL before clicking\". This advice is quite challenging for people to translate into specific actions, especially when they are facing a threatening message that is urging them to make fast decisions. The goal of this project is to think about a specific population of people and the challenges they face around scams, for example, first year students who just moved to a new city/country and no longer have their prior support system to help them. Then, create a system that will work with them to help them confidently determine if they are facing a scam and what they can do about it. This is an interdisciplinary project and can accept a range of skill areas. A student with strong programming skills might automatically analyze scam emails and use the identified information to help the person make a good decision. A student with more interest in Human Computer Interaction could run experiments to better understand the needs of populations and what types of computer interventions are likely to assist them. Please see my lab page for examples of my past projects",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Lan Wei - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Cryogenic CMOS for quantum computing Description: This project is for 3 rd /4 th year students with proper device and circuit background only. The students are expected to have taken some of the related courses, including ECE331/432/444/445. In this project, the students are encouraged to explore the CMOS device and circuit at cryogenic temperatures aiming for control and operation of silicon quantum bits for quantum computing, including Cryogenic CMOS device characterization and modeling Cryogenic CMOS circuit design for quantum computing",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Alfred Yu - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Next-generation biomedical ultrasound innovations Description: The USRA will be involved in one of the following project directions: 1) Ultrasound imaging technology, 2) Translational ultrasound studies, 3) Ultrasound-mediated drug delivery. All will involve interdisciplinary research and hands-on experiments. Collaboration with other lab members will also be an essential part of the training. The student will function resourcefully within a team with broad expertise in biomedical ultrasound. This will prepare the student well to engage further in cutting-edge ultrasound R&D.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Seyed Majid Zahedi - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Accelerating real-time AI on SoC FPGAs Description: In this project, students will work on design and implementation of an open-source, VTA-based accelerator framework for real-time AI. Prior knowledge on compilers, FPGA design, and kernel programming is necessary. This position is only open to third and fourth year students.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Seyed Majid Zahedi - Electrical & Computer Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Distributed mobile computing system Description: In this project, students will work on design and implementation of an open-source, VTA-based distributed mobile computing framework. Prior knowledge on mobile app development is necessary. Prior knowledge on compilers, OpenCL, and RPC is not necessary but would be extremely helpful. This position is only open to third and fourth year students.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Sharon Ferguson - Management Sciences",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Developing Collaboration Technology for a Flexible Future of Work Description: Post COVID-19, workplaces are experimenting with new workplace configurations, including varying hybrid schedules, alternating between asynchronous and synchronous work time, and more flexible working hours (e.g., 4-day work weeks). These changes challenge our traditional collaboration patterns and collaboration platform (e.g., Zoom, Microsoft Teams) use. This project aims to study collaboration in these emerging workplace configurations, identify which collaboration constructs are affected, and design more effective collaboration technology to support these new forms of working. This project will involve observing collaboration through in-person/online observations, interviews, surveys, and digital trace data collection; using qualitative, quantitative, and natural language processing methods to analzye collaboration patterns; using software engineering and user experience fundamentals to design new collaborative technology; and using user testing methods and controlled experiments to evaluate the technology. Students will need experience in either software engineering, natural language processing and analytics, or human subject studies. This work will contribute to publications in HCI venues such as CHI and CSCW.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Houra Mahmoudzadeh - Management Sciences",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Optimization of radiation therapy treatment planning for cancer Description: Radiation therapy is one of the main methods for treating cancer. High energy beams are used to eradicate cancer cells while trying to spare the surrounding healthy organs. The treatment planning process can be viewed as a large-scale optimization approach. We use mathematical programming techniques to formulate different types of cancer treatment planning problems using real patient data. Different projects are defined based on specific cancer sites, different delivery machine specifications, and various clinical requirements defined for personalized treatments.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Mehrdad Pirnia - Management Sciences",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Analyics in Energy Systems Brief Description: The aim of this project is providing clean, affordable and reliable energy for consumers, from busy urban areas to remote northern communities. The student needs to look at technologies such as renewables, storage capacities, and more modern initiatives (electric vehicles and smart appliances) and use sophisticated optimization techniques to prescribe economical and achievable  policies to meet environmental targets and cost reduction incentives. The projects involves a high degree of data analytics.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Arash Arami - Mechanical & Mechatronics Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Human-Robot Interaction in Wearable Exoskeletons Description: Design controllers for lower and upper limb exoskeletons to help people with sensorimotor deficits. Evaluate the human-robot interaction. Adapt the controller using machine learning techniques.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Russell Buchanan - Mechanical & Mechatronics Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Visual-tactile sensor fusion for robotic manipulation Description: Develop sensor fusion frameworks for integration visual sensors such as cameras and lidar with tactile sensing such as force/torque or inertial sensing. Comparative analysis of model-based methods and deep learning based methods. Implementation of the proposed methods in software for deployment on robot systems. The student will actively work on developing robot capabilities for applications such as robotic agriculture and service robots.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Russell Buchanan - Mechanical & Mechatronics Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Robot learning for dexterous manipulation skills Description: Investigate robot manipulation capabilities using both human-like robotic hands and various robotic grippers including 2-finger and vacuum suction. How can we train robots to go beyond pick-and-place to fine, dexterous manipulation such as holding a pen, chopsticks or typing on a keyboard. Research will focus on reinforcement learning methods in simulated environments with roll-out to real robot hardware.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Teng Cui - Mechanical & Mechatronics Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Mechanical characterization and simulation of solid-state batteries Description: Solid-state batteries (SSBs) are a promising next-generation energy storage technology, offering improved safety, higher energy density, and faster charging compared with conventional lithium-ion batteries. However, SSBs face significant mechanical challenges during electrochemical cycling, including fracture, fatigue, and local delamination. These issues remain a critical obstacle for the commercialization of SSBs. Prof Cui’s group has multiple projects for URA and USRA students working on SSB architecture design, nanomechanical characterization, as well as finite element simulation of mechanical behavior of SSBs. Students will gain a strong foundation in battery technology while developing expertise in nanomechanical characterization and simulations. The skills acquired through this project will greatly prepare students for careers in both academia and industry. If you are interested, please reach out the Prof. Cui (teng.cui@uwaterloo.ca).",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Yue Hu - Mechanical & Mechatronics Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Human-robot interaction with collaborative robots Description: Develop task planning and control frameworks for collaborative robots (robot arms fixed in the environment of on a mobile base) in the context of human-robot interaction tasks, possibly involving indirect or direct physical contacts, such as carrying objects, assembly, physical assistance. The framework should take sensor data from both the robot and human user as feedback to adapt the task execution accordingly.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Yue Hu - Mechanical & Mechatronics Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Understanding physical human-robot interaction Description: Conduct human-robot interaction experiments with collaborative robots involving physical interactions (direct or indirect ones). The experiments should include data collection from both the robot and the human (physical and physiological data, questionnaires). Conclusions should be based on observations and data analysis (factor analysis, machine learning).",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Soo Jeon - Mechanical & Mechatronics Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Visual perception for robotic grasping and manipulation Description: A 7 DOF robot arm has three-finger hand and a stereo vision camera mounted on the wrist. The purpose of this project is to develop efficient vision-based object grasping algorithms so that the robot can grasp various objects (and possibly manipulation them). There are graduate students who are already working on relevant topics and the student will assist them for any tasks needed. The student may also be helping graduate students to upgrade ROS to ROS2. The system will be equipped with NVIDIS embedded PC with GPU (NVIDIA AGX Orin), and the students will have ample experience playing with deep learning and machine vision packages as well as fun experiment with state-of-the-art robotic platform. Strong background in programming and control is preferred. Any prior experience of working in robotic application will be a plus.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Sushanta Mitra - Mechanical & Mechatronics Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Liquid Wettability Description: The work is related to the fundamental understanding of under-liquid wettability with wide range of applications such as self-cleaning surfaces, coatings for marine applications, etc.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Robert Nishida - Mechanical & Mechatronics Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Advancing Particulate Sensors for Improved Air Quality and Health Outcomes Description: Fine particulate matter in outdoor air pollution is the leading environmental health risk, surpassing unsafe water and sanitation. Smaller, ultrafine particles (<100 nm) may have even greater health impacts due to their high concentration, surface area, and deep lung deposition. Unlike fine particles, ultrafine particles are more transient, requiring hyper-local monitoring to accurately reflect air quality and enable informed decisions, e.g., staying indoors, filtering. However, conventional instruments are too bulky, expensive or inaccurate for widespread use. The URA project will involve building, analyzing (e.g. applied Computational Fluid Dynamics) and/or deploying miniaturized particle sensors towards hyper-local air quality data for environmental justice and improved human health. You can contact me via email ( robert.nishida@uwaterloo.ca ). Also, feel free to take a look at my research interests",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Zhao Pan - Mechanical & Mechatronics Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Curiosity-driven micro/bio-fluid physics in daily lives Description: We are a curious group that invites students investigating interesting problems around us by learning from nature through mathematics/fluid physics lens. We look for high impact works based on creative ideas. A few examples of our projects include: How can men’s pants and restrooms stay away from splashing back body fluids? Half of the population on the earth have been suffering from this issue since urinals were invented over 100 years ago. We will solve the problem by learning from dessert moss, nautilus shells, and puppies. How to design a fiber network that holds and manipulates liquids for future smart agriculture? We will start with learning from raindrops on pine tree needles and droplets on spider webs. How to improve helmet safety design? Remember the party trick that you can shatter a beer bottle by striking the top of it with your bare hands? High-speed photography of this trick will inspire us. Funded by: Research Account",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Carolyn Ren - Mechanical & Mechatronics Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Microfluidics Enabled Soft Robotic Arm and Hand for Therapeutic Treatment of Musculoskeletal Conditions Description: Develop an anthropomorphic robotic hand and arm, aiding in the creation a programmable pneumatic pressure and flow source for soft actuator control, and designing wearable medical technologies. We are looking for students who are interested in the following areas: ·Advanced anthropomorphic soft rigid robotic hands in the field, contributing to its design, testing, and refinement for medical applications, or ·An affordable, programmable pneumatic system with variable pressure and flow, with the aim of creating a controller for the soft robotic system. Contribute to the creation of a wearable active compression sleeve for treating medical conditions One or more of the following skills are preferred: Base Skills: SolidWorks design, 3D printing experience, Arduino/STM32 programming, MATLAB programming, General prowess with hand tools Intermediate Skills: PCB Design and fabrication, Control architecture design, Soldering, Comprehension of academic papers Advanced Skills: Robot kinematic mappings, Inverse kinematic solving, Plant identification and approximation, Electromechanical integration",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Armaghan Salehian - Mechanical & Mechatronics Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Description: Piezoelectric energy harvesting to harvest electricity from mechanical vibrations. Cable harnessed dynamics and vibrations modeling of periodic structures.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Mihaela Vlasea - Mechanical & Mechatronics Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title : Cutting-edge metal additive manufacturing technologies for industrial applications Description : In recent years, industry sectors have started to leverage the value of metal additive manufacturing (AM) beyond prototyping. For instance, the aviation and biomedical industry are increasingly bringing AM into use for actual production, particularly targeting manufacturing of complex designs with superior performance. In the automotive industry, AM has recently enabled enhanced productivity via custom tooling that cannot be produced with conventional manufacturing. To achieve excellent part quality in metal AM, ongoing efforts exist for part design optimization, tailoring material properties, and ensuring that the marts meet the performance requirements through experimental validation and characterization. In your role, you will be supporting our collaborative industry research and development programs, with areas of support ranging from advanced design, material and process characterization, process optimization, machine vision, machine learning, performance modeling, data visualization and analytics, report development, project coordination and laboratory operations support. Your role is flexible, matching your skills and desire to learn new expertise. The work will be deployed in collaboration with the Multi-Scale Additive Manufacturing Lab (MSAM). MSAM hosts the largest metal AM academic research lab in Canada and is one of the top five university-led metal AM facilities in the world.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Elizabeth (Beth) Weckman - Mechanical & Mechatronics Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Fire Safety Engineering Description: Interested in fluids, thermal and materials performance. There are a variety of projects available related to ongoing projects through the UW Fire Research Labs.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Xiaoyu Wu - Mechanical & Mechatronics Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Hybrid energy storage system Description: Low-cost large scale energy storage is required due to the increasing variable renewables in the grid. In this topic, we will analyze the benefits of combining multiple energy storage technologies into one system. Models will be built to optimize the ideal combination for energy storage to improve the sustainability. Energy storage will also be combined with other commodity production to make the system more flexible and efficient.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Hongxia Yang - Mechanical & Mechatronics Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Combustion and Explosion Safety in Reactive Flows Description: Our group investigates the fundamental combustion characteristics of reactive compressible fluids, with a focus on applications in explosion safety and energy efficiency. We combine experimental, numerical, and analytical methods to study flame/detonation behaviour, flame acceleration, pressure wave-flame interactions, and flame/detonation quenching in various scenarios. This project offers a hands-on opportunity to contribute to the establishment of a new laboratory and engage in research addressing real-world explosion safety challenges. Depending on your interests and background, you can get involved in areas such as: •     Design and Prototyping using computer-aided design software (e.g., SolidWorks), •     Machining and Fabrication of custom components, •     Experimental Setup and Testing, including laboratory-scale experiments with high-speed visualisation techniques, •     Computational Research, including numerical simulations using our in-house tools and data analysis with Python/MATLAB/Mathematica/Maple. Students will receive direct mentorship and guidance throughout the project. Whether you're looking to apply your current skills or are excited to explore new areas, I’d be happy to discuss how you can get involved. Please feel free to email me ( hongxia.yang@uwaterloo.ca ) or stop by my office for more information.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Serhiy Yarusevyh - Mechanical & Mechatronics Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Fluid Mechanics Research Laboratory Description: We have a very active, internationally recognized research group specializing in engineering applications of fluid mechanics and aerodynamics. We are always open to providing research opportunities to motivated students in the areas related to our ongoing projects.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: David Clausi - Systems Design Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Applied Computer Vision Description : Machine learning, AI, deep learning applied to computer vision in the realm of satellite remote sensing and sports analytics. Funded by : Research Account",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Chrystopher Nehaniv - Systems Design Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Algebraic Intelligence for STEM Applications Description: Development and application of computer algebraic tools for the automatically creating coordinate systems in a science, technology, engineering or mathematics (STEM) application area in a finite discrete-event system models. Artificial algebraic intellitgence provides novel methods for AI systems to understand and hierarchically manipulate (e.g. autonomously generating strategies for solving a permutation puzzle like Rubik's cube, or for applications in System Biology). Other Information or Restrictions: Strong programming ability in a higher level language, and experience with scripting languages. Excellent English spoken and writing skills. Strong mathematical aptitude required, familiarity with discrete mathematics/graph theory/finite automata highly desirable as background.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Woi Sok Oh - Systems Design Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Analyzing and modelling human-environment interplays Description: I am looking for students interested in applying computational techniques to understand diverse problems of human-environment interplays. The topics include: Migration driven by climate/climate change Resilient and just disaster management Modeling and analyzing coupled natural-human systems Quantitative analysis of social or collective decision-making and social tipping involving climate/weather/climate change Priorities are given to: Any research/course experience in complex system modeling, network analysis & modeling, causal discovery, geospatial data analysis, machine learning Strong coding experience in MatLab, R, Python, etc",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Thomas Willett - Systems Design Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title : Biomimetic Biomaterials Description : Student will assist in both computation and experimental work concerning the development of novel biomimetic biomaterials.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: John Zelek - Systems Design Engineering",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: AI for Infrastructure, Transportation, Urbanism, and other Applications Description: Most of our research work consists of using Artificial Intelligence methods (such as machine learning including deep learning) to solve complex problems in a variety of applications.  A lot of the problems involve computer vision and or robotics.  Examples of applications include nfrastructure monitoring including roads, buildings; building 3D maps from cameras for autonomous vehicles; monitoring manufacturing process control to predict failures; object detection and recognition; 3D human body modelling for human fitting; Reinforcement Learning to learn how to move; human motion modelling for sports analytics;... to name a few.  Currently there are over a dozen graduate students in the lab.  Ideally you will work with one of the graduate students as part of our team.  The projects vary depending on the partners we are currently teamed with.  Ideal candidates should have some exposure to machine learning, be proficient in programming with python, C++ and machine learning tools.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "URA: Engineering Research Project",
+        "link": "https://uwaterloo.ca/engineering/undergraduate-students/degree-enhancement/research-opportunities/ura-supervisor-list-and-usra-placement-list",
+        "snippet": "Faculty: Engineering. Title: Additive manufacturing of porous electrodes for redox flow batteries Description: We are looking for a motivated student to join our research group on the manufacturing of porous materials for electrochemical devices using additive manufacturing. The candidate will design porous electrodes using computer-aided design software and will develop new resin formulations that both meet the specific requirements for redox flow battery electrodes. The student will manufacture these structures using Digital Light Processing 3D printing, followed by thermal treatment steps to obtain conductive carbon electrodes. Finally, the candidate will evaluate the performance of the 3D printed electrodes in redox flow batteries.",
+        "source": "ura_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "PhD Seminar • Algorithms and Complexity • Classes of Graphs with Sub-linear Twin-width",
+        "link": "https://uwaterloo.ca/computer-science/events/phd-seminar-algorithms-and-complexity-classes-of-graphs-with-sub-linear-twin-width",
+        "snippet": "Academic Event: PhD Seminar • Algorithms and Complexity • Classes of Graphs with Sub-linear Twin-width. Mon, Mar 9 2026, 2:45\n - 3:45pm\nPlease note: This PhD seminar will take place in MC 5479.\n\nTaite LaGrange, PhD candidateDavid R. Cheriton School of Computer Science\n\nSupervisors: Professors Therese Biedl, Sophie Spirkl\nTags: WebNotice...",
+        "source": "rss_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "Master’s Thesis Presentation • Computer Graphics • Physically-Based Simulation and Visualization of Optical Phenomena Elicited by Negative Refraction",
+        "link": "https://uwaterloo.ca/computer-science/events/masters-thesis-presentation-computer-graphics-physically-based-simulation-visualization-optical-phenomena-elicited-negative-refraction",
+        "snippet": "Academic Event: Master’s Thesis Presentation • Computer Graphics • Physically-Based Simulation and Visualization of Optical Phenomena Elicited by Negative Refraction. Mon, Mar 9 2026, 3\n - 4pm\nPlease note: This master’s thesis presentation will take place in DC 3317.\n\nScott Steinfield, Master’s candidateDavid R. Cheriton School of Computer Science\n\nSupervisor: Professor Gladimir Baranoski\nTags: WebNotice...",
+        "source": "rss_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "PhD Seminar • Human–Computer Interaction  |  Artificial Intelligence • Leveraging Interactive Human–AI Collaboration Methods to Enhance Key Stages of Programming Workflows",
+        "link": "https://uwaterloo.ca/computer-science/events/phd-seminar-hci-ai-leveraging-interactive-humam-ai-collaboration-methods-to-enhance-key-stages-of-programming-workflows",
+        "snippet": "Academic Event: PhD Seminar • Human–Computer Interaction  |  Artificial Intelligence • Leveraging Interactive Human–AI Collaboration Methods to Enhance Key Stages of Programming Workflows. Tue, Mar 10 2026, 2\n - 3pm\nPlease note: This PhD seminar will take place online.\n\nXuye Liu, PhD candidateDavid R. Cheriton School of Computer Science\n\nSupervisor: Professor Jian Zhao\nTags: WebNotice...",
+        "source": "rss_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "Master’s Thesis Presentation • Artificial Intelligence  |  Machine Learning • On the Effect of Hyperparameters in Language Modelling for Linguistics",
+        "link": "https://uwaterloo.ca/computer-science/events/masters-thesis-presentation-ai-ml-on-the-effect-of-hyperparameters-in-language-modelling-for-linguistics",
+        "snippet": "Academic Event: Master’s Thesis Presentation • Artificial Intelligence  |  Machine Learning • On the Effect of Hyperparameters in Language Modelling for Linguistics. Wed, Mar 11 2026, 8\n - 9am\nPlease note: This master’s thesis presentation will take place online.\n\nRuoxi Ning, Master’s candidateDavid R. Cheriton School of Computer Science\n\nSupervisor: Professor Freda Shi\nTags: WebNotice...",
+        "source": "rss_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "PhD Seminar • Software Engineering • Discovering Missed Peephole Optimizations with Large Language",
+        "link": "https://uwaterloo.ca/computer-science/events/phd-seminar-software-engineering-discovering-missed-peephole-optimizations-with-large-language",
+        "snippet": "Academic Event: PhD Seminar • Software Engineering • Discovering Missed Peephole Optimizations with Large Language. Wed, Mar 11 2026, 10:30\n - 11:30am\nPlease note: This PhD seminar will take place in DC 2310 and online.\n\nHongxu Xu, PhD candidateDavid R. Cheriton School of Computer Science\n\nSupervisor: Professor Chengnian Sun\nTags: WebNotice...",
+        "source": "rss_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "Seminar • Artificial Intelligence  |  Machine Learning • From Heuristics to Principles in Machine Learning Optimization",
+        "link": "https://uwaterloo.ca/computer-science/events/seminar-ai-ml-from-heuristics-to-principles-in-machine-learning-optimization",
+        "snippet": "Academic Event: Seminar • Artificial Intelligence  |  Machine Learning • From Heuristics to Principles in Machine Learning Optimization. Wed, Mar 11 2026, 10:30\n - 11:30am\nPlease note: This seminar will take place in DC 1304.\n\nFrederik Kunstner, Marie Skłodowska-Curie Postdoctoral FellowNational Institute for Research in Digital Science and Technology (Inria)\nTags: WebNotice...",
+        "source": "rss_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "PhD Seminar • Natural Language Processing  |  Information Retrieval • Resources for Automated Evaluation of Assistive RAG Systems that Help Readers with News Trustworthiness Assessment",
+        "link": "https://uwaterloo.ca/computer-science/events/phd-seminar-nlp-ir-resources-for-automated-evaluation-of-assistive-rag-systems-help-readers-news-trustworthiness-assessment",
+        "snippet": "Academic Event: PhD Seminar • Natural Language Processing  |  Information Retrieval • Resources for Automated Evaluation of Assistive RAG Systems that Help Readers with News Trustworthiness Assessment. Wed, Mar 11 2026, 12\n - 1pm\nPlease note: This PhD seminar will take place in DC 3301.\n\nDake Zhang, PhD candidateDavid R. Cheriton School of Computer Science\n\nSupervisor: Professor Mark D. Smucker...",
+        "source": "rss_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "Seminar • Algorithms and Complexity • Hilbert’s Nullstellensatz is in the Counting Hierarchy",
+        "link": "https://uwaterloo.ca/computer-science/events/seminar-algorithms-and-complexity-hilberts-nullstellensatz-is-in-the-counting-hierarchy",
+        "snippet": "Academic Event: Seminar • Algorithms and Complexity • Hilbert’s Nullstellensatz is in the Counting Hierarchy. Wed, Mar 11 2026, 12\n - 1pm\nPlease note: This seminar will take place in DC 1304 and online.\n\nAbhibhav Garg, Postdoctoral ResearcherDavid R. Cheriton School of Computer Science \nTags: WebNotice...",
+        "source": "rss_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "Seminar • Software Engineering • Why Large Language Models Appear to Be Intelligent and Creative: Because They Generate Bullshit!",
+        "link": "https://uwaterloo.ca/computer-science/events/seminar-se-why-large-language-models-appear-to-be-intelligent-and-creative-because-they-generate-bs",
+        "snippet": "Academic Event: Seminar • Software Engineering • Why Large Language Models Appear to Be Intelligent and Creative: Because They Generate Bullshit!. Wed, Mar 11 2026, 12\n - 1pm\nPlease note: This seminar will take place in DC 2564.\n\nDaniel M. Berry, ProfessorCheriton School of Computer Science\nTags: WebNotice...",
+        "source": "rss_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "Seminar • Algorithms and Complexity • New Quantitative Frontiers in Structure vs. Randomness",
+        "link": "https://uwaterloo.ca/computer-science/events/seminar-algorithms-and-complexity-new-quantitative-frontiers-in-structure-vs-randomness",
+        "snippet": "Academic Event: Seminar • Algorithms and Complexity • New Quantitative Frontiers in Structure vs. Randomness. Thu, Mar 12 2026, 10:30\n - 11:30am\nPlease note: This seminar will take place in DC 1304.\n\nZander Kelley, Postdoctoral MemberSchool of Mathematics, Institute for Advanced Study\nTags: WebNotice...",
+        "source": "rss_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "2026 Graduate Student Conference",
+        "link": "https://uwaterloo.ca/cybersecurity-privacy-institute/events/2026-graduate-student-conference",
+        "snippet": "Academic Event: 2026 Graduate Student Conference. Mon, Mar 30 2026, 8am\n - 4:30pm\nSave the date for the University of Waterloo Cybersecurity and Privacy Institute’s (CPI) 2nd Graduate Student Conference on Monday, March 30, 2026. This full-day conference will be hosted at the Waterloo campus on the 1st floor of the East Campus (EC5) building. Atten......",
+        "source": "rss_sniper",
+        "date_fetched": "2026-03-09"
+    }
 ]

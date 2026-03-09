@@ -10,3 +10,6 @@ requests
 beautifulsoup4
 google-genai
 python-dotenv
+requests
+beautifulsoup4
+feedparser

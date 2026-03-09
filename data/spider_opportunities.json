@@ -40,5 +40,11 @@
     "link": "https://github.com/SimplifyJobs/extension-take-home",
     "snippet": "This repository features a take-home project likely used to assess candidates for web extension development roles at Simplify. Although no description is provided, it was last updated on February 7, 2026, for roles within their United States team.",
     "source": "spider_agent"
+  },
+  {
+    "title": "MaintainX Software Development Intern",
+    "link": "https://job-boards.greenhouse.io/maintainx/jobs/5068433007?utm_source=Simplify&ref=Simplify",
+    "snippet": "MaintainX is looking for a Software Development Intern to join their highly motivated team in Montreal, Canada. In this hybrid role, you will help develop new features, perform web development, maintain code, and research new technologies, working alongside talented software engineers.",
+    "source": "spider_agent"
   }
 ]
