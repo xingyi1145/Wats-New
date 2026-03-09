@@ -61,11 +61,14 @@ def snipe_devpost():
     data_dir = os.path.join(project_root, 'data')
     os.makedirs(data_dir, exist_ok=True)
     
-    output_file = os.path.join(data_dir, "live_opportunities.json")
-    
-    print(f"\nWriting {len(all_opportunities)} high-signal Builder opportunities to {output_file}...")
-    with open(output_file, 'w', encoding='utf-8') as f:
-        json.dump(all_opportunities, f, indent=4, ensure_ascii=False)
+    output_file = os.path.join(data_dir, "raw_devpost.json")
+
+    if len(all_opportunities) > 0:
+        print(f"\nWriting {len(all_opportunities)} high-signal Builder opportunities to {output_file}...")
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(all_opportunities, f, indent=4, ensure_ascii=False)
+    else:
+        print("Failsafe triggered: 0 items found. Aborting overwrite to protect existing data.")
         
     print("Devpost Sniping Complete!")
 

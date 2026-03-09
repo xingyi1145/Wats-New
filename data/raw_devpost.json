@@ -1,0 +1,65 @@
+[
+    {
+        "title": "Amazon Nova AI Hackathon",
+        "link": "https://amazon-nova.devpost.com/",
+        "snippet": "Location: {'icon': 'globe', 'location': 'Online'}. Dates: Feb 02 - Mar 16, 2026. Themes: Machine Learning/AI, Beginner Friendly, Social Good. Prizes: $<span data-currency-value>40,000</span>.",
+        "source": "devpost_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "Gemini Live Agent Challenge",
+        "link": "https://geminiliveagentchallenge.devpost.com/",
+        "snippet": "Location: {'icon': 'globe', 'location': 'Online'}. Dates: Feb 16 - Mar 16, 2026. Themes: Communication, Machine Learning/AI, Voice skills. Prizes: $<span data-currency-value>80,000</span>.",
+        "source": "devpost_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "FigBuild 2026",
+        "link": "https://figbuild2026.devpost.com/",
+        "snippet": "Location: {'icon': 'globe', 'location': 'Online'}. Dates: Mar 06 - 09, 2026. Themes: Design, Beginner Friendly, Low/No Code. Prizes: $<span data-currency-value>30,000</span>.",
+        "source": "devpost_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "GitLab AI Hackathon",
+        "link": "https://gitlab.devpost.com/",
+        "snippet": "Location: {'icon': 'globe', 'location': 'Online'}. Dates: Feb 09 - Mar 25, 2026. Themes: Databases, Machine Learning/AI, Productivity. Prizes: $<span data-currency-value>65,000</span>.",
+        "source": "devpost_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "DigitalOcean Gradient™ AI Hackathon",
+        "link": "https://digitalocean.devpost.com/",
+        "snippet": "Location: {'icon': 'globe', 'location': 'Online'}. Dates: Jan 28 - Mar 18, 2026. Themes: Databases, Machine Learning/AI, Open Ended. Prizes: $<span data-currency-value>20,000</span>.",
+        "source": "devpost_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "Airia AI Agents Hackathon",
+        "link": "https://airia-hackathon.devpost.com/",
+        "snippet": "Location: {'icon': 'globe', 'location': 'Online'}. Dates: Feb 16 - Mar 19, 2026. Themes: Machine Learning/AI, Beginner Friendly, Enterprise. Prizes: $<span data-currency-value>7,000</span>.",
+        "source": "devpost_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "Byte 2 Beat",
+        "link": "https://byte2beat.devpost.com/",
+        "snippet": "Location: {'icon': 'globe', 'location': 'Online'}. Dates: Dec 05, 2025 - Mar 28, 2026. Themes: Beginner Friendly, Health, Machine Learning/AI. Prizes: $<span data-currency-value>1,500</span>.",
+        "source": "devpost_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "Hackonomics 2026",
+        "link": "https://hackonomics26.devpost.com/",
+        "snippet": "Location: {'icon': 'globe', 'location': 'Online'}. Dates: Jan 23 - Mar 30, 2026. Themes: Beginner Friendly, Education, Open Ended. Prizes: $<span data-currency-value>0</span>.",
+        "source": "devpost_sniper",
+        "date_fetched": "2026-03-09"
+    },
+    {
+        "title": "Agents Assemble - The Healthcare AI Endgame",
+        "link": "https://agents-assemble.devpost.com/",
+        "snippet": "Location: {'icon': 'globe', 'location': 'Online'}. Dates: Mar 04 - May 11, 2026. Themes: Health, Machine Learning/AI, Beginner Friendly. Prizes: $<span data-currency-value>25,000</span>.",
+        "source": "devpost_sniper",
+        "date_fetched": "2026-03-09"
+    }
+]

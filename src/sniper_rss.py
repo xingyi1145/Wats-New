@@ -67,28 +67,21 @@ def scrape_rss_feeds():
         except Exception as e:
             print(f"  -> Critical error parsing RSS feed: {e}")
 
-    # Save to live_opportunities.json
+    # Save to raw_rss.json
     current_dir = os.path.dirname(os.path.abspath(__file__))
     project_root = os.path.dirname(current_dir) if os.path.basename(current_dir) == 'src' else current_dir
     data_dir = os.path.join(project_root, 'data')
     os.makedirs(data_dir, exist_ok=True)
     
-    output_file = os.path.join(data_dir, "live_opportunities.json")
-    
-    existing_data = []
-    if os.path.exists(output_file):
-        with open(output_file, 'r', encoding='utf-8') as f:
-            try:
-                existing_data = json.load(f)
-            except json.JSONDecodeError:
-                pass
+    output_file = os.path.join(data_dir, "raw_rss.json")
 
-    existing_data.extend(all_opportunities)
-    
-    print(f"\nWriting {len(all_opportunities)} RSS academic events to {output_file}...")
-    with open(output_file, 'w', encoding='utf-8') as f:
-        json.dump(existing_data, f, indent=4, ensure_ascii=False)
-        
+    if len(all_opportunities) > 0:
+        print(f"\nWriting {len(all_opportunities)} RSS academic events to {output_file}...")
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(all_opportunities, f, indent=4, ensure_ascii=False)
+    else:
+        print("Failsafe triggered: 0 items found. Aborting overwrite to protect existing data.")
+
     print("RSS Sniping Complete!")
 
 if __name__ == "__main__":

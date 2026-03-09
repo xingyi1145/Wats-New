@@ -139,23 +139,16 @@ def snipe_uras():
     data_dir = os.path.join(project_root, 'data')
     os.makedirs(data_dir, exist_ok=True)
     
-    # We append to the existing file so we don't overwrite the Devpost hackathons
-    output_file = os.path.join(data_dir, "live_opportunities.json")
-    
-    existing_data = []
-    if os.path.exists(output_file):
-        with open(output_file, 'r', encoding='utf-8') as f:
-            try:
-                existing_data = json.load(f)
-            except json.JSONDecodeError:
-                pass
+    # We save to independent raw file
+    output_file = os.path.join(data_dir, "raw_ura.json")
 
-    existing_data.extend(all_opportunities)
-    
-    print(f"\nWriting {len(all_opportunities)} high-signal Academic URAs to {output_file}...")
-    with open(output_file, 'w', encoding='utf-8') as f:
-        json.dump(existing_data, f, indent=4, ensure_ascii=False)
-        
+    if len(all_opportunities) > 0:
+        print(f"\nWriting {len(all_opportunities)} high-signal Academic URAs to {output_file}...")
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(all_opportunities, f, indent=4, ensure_ascii=False)
+    else:
+        print("Failsafe triggered: 0 items found. Aborting overwrite to protect existing data.")
+
     print("URA Sniping Complete!")
 
 if __name__ == "__main__":
