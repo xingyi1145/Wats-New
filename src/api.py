@@ -2,11 +2,12 @@ import json
 import os
 import sqlite3
 from contextlib import asynccontextmanager
+from datetime import datetime, timezone
 from typing import Optional
 
 import numpy as np
 import uvicorn
-from fastapi import FastAPI
+from fastapi import FastAPI, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from sentence_transformers import SentenceTransformer, util
@@ -178,6 +179,17 @@ class InteractionRequest(BaseModel):
     action: str  # "like" or "skip"
 
 
+class TelemetryData(BaseModel):
+    item_id: str  # The URL or unique title of the opportunity
+    vibe_query: str
+    novelty: int
+    utility: int
+
+class FlagData(BaseModel):
+    item_id: str
+    reason: str = "user_flagged"
+
+
 class RecommendationItem(BaseModel):
     title: str
     link: str
@@ -196,10 +208,9 @@ def load_data():
     """Load the vector databases from JSON files."""
     # Determine project root
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    if os.path.basename(base_dir) == 'src':
-        project_root = os.path.dirname(base_dir)
-    else:
-        project_root = base_dir
+    project_root = base_dir
+    while os.path.basename(project_root) in ['src', 'scrapers', 'tests']:
+        project_root = os.path.dirname(project_root)
 
     all_items = []
     data_dir = os.path.join(project_root, 'data')
@@ -279,10 +290,9 @@ async def lifespan(app: FastAPI):
 
     # Initialize SQLite database
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    if os.path.basename(base_dir) == 'src':
-        project_root = os.path.dirname(base_dir)
-    else:
-        project_root = base_dir
+    project_root = base_dir
+    while os.path.basename(project_root) in ['src', 'scrapers', 'tests']:
+        project_root = os.path.dirname(project_root)
         
     data_dir = os.path.join(project_root, 'data')
     os.makedirs(data_dir, exist_ok=True)
@@ -500,6 +510,63 @@ async def interact(request: InteractionRequest):
         "vector_shifted": vector_shifted
     }
 
+
+def log_telemetry_to_file(data: TelemetryData):
+    """Background task to write telemetry data to a JSONL file."""
+    # Determine project root path
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = base_dir
+    while os.path.basename(project_root) in ['src', 'scrapers', 'tests']:
+        project_root = os.path.dirname(project_root)
+    data_dir = os.path.join(project_root, 'data')
+    os.makedirs(data_dir, exist_ok=True)
+    telemetry_path = os.path.join(data_dir, 'telemetry.jsonl')
+    
+    try:
+        with open(telemetry_path, 'a', encoding='utf-8') as f:
+            f.write(data.model_dump_json() + '\n')
+    except Exception as e:
+        print(f"Error writing telemetry: {e}")
+
+
+@app.post("/api/telemetry")
+async def telemetry(data: TelemetryData, background_tasks: BackgroundTasks):
+    """
+    Log user telemetry (novelty, utility) for model training.
+    """
+    background_tasks.add_task(log_telemetry_to_file, data)
+    return {"status": "logged"}
+
+
+def log_flag_to_file(data: FlagData):
+    """Background task to write flag data to a JSONL file."""
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = base_dir
+    while os.path.basename(project_root) in ['src', 'scrapers', 'tests']:
+        project_root = os.path.dirname(project_root)
+
+    data_dir = os.path.join(project_root, 'data')
+    os.makedirs(data_dir, exist_ok=True)
+    flags_path = os.path.join(data_dir, 'flags.jsonl')
+
+    flag_entry = {
+        **data.model_dump(),
+        "timestamp": datetime.now(timezone.utc).isoformat()
+    }
+    try:
+        with open(flags_path, 'a', encoding='utf-8') as f:
+            f.write(json.dumps(flag_entry) + '\n')
+    except Exception as e:
+        print(f"Error writing flag: {e}")
+
+
+@app.post("/api/flag")
+async def flag_issue(data: FlagData, background_tasks: BackgroundTasks):
+    """
+    Log flagged items (dead links, irrelevant) for review.
+    """
+    background_tasks.add_task(log_flag_to_file, data)
+    return {"status": "flagged"}
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))

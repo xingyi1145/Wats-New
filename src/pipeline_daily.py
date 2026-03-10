@@ -18,11 +18,9 @@ import time
 # ============================================================================
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
-project_root = (
-    os.path.dirname(current_dir)
-    if os.path.basename(current_dir) == "src"
-    else current_dir
-)
+project_root = current_dir
+while os.path.basename(project_root) in ['src', 'scrapers', 'tests']:
+    project_root = os.path.dirname(project_root)
 data_dir = os.path.join(project_root, "data")
 os.makedirs(data_dir, exist_ok=True)
 
@@ -45,9 +43,12 @@ logger = logging.getLogger("pipeline_daily")
 PYTHON = sys.executable  # Use the same interpreter running this script
 
 STEPS = [
-    ("News Harvester",       os.path.join(current_dir, "news_harvester.py")),
-    ("Wat2Do Scraper",       os.path.join(current_dir, "scrape_wat2do.py")),
-    ("Agentic Spider",       os.path.join(current_dir, "agentic_spider.py")),
+    ("RSS Sniper",           os.path.join(current_dir, "scrapers", "sniper_rss.py")),
+    ("URA Sniper",           os.path.join(current_dir, "scrapers", "sniper_ura.py")),
+    ("Devpost Sniper",       os.path.join(current_dir, "scrapers", "sniper_devpost.py")),
+    ("Database Compiler",    os.path.join(current_dir, "compile_database.py")),
+    ("Wat2Do Scraper",       os.path.join(current_dir, "scrapers", "scrape_wat2do.py")),
+    ("Agentic Spider",       os.path.join(current_dir, "scrapers", "agentic_spider.py")),
     ("Data Cleaner",         os.path.join(current_dir, "clean_data.py")),
     ("Vectorizer",           os.path.join(current_dir, "vectorize_live_data.py")),
 ]

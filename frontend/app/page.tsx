@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import RecommendationCard from "../components/ui/RecommendationCard";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
 
@@ -10,6 +11,7 @@ export default function Home() {
   const [isStarted, setIsStarted] = useState(false);
   const [queue, setQueue] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
+  const [hasViewedCurrent, setHasViewedCurrent] = useState(false);
 
   useEffect(() => {
     let storedId = localStorage.getItem("nexus_user_id");
@@ -65,11 +67,62 @@ export default function Home() {
     }
   };
 
+  const logTelemetry = async (novelty: number, utility: number) => {
+    if (!queue[0]) return;
+    try {
+      await fetch(`${API_BASE}/api/telemetry`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          item_id: queue[0].link,
+          vibe_query: profileText,
+          novelty,
+          utility
+        }),
+      });
+    } catch (error) {
+      // Ignored
+    }
+  };
+
+  const handleNext = () => {
+    if (!queue[0]) return;
+    if (hasViewedCurrent) {
+      logTelemetry(1, 1);
+      // Viewed, assume utility=1 is a 'like'
+      handleInteract("like", queue[0].link);
+    } else {
+      logTelemetry(1, 0);
+      handleInteract("skip", queue[0].link);
+    }
+    setHasViewedCurrent(false);
+  };
+
+  const handleAlreadyKnow = () => {
+    if (!queue[0]) return;
+    logTelemetry(0, 1);
+    handleInteract("like", queue[0].link);
+    setHasViewedCurrent(false);
+  };
+
   // Safely open the link without interrupting React's state update
   const handleViewOpportunity = (e: React.MouseEvent, link: string) => {
     e.preventDefault();
+    setHasViewedCurrent(true);
     window.open(link, "_blank", "noopener,noreferrer");
-    handleInteract("like", link);
+  };
+
+  const handleFlagIssue = async () => {
+    if (!queue[0]) return;
+    try {
+      await fetch(`${API_BASE}/api/flag`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ item_id: queue[0].link }),
+      });
+    } catch (error) {
+      // Ignored
+    }
   };
 
   // --- VIEW 1: ONBOARDING ---
@@ -134,44 +187,14 @@ export default function Home() {
 
         {/* The Card */}
         {currentCard ? (
-          <div className="flex-grow bg-white rounded-[2rem] shadow-2xl overflow-hidden flex flex-col border border-white/20 transform transition-all hover:scale-[1.01] max-h-[75vh]">
-            
-            {/* Card Content Area */}
-            <div className="flex-grow p-8 sm:p-12 overflow-y-auto min-h-[250px]">
-              <div className="flex items-start justify-between mb-6 gap-4">
-                <span className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-semibold bg-blue-50 text-blue-700 border border-blue-100 uppercase tracking-wide">
-                  {currentCard.source?.replace(/_/g, " ")}
-                </span>
-                <span className="flex items-center gap-1 text-sm font-bold text-slate-400 bg-slate-50 px-3 py-1 rounded-full">
-                  Match <span className="text-emerald-500">{currentCard.match_score || "N/A"}%</span>
-                </span>
-              </div>
-
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight mb-6">
-                {currentCard.title}
-              </h2>
-              
-              <div className="prose prose-lg text-slate-600 leading-relaxed">
-                <p className="line-clamp-5">{displayDescription}</p>
-              </div>
-            </div>
-
-            {/* Sticky Action Footer */}
-            <div className="p-6 bg-slate-50 border-t border-slate-100 flex gap-4">
-              <button
-                onClick={() => handleInteract("skip", currentCard.link)}
-                className="flex-1 py-5 rounded-xl text-lg font-bold text-slate-500 bg-white border-2 border-slate-200 hover:bg-slate-100 hover:text-slate-700 hover:border-slate-300 transition-all shadow-sm"
-              >
-                Pass
-              </button>
-              <button
-                onClick={(e) => handleViewOpportunity(e, currentCard.link)}
-                className="flex-[2] py-5 rounded-xl text-lg font-bold text-white bg-blue-600 hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/30 transform hover:-translate-y-0.5"
-              >
-                View Opportunity
-              </button>
-            </div>
-          </div>
+          <RecommendationCard 
+            currentCard={currentCard}
+            displayDescription={displayDescription}
+            onNext={handleNext}
+            onView={handleViewOpportunity}
+            onAlreadyKnow={handleAlreadyKnow}
+            onFlagClicked={handleFlagIssue}
+          />
         ) : (
           /* Loading / Empty State */
           <div className="flex-grow bg-white/10 backdrop-blur-xl rounded-[2rem] border border-white/10 p-12 text-center flex flex-col items-center justify-center shadow-2xl">

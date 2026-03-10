@@ -22,7 +22,9 @@ BASE_URL = "https://clubs.wusa.ca"
 START_URL = "https://clubs.wusa.ca/club_listings"
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
-project_root = os.path.dirname(current_dir) if os.path.basename(current_dir) == 'src' else current_dir
+project_root = current_dir
+while os.path.basename(project_root) in ['src', 'scrapers', 'tests']:
+    project_root = os.path.dirname(project_root)
 data_dir = os.path.join(project_root, 'data')
 os.makedirs(data_dir, exist_ok=True)
 OUTPUT_FILE = os.path.join(data_dir, "wusa_clubs.json")
