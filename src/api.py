@@ -551,12 +551,11 @@ async def flag_issue(data: FlagData):
     os.makedirs(data_dir, exist_ok=True)
     flags_path = os.path.join(data_dir, 'flags.jsonl')
     
-    from datetime import datetime
-    import json
+    from datetime import datetime, timezone
     
     flag_entry = {
         **data.model_dump(),
-        "timestamp": datetime.utcnow().isoformat()
+        "timestamp": datetime.now(timezone.utc).isoformat()
     }
     try:
         with open(flags_path, 'a', encoding='utf-8') as f:

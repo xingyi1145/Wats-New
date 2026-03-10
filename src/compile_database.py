@@ -5,9 +5,9 @@ def compile_database():
     print("Initializing Database Compiler...")
     
     current_dir = os.path.dirname(os.path.abspath(__file__))
-project_root = current_dir
-while os.path.basename(project_root) in ['src', 'scrapers', 'tests']:
-    project_root = os.path.dirname(project_root)
+    project_root = current_dir
+    while os.path.basename(project_root) in ['src', 'scrapers', 'tests']:
+        project_root = os.path.dirname(project_root)
     data_dir = os.path.join(project_root, 'data')
     
     # The individual files written by your snipers

@@ -49,7 +49,7 @@ def scrape_rss_feeds():
                     
                 # Check whitelist
                 if any(white_kw in combined_text for white_kw in whitelist_keywords):
-                    snippet = f"Academic Event: {title}. {description[:300]}..."
+                    snippet = f"Academic Event: {title}. {description[:300]}"
                     if len(description) > 300:
                         snippet += "..."
                         
@@ -69,9 +69,9 @@ def scrape_rss_feeds():
 
     # Save to raw_rss.json
     current_dir = os.path.dirname(os.path.abspath(__file__))
-project_root = current_dir
-while os.path.basename(project_root) in ['src', 'scrapers', 'tests']:
-    project_root = os.path.dirname(project_root)
+    project_root = current_dir
+    while os.path.basename(project_root) in ['src', 'scrapers', 'tests']:
+        project_root = os.path.dirname(project_root)
     data_dir = os.path.join(project_root, 'data')
     os.makedirs(data_dir, exist_ok=True)
     
