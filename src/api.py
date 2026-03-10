@@ -179,8 +179,8 @@ class InteractionRequest(BaseModel):
 
 
 class TelemetryData(BaseModel):
-    item_id: str
-    vibe: str
+    item_id: str  # The URL or unique title of the opportunity
+    vibe_query: str
     novelty: int
     utility: int
 

@@ -74,7 +74,7 @@ export default function Home() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           item_id: queue[0].link,
-          vibe: profileText,
+          vibe_query: profileText,
           novelty,
           utility
         }),
