@@ -2,6 +2,7 @@ import json
 import os
 import sqlite3
 from contextlib import asynccontextmanager
+from datetime import datetime, timezone
 from typing import Optional
 
 import numpy as np
@@ -537,22 +538,17 @@ async def telemetry(data: TelemetryData, background_tasks: BackgroundTasks):
     return {"status": "logged"}
 
 
-@app.post("/api/flag")
-async def flag_issue(data: FlagData):
-    """
-    Log flagged items (dead links, irrelevant) for review.
-    """
+def log_flag_to_file(data: FlagData):
+    """Background task to write flag data to a JSONL file."""
     base_dir = os.path.dirname(os.path.abspath(__file__))
     project_root = base_dir
     while os.path.basename(project_root) in ['src', 'scrapers', 'tests']:
         project_root = os.path.dirname(project_root)
-    
+
     data_dir = os.path.join(project_root, 'data')
     os.makedirs(data_dir, exist_ok=True)
     flags_path = os.path.join(data_dir, 'flags.jsonl')
-    
-    from datetime import datetime, timezone
-    
+
     flag_entry = {
         **data.model_dump(),
         "timestamp": datetime.now(timezone.utc).isoformat()
@@ -562,7 +558,14 @@ async def flag_issue(data: FlagData):
             f.write(json.dumps(flag_entry) + '\n')
     except Exception as e:
         print(f"Error writing flag: {e}")
-        
+
+
+@app.post("/api/flag")
+async def flag_issue(data: FlagData, background_tasks: BackgroundTasks):
+    """
+    Log flagged items (dead links, irrelevant) for review.
+    """
+    background_tasks.add_task(log_flag_to_file, data)
     return {"status": "flagged"}
 
 if __name__ == "__main__":
