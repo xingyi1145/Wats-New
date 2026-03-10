@@ -1,10 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useAuth, SignInButton, UserButton } from "@clerk/nextjs";
+import Link from "next/link";
+import RecommendationCard from "../components/ui/RecommendationCard";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
 
 export default function Home() {
+  const { isSignedIn } = useAuth();
   const [userId, setUserId] = useState("");
   const [profileText, setProfileText] = useState("");
   const [isStarted, setIsStarted] = useState(false);
@@ -72,10 +76,32 @@ export default function Home() {
     handleInteract("like", link);
   };
 
+  const handleSaveItem = async () => {
+    // TODO: Wire to backend SQLite save endpoint
+  };
+
   // --- VIEW 1: ONBOARDING ---
   if (!isStarted) {
     return (
-      <main className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center p-4">
+      <main className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex flex-col">
+        <nav className="w-full flex items-center justify-between px-6 py-4">
+          <span className="text-xl font-bold text-slate-900 tracking-tight">Wats-New</span>
+          <div className="flex items-center gap-4">
+            {isSignedIn ? (
+              <>
+                <Link href="/deck" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">My Deck</Link>
+                <UserButton />
+              </>
+            ) : (
+              <SignInButton mode="modal">
+                <button className="px-4 py-2 bg-white text-slate-900 text-sm font-semibold rounded-lg border border-slate-200 hover:bg-slate-50 transition-colors shadow-sm">
+                  Sign In
+                </button>
+              </SignInButton>
+            )}
+          </div>
+        </nav>
+        <div className="flex-grow flex items-center justify-center p-4">
         <div className="max-w-2xl w-full bg-white/80 backdrop-blur-xl p-10 rounded-3xl shadow-2xl border border-white/40 text-center">
           <div className="w-16 h-16 bg-blue-600 rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-lg shadow-blue-200">
             <span className="text-3xl text-white font-bold">W</span>
@@ -100,6 +126,7 @@ export default function Home() {
             </button>
           </form>
         </div>
+        </div>
       </main>
     );
   }
@@ -111,11 +138,31 @@ export default function Home() {
   const displayDescription = currentCard?.snippet || currentCard?.description || currentCard?.content || "No detailed description provided by the source.";
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 flex flex-col items-center justify-center p-4 sm:p-8">
+    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 flex flex-col">
       
+      {/* Nav Bar */}
+      <nav className="w-full flex items-center justify-between px-6 py-4 relative z-20">
+        <span className="text-xl font-bold text-white tracking-tight">Wats-New</span>
+        <div className="flex items-center gap-4">
+          {isSignedIn ? (
+            <>
+              <Link href="/deck" className="text-sm font-medium text-blue-200 hover:text-white transition-colors">My Deck</Link>
+              <UserButton />
+            </>
+          ) : (
+            <SignInButton mode="modal">
+              <button className="px-4 py-2 bg-white text-slate-900 text-sm font-semibold rounded-lg hover:bg-slate-100 transition-colors shadow-sm">
+                Sign In
+              </button>
+            </SignInButton>
+          )}
+        </div>
+      </nav>
+
       {/* Dynamic Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/20 rounded-full blur-[120px] pointer-events-none"></div>
 
+      <div className="flex-grow flex flex-col items-center justify-center p-4 sm:p-8">
       <div className="w-full max-w-3xl relative z-10 flex flex-col h-full max-h-[900px]">
         
         {/* Header */}
@@ -134,44 +181,13 @@ export default function Home() {
 
         {/* The Card */}
         {currentCard ? (
-          <div className="flex-grow bg-white rounded-[2rem] shadow-2xl overflow-hidden flex flex-col border border-white/20 transform transition-all hover:scale-[1.01] max-h-[75vh]">
-            
-            {/* Card Content Area */}
-            <div className="flex-grow p-8 sm:p-12 overflow-y-auto min-h-[250px]">
-              <div className="flex items-start justify-between mb-6 gap-4">
-                <span className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-semibold bg-blue-50 text-blue-700 border border-blue-100 uppercase tracking-wide">
-                  {currentCard.source?.replace(/_/g, " ")}
-                </span>
-                <span className="flex items-center gap-1 text-sm font-bold text-slate-400 bg-slate-50 px-3 py-1 rounded-full">
-                  Match <span className="text-emerald-500">{currentCard.match_score || "N/A"}%</span>
-                </span>
-              </div>
-
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight mb-6">
-                {currentCard.title}
-              </h2>
-              
-              <div className="prose prose-lg text-slate-600 leading-relaxed">
-                <p className="line-clamp-5">{displayDescription}</p>
-              </div>
-            </div>
-
-            {/* Sticky Action Footer */}
-            <div className="p-6 bg-slate-50 border-t border-slate-100 flex gap-4">
-              <button
-                onClick={() => handleInteract("skip", currentCard.link)}
-                className="flex-1 py-5 rounded-xl text-lg font-bold text-slate-500 bg-white border-2 border-slate-200 hover:bg-slate-100 hover:text-slate-700 hover:border-slate-300 transition-all shadow-sm"
-              >
-                Pass
-              </button>
-              <button
-                onClick={(e) => handleViewOpportunity(e, currentCard.link)}
-                className="flex-[2] py-5 rounded-xl text-lg font-bold text-white bg-blue-600 hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/30 transform hover:-translate-y-0.5"
-              >
-                View Opportunity
-              </button>
-            </div>
-          </div>
+          <RecommendationCard
+            currentCard={currentCard}
+            displayDescription={displayDescription}
+            onNext={() => handleInteract("skip", currentCard.link)}
+            onView={handleViewOpportunity}
+            onSaveClicked={handleSaveItem}
+          />
         ) : (
           /* Loading / Empty State */
           <div className="flex-grow bg-white/10 backdrop-blur-xl rounded-[2rem] border border-white/10 p-12 text-center flex flex-col items-center justify-center shadow-2xl">
@@ -197,6 +213,7 @@ export default function Home() {
             )}
           </div>
         )}
+      </div>
       </div>
     </main>
   );
