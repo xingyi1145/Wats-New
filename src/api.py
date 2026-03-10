@@ -203,10 +203,9 @@ def load_data():
     """Load the vector databases from JSON files."""
     # Determine project root
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    if os.path.basename(base_dir) == 'src':
-        project_root = os.path.dirname(base_dir)
-    else:
-        project_root = base_dir
+    project_root = base_dir
+    while os.path.basename(project_root) in ['src', 'scrapers', 'tests']:
+        project_root = os.path.dirname(project_root)
 
     all_items = []
     data_dir = os.path.join(project_root, 'data')
@@ -286,10 +285,9 @@ async def lifespan(app: FastAPI):
 
     # Initialize SQLite database
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    if os.path.basename(base_dir) == 'src':
-        project_root = os.path.dirname(base_dir)
-    else:
-        project_root = base_dir
+    project_root = base_dir
+    while os.path.basename(project_root) in ['src', 'scrapers', 'tests']:
+        project_root = os.path.dirname(project_root)
         
     data_dir = os.path.join(project_root, 'data')
     os.makedirs(data_dir, exist_ok=True)
@@ -512,7 +510,9 @@ def log_telemetry_to_file(data: TelemetryData):
     """Background task to write telemetry data to a JSONL file."""
     # Determine project root path
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    project_root = os.path.dirname(base_dir) if os.path.basename(base_dir) == 'src' else base_dir
+    project_root = base_dir
+    while os.path.basename(project_root) in ['src', 'scrapers', 'tests']:
+        project_root = os.path.dirname(project_root)
     data_dir = os.path.join(project_root, 'data')
     os.makedirs(data_dir, exist_ok=True)
     telemetry_path = os.path.join(data_dir, 'telemetry.jsonl')

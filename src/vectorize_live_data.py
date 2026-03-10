@@ -59,10 +59,9 @@ def vectorize_live_data():
     """Vectorize local university opportunities."""
     # Define file paths
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    if os.path.basename(base_dir) == 'src':
-        project_root = os.path.dirname(base_dir)
-    else:
-        project_root = base_dir
+    project_root = base_dir
+    while os.path.basename(project_root) in ['src', 'scrapers', 'tests']:
+        project_root = os.path.dirname(project_root)
 
     input_file = os.path.join(project_root, 'data', 'live_opportunities.json')
     output_file = os.path.join(project_root, 'data', 'live_opportunities_vectors.json')
@@ -77,10 +76,9 @@ def vectorize_global_opportunities():
     """Vectorize global tech opportunities."""
     # Define file paths
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    if os.path.basename(base_dir) == 'src':
-        project_root = os.path.dirname(base_dir)
-    else:
-        project_root = base_dir
+    project_root = base_dir
+    while os.path.basename(project_root) in ['src', 'scrapers', 'tests']:
+        project_root = os.path.dirname(project_root)
 
     input_file = os.path.join(project_root, 'data', 'global_opportunities.json')
     output_file = os.path.join(project_root, 'data', 'global_opportunities_vectors.json')
@@ -99,10 +97,9 @@ def vectorize_all():
     
     # Define file paths
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    if os.path.basename(base_dir) == 'src':
-        project_root = os.path.dirname(base_dir)
-    else:
-        project_root = base_dir
+    project_root = base_dir
+    while os.path.basename(project_root) in ['src', 'scrapers', 'tests']:
+        project_root = os.path.dirname(project_root)
 
     # Load model once for efficiency
     print("\nLoading model 'all-MiniLM-L6-v2'...")
@@ -148,10 +145,9 @@ def vectorize_all():
 def vectorize_spider_opportunities():
     """Vectorize spider-crawled opportunities."""
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    if os.path.basename(base_dir) == 'src':
-        project_root = os.path.dirname(base_dir)
-    else:
-        project_root = base_dir
+    project_root = base_dir
+    while os.path.basename(project_root) in ['src', 'scrapers', 'tests']:
+        project_root = os.path.dirname(project_root)
 
     input_file = os.path.join(project_root, 'data', 'spider_opportunities.json')
     output_file = os.path.join(project_root, 'data', 'spider_opportunities_vectors.json')
@@ -166,10 +162,9 @@ def vectorize_spider_opportunities():
 def vectorize_design_teams():
     """Vectorize sedra design teams."""
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    if os.path.basename(base_dir) == 'src':
-        project_root = os.path.dirname(base_dir)
-    else:
-        project_root = base_dir
+    project_root = base_dir
+    while os.path.basename(project_root) in ['src', 'scrapers', 'tests']:
+        project_root = os.path.dirname(project_root)
 
     input_file = os.path.join(project_root, 'data', 'design_teams.json')
     output_file = os.path.join(project_root, 'data', 'design_teams_vectors.json')

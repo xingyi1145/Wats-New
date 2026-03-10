@@ -24,11 +24,9 @@ from spider_prototype import fetch_page_text, extract_opportunities_with_llm
 # ============================================================================
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
-project_root = (
-    os.path.dirname(current_dir)
-    if os.path.basename(current_dir) == "src"
-    else current_dir
-)
+project_root = current_dir
+while os.path.basename(project_root) in ['src', 'scrapers', 'tests']:
+    project_root = os.path.dirname(project_root)
 data_dir = os.path.join(project_root, "data")
 os.makedirs(data_dir, exist_ok=True)
 
@@ -39,14 +37,15 @@ OUTPUT_FILE = os.path.join(data_dir, "spider_opportunities.json")
 # ============================================================================
 
 SEED_URLS = [
-    # GitHub awesome-lists of internships / fellowships
+    # The Global Builder Internships (High Yield, Flat Markdown)
     "https://github.com/pittcsc/Summer2025-Internships",
     "https://github.com/SimplifyJobs/Summer2025-Internships",
-    # MLH fellowships overview
-    "https://fellowship.mlh.io/",
-    # Google Summer of Code
-    "https://summerofcode.withgoogle.com/",
+    
+    # Global Tier 1 Accelerators (Direct Job Boards, not events)
+    "https://www.ycombinator.com/jobs",
 ]
+
+MAX_DEPTH = 1
 
 MAX_DEPTH = 1  # 0 = seeds only, 1 = seeds + one hop
 
