@@ -43,7 +43,10 @@ logger = logging.getLogger("pipeline_daily")
 PYTHON = sys.executable  # Use the same interpreter running this script
 
 STEPS = [
-    ("News Harvester",       os.path.join(current_dir, "scrapers", "news_harvester.py")),
+    ("RSS Sniper",           os.path.join(current_dir, "scrapers", "sniper_rss.py")),
+    ("URA Sniper",           os.path.join(current_dir, "scrapers", "sniper_ura.py")),
+    ("Devpost Sniper",       os.path.join(current_dir, "scrapers", "sniper_devpost.py")),
+    ("Database Compiler",    os.path.join(current_dir, "compile_database.py")),
     ("Wat2Do Scraper",       os.path.join(current_dir, "scrapers", "scrape_wat2do.py")),
     ("Agentic Spider",       os.path.join(current_dir, "scrapers", "agentic_spider.py")),
     ("Data Cleaner",         os.path.join(current_dir, "clean_data.py")),
