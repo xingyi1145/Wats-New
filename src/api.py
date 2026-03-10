@@ -184,6 +184,10 @@ class TelemetryData(BaseModel):
     novelty: int
     utility: int
 
+class FlagData(BaseModel):
+    item_id: str
+    reason: str = "user_flagged"
+
 
 class RecommendationItem(BaseModel):
     title: str
@@ -532,6 +536,35 @@ async def telemetry(data: TelemetryData, background_tasks: BackgroundTasks):
     background_tasks.add_task(log_telemetry_to_file, data)
     return {"status": "logged"}
 
+
+@app.post("/api/flag")
+async def flag_issue(data: FlagData):
+    """
+    Log flagged items (dead links, irrelevant) for review.
+    """
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = base_dir
+    while os.path.basename(project_root) in ['src', 'scrapers', 'tests']:
+        project_root = os.path.dirname(project_root)
+    
+    data_dir = os.path.join(project_root, 'data')
+    os.makedirs(data_dir, exist_ok=True)
+    flags_path = os.path.join(data_dir, 'flags.jsonl')
+    
+    from datetime import datetime
+    import json
+    
+    flag_entry = {
+        **data.model_dump(),
+        "timestamp": datetime.utcnow().isoformat()
+    }
+    try:
+        with open(flags_path, 'a', encoding='utf-8') as f:
+            f.write(json.dumps(flag_entry) + '\n')
+    except Exception as e:
+        print(f"Error writing flag: {e}")
+        
+    return {"status": "flagged"}
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
