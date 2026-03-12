@@ -16,89 +16,90 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [hasViewedCurrent, setHasViewedCurrent] = useState(false);
 
-  const migrateData = async (oldId: string, newId: string) => {
-    try {
-      await fetch(`${API_BASE}/api/migrate`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ old_user_id: oldId, new_user_id: newId }),
-      });
-      // Crucial: Clear the local storage so we don't migrate a dead ID on the next reload
-      localStorage.removeItem("nexus_user_id"); 
-    } catch (error) {
-      console.error("Migration failed:", error);
-    }
-  };
-
   useEffect(() => {
-    const localId = localStorage.getItem("nexus_user_id");
+    const initializeSession = async () => {
+      const localId = localStorage.getItem("nexus_user_id");
 
-    if (clerkUserId) {
-      // SCENARIO A: User is logged in
-      // Did they just transition from an anonymous session?
-      if (localId && localId !== clerkUserId) {
-        migrateData(localId, clerkUserId);
-      }
-      setUserId(clerkUserId);
-    } else {
-      // SCENARIO B: User is anonymous
-      if (!localId) {
-        // Generate and store a new local ID
-        const newLocalId = "user_" + Math.random().toString(36).substring(7);
-        localStorage.setItem("nexus_user_id", newLocalId);
-        setUserId(newLocalId);
-      } else {
-        // Continue using existing local ID
-        setUserId(localId);
-      }
-    }
-
-    // Restore queue from localStorage after a Clerk redirect
-    const savedQueue = localStorage.getItem("nexus_saved_queue");
-    if (savedQueue) {
-      try {
-        const parsed = JSON.parse(savedQueue);
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          setQueue(parsed);
-          setIsStarted(true);
+      // --- STEP 1: RESOLVE IDENTITY & MIGRATE ---
+      if (clerkUserId) {
+        if (localId && localId !== clerkUserId) {
+          try {
+            // AWAIT the migration to finish so SQLite doesn't lock up!
+            await fetch(`${API_BASE}/api/migrate`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ old_user_id: localId, new_user_id: clerkUserId }),
+            });
+            localStorage.removeItem("nexus_user_id"); 
+          } catch (error) {
+            console.error("Migration failed:", error);
+          }
         }
-      } catch { /* ignore parse errors */ }
-      localStorage.removeItem("nexus_saved_queue");
-    }
-  }, [clerkUserId]);
+        setUserId(clerkUserId);
+      } else {
+        if (!localId) {
+          const newLocalId = "user_" + Math.random().toString(36).substring(7);
+          localStorage.setItem("nexus_user_id", newLocalId);
+          setUserId(newLocalId);
+        } else {
+          setUserId(localId);
+        }
+      }
 
-  // Auto-save: after Clerk login, check for a pending save in localStorage
-  useEffect(() => {
-    if (!clerkUserId) return;
-    const raw = localStorage.getItem("nexus_pending_save");
-    if (!raw) return;
+      // --- STEP 2: RESTORE QUEUE ---
+      const savedQueue = localStorage.getItem("nexus_saved_queue");
+      if (savedQueue) {
+        try {
+          const parsed = JSON.parse(savedQueue);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            setQueue(parsed);
+            setIsStarted(true);
+          }
+        } catch { /* ignore parse errors */ }
+        localStorage.removeItem("nexus_saved_queue");
+      }
 
-    let card: any;
-    try {
-      card = JSON.parse(raw);
-    } catch {
-      localStorage.removeItem("nexus_pending_save");
-      return;
-    }
-    localStorage.removeItem("nexus_pending_save");
+      // --- STEP 3: EXECUTE AUTO-SAVE & TRACK INTERACTION ---
+      if (clerkUserId) {
+        const rawSave = localStorage.getItem("nexus_pending_save");
+        if (rawSave) {
+          try {
+            const card = JSON.parse(rawSave);
+            localStorage.removeItem("nexus_pending_save");
 
-    const payload = {
-      user_id: clerkUserId,
-      item_id: card.link,
-      title: card.title || "Unknown Title",
-      snippet: card.snippet || card.description || card.content || "No description",
-      link: card.link,
-      source: card.source || "unknown",
+            const payload = {
+              user_id: clerkUserId,
+              item_id: card.link,
+              title: card.title || "Unknown Title",
+              snippet: card.snippet || card.description || card.content || "No description",
+              link: card.link,
+              source: card.source || "unknown",
+            };
+
+            // AWAIT the save so we know the database is free
+            await fetch(`${API_BASE}/api/save`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload),
+            });
+
+            // CRITICAL: Record the interaction so the AI vector shifts!
+            await fetch(`${API_BASE}/api/interact`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ user_id: clerkUserId, link: card.link, action: "like" }),
+            });
+
+            // Safely advance the queue only after successful backend writes
+            setQueue((prev) => prev.slice(1));
+          } catch (err) {
+            console.error("Auto-save failed:", err);
+          }
+        }
+      }
     };
 
-    fetch(`${API_BASE}/api/save`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    }).catch((err) => console.error("Auto-save failed:", err));
-
-    // Advance past the saved card
-    setQueue((prev) => prev.slice(1));
+    initializeSession();
   }, [clerkUserId]);
 
   const fetchRecommendations = async (queryToUse: string) => {
