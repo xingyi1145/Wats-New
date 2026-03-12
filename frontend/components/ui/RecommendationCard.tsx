@@ -9,6 +9,7 @@ interface Props {
   onNext: () => void;
   onView: (e: React.MouseEvent<HTMLButtonElement>, link: string) => void;
   onSaveClicked: () => void;
+  onLoginIntent: () => void;
   onAlreadyKnow: () => void;
   onFlagClicked: () => void;
 }
@@ -19,23 +20,17 @@ export default function RecommendationCard({
   onNext,
   onView,
   onSaveClicked,
+  onLoginIntent,
   onAlreadyKnow,
   onFlagClicked
 }: Props) {
   const { isSignedIn } = useAuth();
   const [isFlagged, setIsFlagged] = useState(false);
-  const [intentToSave, setIntentToSave] = useState(false);
 
   const handleLoginIntent = () => {
-    setIntentToSave(true);
+    localStorage.setItem("nexus_pending_save", JSON.stringify(currentCard));
+    onLoginIntent();
   };
-
-  useEffect(() => {
-    if (isSignedIn && intentToSave) {
-      onSaveClicked();
-      setIntentToSave(false); // Reset intent
-    }
-  }, [isSignedIn, intentToSave, onSaveClicked]);
 
   useEffect(() => {
     setIsFlagged(false);

@@ -52,6 +52,53 @@ export default function Home() {
         setUserId(localId);
       }
     }
+
+    // Restore queue from localStorage after a Clerk redirect
+    const savedQueue = localStorage.getItem("nexus_saved_queue");
+    if (savedQueue) {
+      try {
+        const parsed = JSON.parse(savedQueue);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          setQueue(parsed);
+          setIsStarted(true);
+        }
+      } catch { /* ignore parse errors */ }
+      localStorage.removeItem("nexus_saved_queue");
+    }
+  }, [clerkUserId]);
+
+  // Auto-save: after Clerk login, check for a pending save in localStorage
+  useEffect(() => {
+    if (!clerkUserId) return;
+    const raw = localStorage.getItem("nexus_pending_save");
+    if (!raw) return;
+
+    let card: any;
+    try {
+      card = JSON.parse(raw);
+    } catch {
+      localStorage.removeItem("nexus_pending_save");
+      return;
+    }
+    localStorage.removeItem("nexus_pending_save");
+
+    const payload = {
+      user_id: clerkUserId,
+      item_id: card.link,
+      title: card.title || "Unknown Title",
+      snippet: card.snippet || card.description || card.content || "No description",
+      link: card.link,
+      source: card.source || "unknown",
+    };
+
+    fetch(`${API_BASE}/api/save`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    }).catch((err) => console.error("Auto-save failed:", err));
+
+    // Advance past the saved card
+    setQueue((prev) => prev.slice(1));
   }, [clerkUserId]);
 
   const fetchRecommendations = async (queryToUse: string) => {
@@ -205,6 +252,10 @@ const handleSaveItem = async () => {
     handleNext(); 
   };
 
+  const triggerLoginIntent = () => {
+    localStorage.setItem("nexus_saved_queue", JSON.stringify(queue));
+  };
+
   // --- VIEW 1: ONBOARDING ---
   if (!isStarted) {
     return (
@@ -312,6 +363,7 @@ const handleSaveItem = async () => {
             onNext={() => handleInteract("skip", currentCard.link)}
             onView={handleViewOpportunity}
             onSaveClicked={handleSaveItem}
+            onLoginIntent={triggerLoginIntent}
             onAlreadyKnow={handleAlreadyKnow}
             onFlagClicked={handleFlagIssue}
           />

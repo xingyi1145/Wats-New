@@ -29,3 +29,5 @@
 {"item_id":"https://cs.uwaterloo.ca/current-undergraduate-students/research-opportunities/ura","vibe_query":"AI","novelty":1,"utility":1}
 {"item_id":"https://uwaterloo.ca/computer-science/events/masters-thesis-presentation-ai-ml-on-the-effect-of-hyperparameters-in-language-modelling-for-linguistics","vibe_query":"AI","novelty":1,"utility":0}
 {"item_id":"https://uwaterloo.ca/computer-science/events/seminar-se-why-large-language-models-appear-to-be-intelligent-and-creative-because-they-generate-bs","vibe_query":"AI","novelty":1,"utility":0}
+{"item_id":"https://igem.uwaterloo.ca/","vibe_query":"AI","novelty":1,"utility":0}
+{"item_id":"https://geminiliveagentchallenge.devpost.com/","vibe_query":"AI","novelty":1,"utility":0}
