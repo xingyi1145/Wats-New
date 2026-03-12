@@ -58,6 +58,19 @@ def init_database():
             timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
         )
     ''')
+
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS saved_items (
+            user_id TEXT,
+            item_id TEXT,
+            title TEXT,
+            snippet TEXT,
+            link TEXT,
+            source TEXT,
+            timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+            PRIMARY KEY (user_id, item_id)
+        )
+    ''')
     
     conn.commit()
     conn.close()
@@ -178,6 +191,13 @@ class InteractionRequest(BaseModel):
     link: str
     action: str  # "like" or "skip"
 
+class SavePayload(BaseModel):
+    user_id: str
+    item_id: str
+    title: str
+    snippet: str
+    link: str
+    source: str
 
 class TelemetryData(BaseModel):
     item_id: str  # The URL or unique title of the opportunity
@@ -571,3 +591,26 @@ async def flag_issue(data: FlagData, background_tasks: BackgroundTasks):
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
     uvicorn.run("api:app", host="0.0.0.0", port=port, reload=True)
+
+@app.post("/api/save")
+async def save_item(payload: SavePayload):
+    """Save the full text of an opportunity to a user's deck."""
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    try:
+        cursor.execute('''
+            INSERT OR IGNORE INTO saved_items 
+            (user_id, item_id, title, snippet, link, source)
+            VALUES (?, ?, ?, ?, ?, ?)
+        ''', (
+            payload.user_id, payload.item_id, payload.title, 
+            payload.snippet, payload.link, payload.source
+        ))
+        conn.commit()
+    except Exception as e:
+        print(f"Error saving item: {e}")
+        return {"status": "error", "message": str(e)}
+    finally:
+        conn.close()
+        
+    return {"status": "saved"}
