@@ -14,6 +14,7 @@ export default function Home() {
   const [isStarted, setIsStarted] = useState(false);
   const [queue, setQueue] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
+  const [hasViewedCurrent, setHasViewedCurrent] = useState(false);
 
   useEffect(() => {
     let storedId = localStorage.getItem("nexus_user_id");
@@ -69,11 +70,62 @@ export default function Home() {
     }
   };
 
+  const logTelemetry = async (novelty: number, utility: number) => {
+    if (!queue[0]) return;
+    try {
+      await fetch(`${API_BASE}/api/telemetry`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          item_id: queue[0].link,
+          vibe_query: profileText,
+          novelty,
+          utility
+        }),
+      });
+    } catch (error) {
+      // Ignored
+    }
+  };
+
+  const handleNext = () => {
+    if (!queue[0]) return;
+    if (hasViewedCurrent) {
+      logTelemetry(1, 1);
+      // Viewed, assume utility=1 is a 'like'
+      handleInteract("like", queue[0].link);
+    } else {
+      logTelemetry(1, 0);
+      handleInteract("skip", queue[0].link);
+    }
+    setHasViewedCurrent(false);
+  };
+
+  const handleAlreadyKnow = () => {
+    if (!queue[0]) return;
+    logTelemetry(0, 1);
+    handleInteract("like", queue[0].link);
+    setHasViewedCurrent(false);
+  };
+
   // Safely open the link without interrupting React's state update
   const handleViewOpportunity = (e: React.MouseEvent, link: string) => {
     e.preventDefault();
+    setHasViewedCurrent(true);
     window.open(link, "_blank", "noopener,noreferrer");
-    handleInteract("like", link);
+  };
+
+  const handleFlagIssue = async () => {
+    if (!queue[0]) return;
+    try {
+      await fetch(`${API_BASE}/api/flag`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ item_id: queue[0].link }),
+      });
+    } catch (error) {
+      // Ignored
+    }
   };
 
   const handleSaveItem = async () => {
@@ -181,12 +233,14 @@ export default function Home() {
 
         {/* The Card */}
         {currentCard ? (
-          <RecommendationCard
+          <RecommendationCard 
             currentCard={currentCard}
             displayDescription={displayDescription}
             onNext={() => handleInteract("skip", currentCard.link)}
             onView={handleViewOpportunity}
             onSaveClicked={handleSaveItem}
+            onAlreadyKnow={handleAlreadyKnow}
+            onFlagClicked={handleFlagIssue}
           />
         ) : (
           /* Loading / Empty State */
