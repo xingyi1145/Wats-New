@@ -128,8 +128,54 @@ export default function Home() {
     }
   };
 
-  const handleSaveItem = async () => {
-    // TODO: Wire to backend SQLite save endpoint
+const handleSaveItem = async () => {
+    // Grab the active card from your queue
+    const currentItem = queue[0];
+
+    // 1. Guard against nulls
+    if (!userId) {
+      console.error("Debug: Cannot save, userId is null. Is Clerk loaded?");
+      return;
+    }
+    if (!currentItem) {
+      console.error("Debug: Cannot save, currentItem is null.");
+      return;
+    }
+
+    try {
+      // 2. Map the payload using your actual JSON keys
+      const payload = {
+        user_id: userId,
+        item_id: currentItem.link,
+        title: currentItem.title || "Unknown Title",
+        snippet: currentItem.snippet || currentItem.description || currentItem.content || "No description",
+        link: currentItem.link,
+        source: currentItem.source || "unknown"
+      };
+      
+      console.log("Debug: Sending payload to backend...", payload);
+
+      // Make sure your API_BASE URL matches your actual Python backend URL
+      const response = await fetch(`${API_BASE}/api/save`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+          // Catch FastAPI rejections (e.g., 422 Unprocessable Entity)
+          const errorText = await response.text();
+          console.error(`Debug: Backend rejected the save (Status ${response.status}):`, errorText);
+      } else {
+          console.log("Debug: Save successful!");
+      }
+    } catch (error) {
+      // Catch Network/CORS errors
+      console.error("Debug: Network fetch failed:", error);
+    }
+
+    // Advance the card to keep the UI moving
+    handleNext(); 
   };
 
   // --- VIEW 1: ONBOARDING ---

@@ -588,10 +588,6 @@ async def flag_issue(data: FlagData, background_tasks: BackgroundTasks):
     background_tasks.add_task(log_flag_to_file, data)
     return {"status": "flagged"}
 
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8000))
-    uvicorn.run("api:app", host="0.0.0.0", port=port, reload=True)
-
 @app.post("/api/save")
 async def save_item(payload: SavePayload):
     """Save the full text of an opportunity to a user's deck."""
@@ -614,3 +610,37 @@ async def save_item(payload: SavePayload):
         conn.close()
         
     return {"status": "saved"}
+
+@app.get("/api/deck")
+async def get_deck(user_id: str):
+    """View saved opportunities for a user."""
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    try:
+        cursor.execute('''
+            SELECT item_id, title, snippet, link, source 
+            FROM saved_items 
+            WHERE user_id = ? 
+            ORDER BY timestamp DESC
+        ''', (user_id,))
+        rows = cursor.fetchall()
+        
+        results = []
+        for row in rows:
+            results.append({
+                "item_id": row["item_id"],
+                "title": row["title"],
+                "snippet": row["snippet"],
+                "link": row["link"],
+                "source": row["source"]
+            })
+        return results
+    except Exception as e:
+        print(f"Error fetching deck: {e}")
+        return []
+    finally:
+        conn.close()
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("api:app", host="0.0.0.0", port=port, reload=True)
