@@ -24,6 +24,18 @@ export default function RecommendationCard({
 }: Props) {
   const { isSignedIn } = useAuth();
   const [isFlagged, setIsFlagged] = useState(false);
+  const [intentToSave, setIntentToSave] = useState(false);
+
+  const handleLoginIntent = () => {
+    setIntentToSave(true);
+  };
+
+  useEffect(() => {
+    if (isSignedIn && intentToSave) {
+      onSaveClicked();
+      setIntentToSave(false); // Reset intent
+    }
+  }, [isSignedIn, intentToSave, onSaveClicked]);
 
   useEffect(() => {
     setIsFlagged(false);
@@ -90,8 +102,15 @@ export default function RecommendationCard({
               Save
             </button>
           ) : (
-            <SignInButton mode="modal">
-              <button className="flex-1 py-5 rounded-xl text-lg font-bold text-slate-400 bg-white border-2 border-slate-200 hover:bg-slate-50 hover:text-slate-500 transition-all shadow-sm">
+            <SignInButton 
+              mode="modal" 
+              fallbackRedirectUrl="" 
+              forceRedirectUrl=""
+            >
+              <button 
+                onClick={handleLoginIntent}
+                className="flex-1 py-5 rounded-xl text-lg font-bold text-slate-400 bg-white border-2 border-slate-200 hover:bg-slate-50 hover:text-slate-500 transition-all shadow-sm"
+              >
                 Log in to Save
               </button>
             </SignInButton>

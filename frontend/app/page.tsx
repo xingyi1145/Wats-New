@@ -8,7 +8,7 @@ import RecommendationCard from "../components/ui/RecommendationCard";
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
 
 export default function Home() {
-  const { isSignedIn } = useAuth();
+  const { isSignedIn, userId: clerkUserId } = useAuth(); 
   const [userId, setUserId] = useState("");
   const [profileText, setProfileText] = useState("");
   const [isStarted, setIsStarted] = useState(false);
@@ -16,16 +16,43 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [hasViewedCurrent, setHasViewedCurrent] = useState(false);
 
-  useEffect(() => {
-    let storedId = localStorage.getItem("nexus_user_id");
-    if (!storedId) {
-      storedId = "user_" + Math.random().toString(36).substring(7);
-      localStorage.setItem("nexus_user_id", storedId);
+  const migrateData = async (oldId: string, newId: string) => {
+    try {
+      await fetch(`${API_BASE}/api/migrate`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ old_user_id: oldId, new_user_id: newId }),
+      });
+      // Crucial: Clear the local storage so we don't migrate a dead ID on the next reload
+      localStorage.removeItem("nexus_user_id"); 
+    } catch (error) {
+      console.error("Migration failed:", error);
     }
-    setUserId(storedId);
-  }, []);
+  };
 
-  if (!userId) return null;
+  useEffect(() => {
+    const localId = localStorage.getItem("nexus_user_id");
+
+    if (clerkUserId) {
+      // SCENARIO A: User is logged in
+      // Did they just transition from an anonymous session?
+      if (localId && localId !== clerkUserId) {
+        migrateData(localId, clerkUserId);
+      }
+      setUserId(clerkUserId);
+    } else {
+      // SCENARIO B: User is anonymous
+      if (!localId) {
+        // Generate and store a new local ID
+        const newLocalId = "user_" + Math.random().toString(36).substring(7);
+        localStorage.setItem("nexus_user_id", newLocalId);
+        setUserId(newLocalId);
+      } else {
+        // Continue using existing local ID
+        setUserId(localId);
+      }
+    }
+  }, [clerkUserId]);
 
   const fetchRecommendations = async (queryToUse: string) => {
     setLoading(true);
@@ -190,13 +217,13 @@ const handleSaveItem = async () => {
                 <Link href="/deck" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">My Deck</Link>
                 <UserButton />
               </>
-            ) : (
+          ) : (
               <SignInButton mode="modal">
                 <button className="px-4 py-2 bg-white text-slate-900 text-sm font-semibold rounded-lg border border-slate-200 hover:bg-slate-50 transition-colors shadow-sm">
                   Sign In
-                </button>
-              </SignInButton>
-            )}
+              </button>
+            </SignInButton>
+          )}
           </div>
         </nav>
         <div className="flex-grow flex items-center justify-center p-4">

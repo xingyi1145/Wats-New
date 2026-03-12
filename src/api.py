@@ -205,6 +205,7 @@ class TelemetryData(BaseModel):
     novelty: int
     utility: int
 
+
 class FlagData(BaseModel):
     item_id: str
     reason: str = "user_flagged"
@@ -222,6 +223,11 @@ class RecommendationItem(BaseModel):
 class RecommendResponse(BaseModel):
     query: str
     results: list[RecommendationItem]
+
+
+class MigrateRequest(BaseModel):
+    old_user_id: str
+    new_user_id: str
 
 
 def load_data():
@@ -640,6 +646,49 @@ async def get_deck(user_id: str):
         return []
     finally:
         conn.close()
+
+@app.post("/api/migrate")
+async def migrate_user(request: MigrateRequest):
+    """
+    Merge an anonymous session's history and vectors into an authenticated account.
+    """
+    old_id = request.old_user_id
+    new_id = request.new_user_id
+
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    
+    # 1. Retrieve both states
+    old_state = get_user_from_db(old_id)
+    new_state = get_user_from_db(new_id)
+    
+    # 2. Merge sets (seen and liked links)
+    merged_seen = old_state["seen_links"].union(new_state["seen_links"])
+    merged_liked = old_state["liked_links"].union(new_state["liked_links"])
+    
+    # 3. Handle the Preference Vector
+    # If the authenticated account is fresh, adopt the anonymous vector.
+    # If both exist, the authenticated vector takes precedence (or you could average them).
+    merged_vector = new_state["vector"] if new_state["vector"] is not None else old_state["vector"]
+    
+    # 4. Save the merged state to the new ID
+    save_user_to_db(new_id, merged_seen, merged_liked, merged_vector)
+    
+    # 5. Reassign foreign keys in relational tables
+    cursor.execute('UPDATE interactions SET user_id = ? WHERE user_id = ?', (new_id, old_id))
+    
+    # Use UPDATE OR IGNORE to prevent Primary Key collisions if the user 
+    # somehow saved the exact same item on both accounts previously.
+    cursor.execute('UPDATE OR IGNORE saved_items SET user_id = ? WHERE user_id = ?', (new_id, old_id))
+    
+    # 6. Purge the old anonymous ghost data
+    cursor.execute('DELETE FROM users WHERE user_id = ?', (old_id,))
+    cursor.execute('DELETE FROM saved_items WHERE user_id = ?', (old_id,)) # Clears any rows that hit IGNORE
+    
+    conn.commit()
+    conn.close()
+    
+    return {"status": "success", "message": f"Migrated {old_id} to {new_id}"}
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
