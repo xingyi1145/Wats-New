@@ -38,8 +38,8 @@ OUTPUT_FILE = os.path.join(data_dir, "spider_opportunities.json")
 
 SEED_URLS = [
     # The Global Builder Internships (High Yield, Flat Markdown)
-    "https://github.com/pittcsc/Summer2025-Internships",
-    "https://github.com/SimplifyJobs/Summer2025-Internships",
+    "https://github.com/pittcsc/Summer2026-Internships",
+    "https://github.com/SimplifyJobs/Summer2026-Internships",
     
     # Global Tier 1 Accelerators (Direct Job Boards, not events)
     "https://www.ycombinator.com/jobs",

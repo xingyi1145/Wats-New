@@ -1,6 +1,6 @@
-# Project Charter: UW Nexus (Wat's New)
+# Project Charter: Wat's New
 
-| Project Name | **UW Nexus** (Working Title: Wat's New) |
+| Project Name | **Wat's New** |
 | :--- | :--- |
 | **Project Manager** | Yi Xing |
 | **Start Date** | Feb 2026 |

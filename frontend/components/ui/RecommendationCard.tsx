@@ -1,10 +1,15 @@
+"use client";
+
 import { useState, useEffect } from "react";
+import { useAuth, SignInButton } from "@clerk/nextjs";
 
 interface Props {
   currentCard: any;
   displayDescription: string;
   onNext: () => void;
   onView: (e: React.MouseEvent<HTMLButtonElement>, link: string) => void;
+  onSaveClicked: () => void;
+  onLoginIntent: () => void;
   onAlreadyKnow: () => void;
   onFlagClicked: () => void;
 }
@@ -14,10 +19,18 @@ export default function RecommendationCard({
   displayDescription,
   onNext,
   onView,
+  onSaveClicked,
+  onLoginIntent,
   onAlreadyKnow,
   onFlagClicked
 }: Props) {
+  const { isSignedIn } = useAuth();
   const [isFlagged, setIsFlagged] = useState(false);
+
+  const handleLoginIntent = () => {
+    localStorage.setItem("nexus_pending_save", JSON.stringify(currentCard));
+    onLoginIntent();
+  };
 
   useEffect(() => {
     setIsFlagged(false);
@@ -32,7 +45,6 @@ export default function RecommendationCard({
 
   return (
     <div className="flex-grow bg-white rounded-[2rem] shadow-2xl overflow-hidden flex flex-col border border-white/20 transform transition-all hover:scale-[1.01] max-h-[75vh] relative">
-
 
       {/* Card Content Area */}
       <div className="flex-grow p-8 sm:p-12 overflow-y-auto min-h-[250px]">
@@ -67,15 +79,38 @@ export default function RecommendationCard({
         </button>
       </div>
 
-      {/* Sticky Action Footer */}
-      <div className="bg-slate-50 border-t border-slate-100 flex flex-col">
-        <div className="p-6 flex gap-4 pb-4">
+      {/* Actions */}
+      <div className="bg-slate-50 p-8 sm:p-12 shrink-0 border-t border-slate-100 rounded-b-[2rem]">
+        <div className="flex gap-4">
           <button
             onClick={onNext}
-            className="flex-1 py-5 rounded-xl text-lg font-bold text-slate-500 bg-white border-2 border-slate-200 hover:bg-slate-100 hover:text-slate-700 hover:border-slate-300 transition-all shadow-sm"
+            className="flex-1 py-5 rounded-xl text-lg font-bold text-slate-600 bg-white border-2 border-slate-200 hover:bg-slate-100 transition-all shadow-sm"
           >
             Next
           </button>
+          
+          {isSignedIn ? (
+            <button
+              onClick={onSaveClicked}
+              className="flex-1 py-5 rounded-xl text-lg font-bold text-white bg-emerald-500 hover:bg-emerald-600 transition-all shadow-sm"
+            >
+              Save
+            </button>
+          ) : (
+            <SignInButton 
+              mode="modal" 
+              fallbackRedirectUrl="" 
+              forceRedirectUrl=""
+            >
+              <button 
+                onClick={handleLoginIntent}
+                className="flex-1 py-5 rounded-xl text-lg font-bold text-slate-400 bg-white border-2 border-slate-200 hover:bg-slate-50 hover:text-slate-500 transition-all shadow-sm"
+              >
+                Log in to Save
+              </button>
+            </SignInButton>
+          )}
+
           <button
             onClick={(e) => onView(e, currentCard.link)}
             className="flex-[2] py-5 rounded-xl text-lg font-bold text-white bg-blue-600 hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/30 transform hover:-translate-y-0.5"
@@ -83,7 +118,8 @@ export default function RecommendationCard({
             View Opportunity
           </button>
         </div>
-        <div className="pb-4 px-6 text-center">
+
+        <div className="pb-4 px-6 text-center mt-4">
           <button 
             onClick={onAlreadyKnow}
             className="text-sm text-slate-400 hover:text-slate-600 font-medium transition-colors"

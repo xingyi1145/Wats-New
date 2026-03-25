@@ -7,10 +7,12 @@ from typing import Optional
 
 import numpy as np
 import uvicorn
-from fastapi import FastAPI, BackgroundTasks
+from fastapi import FastAPI, BackgroundTasks, Request, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from sentence_transformers import SentenceTransformer, util
+import requests
+from jose import jwt
 
 
 # Global state to hold loaded data
@@ -56,6 +58,19 @@ def init_database():
             item_link TEXT,
             action TEXT,
             timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+        )
+    ''')
+
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS saved_items (
+            user_id TEXT,
+            item_id TEXT,
+            title TEXT,
+            snippet TEXT,
+            link TEXT,
+            source TEXT,
+            timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+            PRIMARY KEY (user_id, item_id)
         )
     ''')
     
@@ -178,12 +193,20 @@ class InteractionRequest(BaseModel):
     link: str
     action: str  # "like" or "skip"
 
+class SavePayload(BaseModel):
+    user_id: str
+    item_id: str
+    title: str
+    snippet: str
+    link: str
+    source: str
 
 class TelemetryData(BaseModel):
     item_id: str  # The URL or unique title of the opportunity
     vibe_query: str
     novelty: int
     utility: int
+
 
 class FlagData(BaseModel):
     item_id: str
@@ -202,6 +225,11 @@ class RecommendationItem(BaseModel):
 class RecommendResponse(BaseModel):
     query: str
     results: list[RecommendationItem]
+
+
+class MigrateRequest(BaseModel):
+    old_user_id: str
+    new_user_id: str
 
 
 def load_data():
@@ -560,6 +588,107 @@ def log_flag_to_file(data: FlagData):
         print(f"Error writing flag: {e}")
 
 
+# Clerk / JWT authentication helpers
+_CLERK_JWKS_URL = os.getenv("CLERK_JWKS_URL")
+_CLERK_AUDIENCE = os.getenv("CLERK_AUDIENCE")
+_CLERK_ISSUER = os.getenv("CLERK_ISSUER")
+_jwks_cache: Optional[dict] = None
+
+
+def _get_bearer_token_from_request(request: Request) -> str:
+    """Extract Bearer token from the Authorization header."""
+    auth_header = request.headers.get("authorization") or request.headers.get("Authorization")
+    if not auth_header or not auth_header.lower().startswith("bearer "):
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Missing or invalid Authorization header",
+        )
+    return auth_header.split(" ", 1)[1].strip()
+
+
+def _get_clerk_jwks() -> dict:
+    """Fetch and cache Clerk JWKS for JWT verification."""
+    global _jwks_cache
+    if _jwks_cache is not None:
+        return _jwks_cache
+    if not _CLERK_JWKS_URL:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="CLERK_JWKS_URL is not configured on the server",
+        )
+    try:
+        response = requests.get(_CLERK_JWKS_URL, timeout=5)
+        response.raise_for_status()
+        _jwks_cache = response.json()
+        return _jwks_cache
+    except Exception as e:
+        print(f"Error fetching Clerk JWKS: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Unable to fetch JWKS for token verification",
+        )
+
+
+def _verify_clerk_token(token: str) -> dict:
+    """Verify a Clerk JWT using the JWKS and return its claims."""
+    jwks = _get_clerk_jwks()
+    try:
+        unverified_header = jwt.get_unverified_header(token)
+    except Exception:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid token header",
+        )
+    kid = unverified_header.get("kid")
+    if not kid:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Token missing key ID",
+        )
+    key = None
+    for jwk in jwks.get("keys", []):
+        if jwk.get("kid") == kid:
+            key = jwk
+            break
+    if key is None:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Token key not found in JWKS",
+        )
+    try:
+        claims = jwt.decode(
+            token,
+            key,
+            algorithms=[unverified_header.get("alg", "RS256")],
+            audience=_CLERK_AUDIENCE,
+            issuer=_CLERK_ISSUER,
+        )
+        return claims
+    except Exception as e:
+        print(f"Error verifying Clerk token: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid authentication token",
+        )
+
+
+def get_authenticated_user_id(request: Request) -> str:
+    """
+    Derive the authenticated user's ID from a verified Clerk JWT.
+
+    This ignores any client-supplied user_id fields in the payload.
+    """
+    token = _get_bearer_token_from_request(request)
+    claims = _verify_clerk_token(token)
+    user_id = claims.get("sub") or claims.get("user_id")
+    if not user_id:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Authenticated user ID not found in token",
+        )
+    return user_id
+
+
 @app.post("/api/flag")
 async def flag_issue(data: FlagData, background_tasks: BackgroundTasks):
     """
@@ -567,6 +696,105 @@ async def flag_issue(data: FlagData, background_tasks: BackgroundTasks):
     """
     background_tasks.add_task(log_flag_to_file, data)
     return {"status": "flagged"}
+
+@app.post("/api/save")
+async def save_item(payload: SavePayload, request: Request):
+    """Save the full text of an opportunity to a user's deck."""
+    # Derive user_id from the authenticated Clerk session/JWT
+    user_id = get_authenticated_user_id(request)
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    try:
+        cursor.execute('''
+            INSERT OR IGNORE INTO saved_items 
+            (user_id, item_id, title, snippet, link, source)
+            VALUES (?, ?, ?, ?, ?, ?)
+        ''', (
+            user_id, payload.item_id, payload.title,
+            payload.snippet, payload.link, payload.source
+        ))
+        conn.commit()
+    except Exception as e:
+        print(f"Error saving item: {e}")
+        return {"status": "error", "message": str(e)}
+    finally:
+        conn.close()
+        
+    return {"status": "saved"}
+
+@app.get("/api/deck")
+async def get_deck(request: Request):
+    """View saved opportunities for the authenticated user."""
+    user_id = get_authenticated_user_id(request)
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    try:
+        cursor.execute('''
+            SELECT item_id, title, snippet, link, source 
+            FROM saved_items 
+            WHERE user_id = ? 
+            ORDER BY timestamp DESC
+        ''', (user_id,))
+        rows = cursor.fetchall()
+        
+        results = []
+        for row in rows:
+            results.append({
+                "item_id": row["item_id"],
+                "title": row["title"],
+                "snippet": row["snippet"],
+                "link": row["link"],
+                "source": row["source"]
+            })
+        return results
+    except Exception as e:
+        print(f"Error fetching deck: {e}")
+        return []
+    finally:
+        conn.close()
+
+@app.post("/api/migrate")
+async def migrate_user(request: MigrateRequest):
+    """
+    Merge an anonymous session's history and vectors into an authenticated account.
+    """
+    old_id = request.old_user_id
+    new_id = request.new_user_id
+
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    
+    # 1. Retrieve both states
+    old_state = get_user_from_db(old_id)
+    new_state = get_user_from_db(new_id)
+    
+    # 2. Merge sets (seen and liked links)
+    merged_seen = old_state["seen_links"].union(new_state["seen_links"])
+    merged_liked = old_state["liked_links"].union(new_state["liked_links"])
+    
+    # 3. Handle the Preference Vector
+    # If the authenticated account is fresh, adopt the anonymous vector.
+    # If both exist, the authenticated vector takes precedence (or you could average them).
+    merged_vector = new_state["vector"] if new_state["vector"] is not None else old_state["vector"]
+    
+    # 4. Save the merged state to the new ID
+    save_user_to_db(new_id, merged_seen, merged_liked, merged_vector)
+    
+    # 5. Reassign foreign keys in relational tables
+    cursor.execute('UPDATE interactions SET user_id = ? WHERE user_id = ?', (new_id, old_id))
+    
+    # Use UPDATE OR IGNORE to prevent Primary Key collisions if the user 
+    # somehow saved the exact same item on both accounts previously.
+    cursor.execute('UPDATE OR IGNORE saved_items SET user_id = ? WHERE user_id = ?', (new_id, old_id))
+    
+    # 6. Purge the old anonymous ghost data
+    cursor.execute('DELETE FROM users WHERE user_id = ?', (old_id,))
+    cursor.execute('DELETE FROM saved_items WHERE user_id = ?', (old_id,)) # Clears any rows that hit IGNORE
+    
+    conn.commit()
+    conn.close()
+    
+    return {"status": "success", "message": f"Migrated {old_id} to {new_id}"}
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))

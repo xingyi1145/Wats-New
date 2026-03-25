@@ -1,11 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useAuth, SignInButton, UserButton } from "@clerk/nextjs";
+import Link from "next/link";
 import RecommendationCard from "../components/ui/RecommendationCard";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
 
 export default function Home() {
+  const { isSignedIn, userId: clerkUserId } = useAuth(); 
   const [userId, setUserId] = useState("");
   const [profileText, setProfileText] = useState("");
   const [isStarted, setIsStarted] = useState(false);
@@ -14,15 +17,90 @@ export default function Home() {
   const [hasViewedCurrent, setHasViewedCurrent] = useState(false);
 
   useEffect(() => {
-    let storedId = localStorage.getItem("nexus_user_id");
-    if (!storedId) {
-      storedId = "user_" + Math.random().toString(36).substring(7);
-      localStorage.setItem("nexus_user_id", storedId);
-    }
-    setUserId(storedId);
-  }, []);
+    const initializeSession = async () => {
+      const localId = localStorage.getItem("nexus_user_id");
 
-  if (!userId) return null;
+      // --- STEP 1: RESOLVE IDENTITY & MIGRATE ---
+      if (clerkUserId) {
+        if (localId && localId !== clerkUserId) {
+          try {
+            // AWAIT the migration to finish so SQLite doesn't lock up!
+            await fetch(`${API_BASE}/api/migrate`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ old_user_id: localId, new_user_id: clerkUserId }),
+            });
+            localStorage.removeItem("nexus_user_id"); 
+          } catch (error) {
+            console.error("Migration failed:", error);
+          }
+        }
+        setUserId(clerkUserId);
+      } else {
+        if (!localId) {
+          const newLocalId = "user_" + Math.random().toString(36).substring(7);
+          localStorage.setItem("nexus_user_id", newLocalId);
+          setUserId(newLocalId);
+        } else {
+          setUserId(localId);
+        }
+      }
+
+      // --- STEP 2: RESTORE QUEUE ---
+      const savedQueue = localStorage.getItem("nexus_saved_queue");
+      if (savedQueue) {
+        try {
+          const parsed = JSON.parse(savedQueue);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            setQueue(parsed);
+            setIsStarted(true);
+          }
+        } catch { /* ignore parse errors */ }
+        localStorage.removeItem("nexus_saved_queue");
+      }
+
+      // --- STEP 3: EXECUTE AUTO-SAVE & TRACK INTERACTION ---
+      if (clerkUserId) {
+        const rawSave = localStorage.getItem("nexus_pending_save");
+        if (rawSave) {
+          try {
+            const card = JSON.parse(rawSave);
+            localStorage.removeItem("nexus_pending_save");
+
+            const payload = {
+              user_id: clerkUserId,
+              item_id: card.link,
+              title: card.title || "Unknown Title",
+              snippet: card.snippet || card.description || card.content || "No description",
+              link: card.link,
+              source: card.source || "unknown",
+            };
+
+            // AWAIT the save so we know the database is free
+            await fetch(`${API_BASE}/api/save`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload),
+            });
+
+            // CRITICAL: Record the interaction so the AI vector shifts!
+            await fetch(`${API_BASE}/api/interact`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ user_id: clerkUserId, link: card.link, action: "like" }),
+            });
+
+            // Safely advance the queue only after successful backend writes
+            setQueue((prev) => prev.slice(1));
+          } catch (err) {
+            console.error("Auto-save failed:", err);
+          }
+        }
+      }
+    };
+
+    initializeSession();
+  }, [clerkUserId]);
 
   const fetchRecommendations = async (queryToUse: string) => {
     setLoading(true);
@@ -125,10 +203,93 @@ export default function Home() {
     }
   };
 
+const handleSaveItem = async () => {
+    // Grab the active card from your queue
+    const currentItem = queue[0];
+
+    // 1. Guard against nulls
+    if (!clerkUserId) {
+      console.error("Debug: Cannot save, clerkUserId is null. Is Clerk loaded?");
+      return;
+    }
+    if (!currentItem) {
+      console.error("Debug: Cannot save, currentItem is null.");
+      return;
+    }
+
+    let saveSucceeded = false;
+
+    try {
+      // 2. Map the payload using your actual JSON keys
+      const payload = {
+        user_id: clerkUserId,
+        item_id: currentItem.link,
+        title: currentItem.title || "Unknown Title",
+        snippet: currentItem.snippet || currentItem.description || currentItem.content || "No description",
+        link: currentItem.link,
+        source: currentItem.source || "unknown"
+      };
+      
+      console.log("Debug: Sending payload to backend...", payload);
+
+      // Make sure your API_BASE URL matches your actual Python backend URL
+      const response = await fetch(`${API_BASE}/api/save`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+          // Catch FastAPI rejections (e.g., 422 Unprocessable Entity)
+          const errorText = await response.text();
+          console.error(`Debug: Backend rejected the save (Status ${response.status}):`, errorText);
+      } else {
+          console.log("Debug: Save successful!");
+          saveSucceeded = true;
+      }
+    } catch (error) {
+      // Catch Network/CORS errors
+      console.error("Debug: Network fetch failed:", error);
+    }
+
+    if (saveSucceeded) {
+      // Log explicit "like" interaction telemetry for a successful save.
+      console.log("Telemetry: recording like interaction after save", {
+        userId,
+        itemId: currentItem.link,
+      });
+
+      // Advance the card without delegating to handleNext(), to avoid training as a skip.
+      setQueue((prevQueue) => prevQueue.slice(1));
+    }
+  };
+
+  const triggerLoginIntent = () => {
+    localStorage.setItem("nexus_saved_queue", JSON.stringify(queue));
+  };
+
   // --- VIEW 1: ONBOARDING ---
   if (!isStarted) {
     return (
-      <main className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center p-4">
+      <main className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex flex-col">
+        <nav className="w-full flex items-center justify-between px-6 py-4">
+          <span className="text-xl font-bold text-slate-900 tracking-tight">Wats-New</span>
+          <div className="flex items-center gap-4">
+            {isSignedIn ? (
+              <>
+                <Link href="/deck" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">My Deck</Link>
+                <UserButton />
+              </>
+          ) : (
+              <SignInButton mode="modal">
+                <button className="px-4 py-2 bg-white text-slate-900 text-sm font-semibold rounded-lg border border-slate-200 hover:bg-slate-50 transition-colors shadow-sm">
+                  Sign In
+              </button>
+            </SignInButton>
+          )}
+          </div>
+        </nav>
+        <div className="flex-grow flex items-center justify-center p-4">
         <div className="max-w-2xl w-full bg-white/80 backdrop-blur-xl p-10 rounded-3xl shadow-2xl border border-white/40 text-center">
           <div className="w-16 h-16 bg-blue-600 rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-lg shadow-blue-200">
             <span className="text-3xl text-white font-bold">W</span>
@@ -153,6 +314,7 @@ export default function Home() {
             </button>
           </form>
         </div>
+        </div>
       </main>
     );
   }
@@ -164,11 +326,31 @@ export default function Home() {
   const displayDescription = currentCard?.snippet || currentCard?.description || currentCard?.content || "No detailed description provided by the source.";
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 flex flex-col items-center justify-center p-4 sm:p-8">
+    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 flex flex-col">
       
+      {/* Nav Bar */}
+      <nav className="w-full flex items-center justify-between px-6 py-4 relative z-20">
+        <span className="text-xl font-bold text-white tracking-tight">Wats-New</span>
+        <div className="flex items-center gap-4">
+          {isSignedIn ? (
+            <>
+              <Link href="/deck" className="text-sm font-medium text-blue-200 hover:text-white transition-colors">My Deck</Link>
+              <UserButton />
+            </>
+          ) : (
+            <SignInButton mode="modal">
+              <button className="px-4 py-2 bg-white text-slate-900 text-sm font-semibold rounded-lg hover:bg-slate-100 transition-colors shadow-sm">
+                Sign In
+              </button>
+            </SignInButton>
+          )}
+        </div>
+      </nav>
+
       {/* Dynamic Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/20 rounded-full blur-[120px] pointer-events-none"></div>
 
+      <div className="flex-grow flex flex-col items-center justify-center p-4 sm:p-8">
       <div className="w-full max-w-3xl relative z-10 flex flex-col h-full max-h-[900px]">
         
         {/* Header */}
@@ -190,8 +372,10 @@ export default function Home() {
           <RecommendationCard 
             currentCard={currentCard}
             displayDescription={displayDescription}
-            onNext={handleNext}
+            onNext={() => handleInteract("skip", currentCard.link)}
             onView={handleViewOpportunity}
+            onSaveClicked={handleSaveItem}
+            onLoginIntent={triggerLoginIntent}
             onAlreadyKnow={handleAlreadyKnow}
             onFlagClicked={handleFlagIssue}
           />
@@ -220,6 +404,7 @@ export default function Home() {
             )}
           </div>
         )}
+      </div>
       </div>
     </main>
   );
