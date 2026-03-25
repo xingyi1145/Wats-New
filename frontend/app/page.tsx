@@ -217,6 +217,8 @@ const handleSaveItem = async () => {
       return;
     }
 
+    let saveSucceeded = false;
+
     try {
       // 2. Map the payload using your actual JSON keys
       const payload = {
@@ -243,14 +245,23 @@ const handleSaveItem = async () => {
           console.error(`Debug: Backend rejected the save (Status ${response.status}):`, errorText);
       } else {
           console.log("Debug: Save successful!");
+          saveSucceeded = true;
       }
     } catch (error) {
       // Catch Network/CORS errors
       console.error("Debug: Network fetch failed:", error);
     }
 
-    // Advance the card to keep the UI moving
-    handleNext(); 
+    if (saveSucceeded) {
+      // Log explicit "like" interaction telemetry for a successful save.
+      console.log("Telemetry: recording like interaction after save", {
+        userId,
+        itemId: currentItem.link,
+      });
+
+      // Advance the card without delegating to handleNext(), to avoid training as a skip.
+      setQueue((prevQueue) => prevQueue.slice(1));
+    }
   };
 
   const triggerLoginIntent = () => {
