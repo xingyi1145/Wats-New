@@ -27,7 +27,7 @@ export default function DeckPage() {
 
     const fetchDeck = async () => {
       try {
-        const res = await fetch(`${API_BASE}/api/deck?user_id=${userId}`);
+        const res = await fetch(`${API_BASE}/api/deck?user_id=${encodeURIComponent(userId)}`);
         if (!res.ok) throw new Error("Failed to fetch deck");
         const data = await res.json();
         setItems(data || []);
