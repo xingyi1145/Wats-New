@@ -208,8 +208,8 @@ const handleSaveItem = async () => {
     const currentItem = queue[0];
 
     // 1. Guard against nulls
-    if (!userId) {
-      console.error("Debug: Cannot save, userId is null. Is Clerk loaded?");
+    if (!clerkUserId) {
+      console.error("Debug: Cannot save, clerkUserId is null. Is Clerk loaded?");
       return;
     }
     if (!currentItem) {
@@ -220,7 +220,7 @@ const handleSaveItem = async () => {
     try {
       // 2. Map the payload using your actual JSON keys
       const payload = {
-        user_id: userId,
+        user_id: clerkUserId,
         item_id: currentItem.link,
         title: currentItem.title || "Unknown Title",
         snippet: currentItem.snippet || currentItem.description || currentItem.content || "No description",
